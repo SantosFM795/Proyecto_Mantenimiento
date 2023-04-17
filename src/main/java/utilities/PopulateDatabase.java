@@ -1,8 +1,8 @@
 /*
  * PopulateDatabase.java
- * 
+ *
  * Copyright (C) 2018 Universidad de Sevilla
- * 
+ *
  * The use of this project is hereby constrained to the conditions of the
  * TDG Licence, a copy of which you may download from
  * http://www.tdg-seville.info/License.html
@@ -23,11 +23,11 @@ import org.apache.log4j.LogManager;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import domain.DomainEntity;
 import utilities.internal.DatabaseUtil;
 import utilities.internal.EclipseConsole;
 import utilities.internal.SchemaPrinter;
 import utilities.internal.ThrowablePrinter;
-import domain.DomainEntity;
 
 public class PopulateDatabase {
 
