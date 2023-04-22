@@ -8,4 +8,13 @@ import javax.persistence.Entity;
 @Access(AccessType.PROPERTY)
 public class Manager extends Actor{
 
+	private boolean banned;
+
+	public boolean isBanned() {
+		return banned;
+	}
+
+	public void setBanned(boolean banned) {
+		this.banned = banned;
+	}
 }
