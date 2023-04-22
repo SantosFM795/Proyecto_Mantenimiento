@@ -3,6 +3,7 @@ package domain;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -12,7 +13,15 @@ public class Training extends DomainEntity{
 	private String title;
 	private String description;
 	private String[] exercises;
+	private Annotation annotations;
 	
+	@OneToMany
+	public Annotation getAnnotations() {
+		return annotations;
+	}
+	public void setAnnotations(Annotation annotations) {
+		this.annotations = annotations;
+	}
 	@NotBlank
 	public String getTitle() {
 		return title;

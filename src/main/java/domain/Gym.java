@@ -3,6 +3,7 @@ package domain;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
@@ -16,7 +17,17 @@ public class Gym extends DomainEntity{
 	private String address;
 	private boolean active;
 	private float mensualCost;
+	private Annotation annotations;
 	
+	@OneToMany
+	public Annotation getAnnotations() {
+		return annotations;
+	}
+
+	public void setAnnotations(Annotation annotations) {
+		this.annotations = annotations;
+	}
+
 	@URL
 	public String getLogo() {
 		return logo;

@@ -2,6 +2,7 @@ package domain;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -13,7 +14,17 @@ public class CV extends DomainEntity{
 	private String skills;
 	private String formation;
 	private String workExperience;
+	private SocialMedia rrss;
 	
+	@OneToMany
+	public SocialMedia getRrss() {
+		return rrss;
+	}
+
+	public void setRrss(SocialMedia rrss) {
+		this.rrss = rrss;
+	}
+
 	//no se como funciona los derivados
 	public String getName() {
 		return name;

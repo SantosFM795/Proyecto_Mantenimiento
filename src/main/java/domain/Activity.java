@@ -18,7 +18,17 @@ public class Activity extends DomainEntity{
 	private String clients;
 	private String description;
 	private String [] photos;
+	private Annotation annotations;
 	
+	@OneToMany
+	public Annotation getAnnotations() {
+		return annotations;
+	}
+
+	public void setAnnotations(Annotation annotations) {
+		this.annotations = annotations;
+	}
+
 	@NotBlank
 	public String getTitle() {
 		return title;

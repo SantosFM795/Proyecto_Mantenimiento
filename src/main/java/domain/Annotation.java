@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -18,8 +19,15 @@ public class Annotation extends DomainEntity{
 	private Date date_send;
 	private String text;
 	private Integer rating;
+	private Actor person;
 	
-	
+	@ManyToOne(optional=false)
+	public Actor getPerson() {
+		return person;
+	}
+	public void setPerson(Actor person) {
+		this.person = person;
+	}
 	@Past
 	@NotNull
 	public Date getDate_send() {
