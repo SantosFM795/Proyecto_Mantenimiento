@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Collection;
+
 import javax.persistence.*;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -18,14 +20,15 @@ public class Activity extends DomainEntity{
 	private String clients;
 	private String description;
 	private String [] photos;
-	private Annotation annotations;
+	private Collection<Annotation> annotations;
+	
 	
 	@OneToMany
-	public Annotation getAnnotations() {
+	public Collection<Annotation> getAnnotations() {
 		return annotations;
 	}
 
-	public void setAnnotations(Annotation annotations) {
+	public void setAnnotations(Collection<Annotation> annotations) {
 		this.annotations = annotations;
 	}
 

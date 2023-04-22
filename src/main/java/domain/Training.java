@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Collection;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
@@ -13,13 +15,15 @@ public class Training extends DomainEntity{
 	private String title;
 	private String description;
 	private String[] exercises;
-	private Annotation annotations;
+	private Collection<Annotation> annotations;
+	
 	
 	@OneToMany
-	public Annotation getAnnotations() {
+	public Collection<Annotation> getAnnotations() {
 		return annotations;
 	}
-	public void setAnnotations(Annotation annotations) {
+
+	public void setAnnotations(Collection<Annotation> annotations) {
 		this.annotations = annotations;
 	}
 	@NotBlank

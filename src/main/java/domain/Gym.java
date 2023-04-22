@@ -1,7 +1,10 @@
 package domain;
 
+import java.util.Collection;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -17,14 +20,24 @@ public class Gym extends DomainEntity{
 	private String address;
 	private boolean active;
 	private float mensualCost;
-	private Annotation annotations;
+	private Collection<Annotation> annotations;
+	private Collection<Activity> activities;
 	
+	@OneToMany(cascade=CascadeType.ALL)
+	public Collection<Activity> getActivities() {
+		return activities;
+	}
+
+	public void setActivities(Collection<Activity> activities) {
+		this.activities = activities;
+	}
+
 	@OneToMany
-	public Annotation getAnnotations() {
+	public Collection<Annotation> getAnnotations() {
 		return annotations;
 	}
 
-	public void setAnnotations(Annotation annotations) {
+	public void setAnnotations(Collection<Annotation> annotations) {
 		this.annotations = annotations;
 	}
 

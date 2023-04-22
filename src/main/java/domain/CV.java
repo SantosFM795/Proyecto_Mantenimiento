@@ -1,4 +1,6 @@
 package domain;
+import java.util.Collection;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
@@ -14,14 +16,15 @@ public class CV extends DomainEntity{
 	private String skills;
 	private String formation;
 	private String workExperience;
-	private SocialMedia rrss;
+	private Collection<SocialMedia> rrss;
+	
 	
 	@OneToMany
-	public SocialMedia getRrss() {
+	public Collection<SocialMedia> getRrss() {
 		return rrss;
 	}
 
-	public void setRrss(SocialMedia rrss) {
+	public void setRrss(Collection<SocialMedia> rrss) {
 		this.rrss = rrss;
 	}
 
