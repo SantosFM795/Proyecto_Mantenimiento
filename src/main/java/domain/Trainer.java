@@ -13,15 +13,15 @@ import javax.persistence.OneToOne;
 public class Trainer extends Actor{
 	private CV curriculum;
 	private Collection<Activity> activities;
-	private Collection<Client> clients;
+	private Collection<Gym> gyms;
 	
 	@ManyToMany
-	public Collection<Client> getClients() {
-		return clients;
+	public Collection<Gym> getClients() {
+		return gyms;
 	}
 
-	public void setClients(Collection<Client> clients) {
-		this.clients = clients;
+	public void setClients(Collection<Gym> clients) {
+		this.gyms = clients;
 	}
 
 	@ManyToMany
