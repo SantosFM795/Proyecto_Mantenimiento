@@ -19,7 +19,17 @@ public abstract class Actor extends DomainEntity{
 	private String postalCode;
 	private String city;
 	private String country;
+	private Collection<Annotation> annotations;
 	
+	
+	@OneToMany
+	public Collection<Annotation> getAnnotations() {
+		return annotations;
+	}
+
+	public void setAnnotations(Collection<Annotation> annotations) {
+		this.annotations = annotations;
+	}
 
 	@NotBlank
 	public String getName() {

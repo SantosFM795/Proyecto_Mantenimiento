@@ -15,7 +15,7 @@ public class Client extends Actor{
 	private CreditCard creditCard;
 	private Gym gym;
 	private Collection<Activity> activities;
-	private Collection<Annotation> annotations;
+	
 	
 	@ManyToMany
 	public Collection<Activity> getActivities() {
@@ -36,15 +36,6 @@ public class Client extends Actor{
 	}
 	
 	
-	
-	@OneToMany
-	public Collection<Annotation> getAnnotations() {
-		return annotations;
-	}
-
-	public void setAnnotations(Collection<Annotation> annotations) {
-		this.annotations = annotations;
-	}
 
 
 	public CreditCard getCreditCard() {
