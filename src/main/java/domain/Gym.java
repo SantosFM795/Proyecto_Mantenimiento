@@ -6,6 +6,8 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -22,7 +24,47 @@ public class Gym extends DomainEntity{
 	private float mensualCost;
 	private Collection<Annotation> annotations;
 	private Collection<Activity> activities;
+	private Collection<Trainer> trainers;
+	private Collection<Client> clients;
+	private Collection<Training> trainings;
+	private Manager manager;
 	
+	@ManyToOne(optional=false)//
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
+	}
+
+	@ManyToMany
+	public Collection<Training> getTrainings() {
+		return trainings;
+	}
+
+	public void setTrainings(Collection<Training> trainings) {
+		this.trainings = trainings;
+	}
+
+	@ManyToMany
+	public Collection<Trainer> getTrainers() {
+		return trainers;
+	}
+	
+	@OneToMany
+	public Collection<Client> getClients() {
+		return clients;
+	}
+
+	public void setTrainers(Collection<Trainer> trainers) {
+		this.trainers = trainers;
+	}
+
+	public void setClients(Collection<Client> clients) {
+		this.clients = clients;
+	}
+
 	@OneToMany(cascade=CascadeType.ALL)
 	public Collection<Activity> getActivities() {
 		return activities;

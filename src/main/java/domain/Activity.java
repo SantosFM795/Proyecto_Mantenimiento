@@ -21,8 +21,17 @@ public class Activity extends DomainEntity{
 	private String description;
 	private String [] photos;
 	private Collection<Annotation> annotations;
+	private Collection<Trainer> trainers;
 	
-	
+	@ManyToMany
+	public Collection<Trainer> getTrainers() {
+		return trainers;
+	}
+
+	public void setTrainers(Collection<Trainer> trainers) {
+		this.trainers = trainers;
+	}
+
 	@OneToMany
 	public Collection<Annotation> getAnnotations() {
 		return annotations;
