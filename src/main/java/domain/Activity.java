@@ -17,12 +17,21 @@ public class Activity extends DomainEntity{
 	private Integer startTime;
 	private Integer endTime;
 	private Integer availableSpots;
-	private String clients;
 	private String description;
 	private String [] photos;
 	private Collection<Annotation> annotations;
 	private Collection<Trainer> trainers;
+	private Collection<Client> clients;
 	
+	@ManyToMany
+	public Collection<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(Collection<Client> clients) {
+		this.clients = clients;
+	}
+
 	@ManyToMany
 	public Collection<Trainer> getTrainers() {
 		return trainers;
@@ -62,10 +71,7 @@ public class Activity extends DomainEntity{
 		return availableSpots;
 	}
 	
-	@NotBlank
-	public String getClients() {
-		return clients;
-	}
+	
 	
 	@NotBlank
 	public String getDescription() {
@@ -90,9 +96,6 @@ public class Activity extends DomainEntity{
 	}
 	public void setAvailableSpots(Integer availableSpots) {
 		this.availableSpots = availableSpots;
-	}
-	public void setClients(String clients) {
-		this.clients = clients;
 	}
 	public void setDescription(String description) {
 		this.description = description;
