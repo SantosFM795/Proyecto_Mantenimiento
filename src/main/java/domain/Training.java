@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -16,8 +17,17 @@ public class Training extends DomainEntity{
 	private String description;
 	private String[] exercises;
 	private Collection<Annotation> annotations;
+	private Collection<Step> steps;
 	
-	
+	@OneToMany(cascade=CascadeType.ALL)
+	public Collection<Step> getSteps() {
+		return steps;
+	}
+
+	public void setSteps(Collection<Step> steps) {
+		this.steps = steps;
+	}
+
 	@OneToMany
 	public Collection<Annotation> getAnnotations() {
 		return annotations;

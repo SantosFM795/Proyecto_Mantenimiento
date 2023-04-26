@@ -20,7 +20,33 @@ public class Annotation extends DomainEntity{
 	private String text;
 	private Integer rating;
 	private Actor person;
+	private Gym gym;
+	private Training training;
+	private Activity activity;
 	
+	@ManyToOne
+	public Gym getGym() {
+		return gym;
+	}
+	
+	@ManyToOne
+	public Training getTraining() {
+		return training;
+	}
+	
+	@ManyToOne
+	public Activity getActivity() {
+		return activity;
+	}
+	public void setGym(Gym gym) {
+		this.gym = gym;
+	}
+	public void setTraining(Training training) {
+		this.training = training;
+	}
+	public void setActivity(Activity activity) {
+		this.activity = activity;
+	}
 	@ManyToOne(optional=false)
 	public Actor getPerson() {
 		return person;
