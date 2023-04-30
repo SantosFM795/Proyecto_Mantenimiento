@@ -24,7 +24,6 @@ public class CreditCard {
 		return name;
 	}
 	
-	@NotBlank
 	@CreditCardNumber
 	public String getNumber() {
 		return number;
