@@ -24,17 +24,17 @@ public class Annotation extends DomainEntity{
 	private Training training;
 	private Activity activity;
 	
-	@ManyToOne
+	@ManyToOne(optional=true)
 	public Gym getGym() {
 		return gym;
 	}
 	
-	@ManyToOne
+	@ManyToOne(optional=true)
 	public Training getTraining() {
 		return training;
 	}
 	
-	@ManyToOne
+	@ManyToOne(optional=true)
 	public Activity getActivity() {
 		return activity;
 	}
