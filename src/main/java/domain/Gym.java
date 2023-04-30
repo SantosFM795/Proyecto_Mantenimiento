@@ -18,7 +18,7 @@ import org.hibernate.validator.constraints.URL;
 public class Gym extends DomainEntity{
 
 	private String logo;
-	private String name;
+	private String nameGym;
 	private String address;
 	private boolean active;
 	private float mensualCost;
@@ -90,7 +90,7 @@ public class Gym extends DomainEntity{
 	
 	@NotBlank
 	public String getName() {
-		return name;
+		return nameGym;
 	}
 	
 	@NotBlank
@@ -107,7 +107,7 @@ public class Gym extends DomainEntity{
 		this.logo = logo;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.nameGym = name;
 	}
 	public void setAddress(String address) {
 		this.address = address;

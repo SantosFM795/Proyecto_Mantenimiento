@@ -11,7 +11,7 @@ import org.hibernate.validator.constraints.Range;
 @Embeddable
 @Access(AccessType.PROPERTY)
 public class CreditCard {
-	private String name;
+	private String nameCC;
 	private String number;
 	private String brand;
 	private Integer expirationMonth;
@@ -21,7 +21,7 @@ public class CreditCard {
 	
 	@NotBlank
 	public String getName() {
-		return name;
+		return nameCC;
 	}
 	
 	@CreditCardNumber
@@ -56,7 +56,7 @@ public class CreditCard {
 		return isActive;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.nameCC = name;
 	}
 	public void setNumber(String number) {
 		this.number = number;
