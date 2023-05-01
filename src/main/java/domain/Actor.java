@@ -19,10 +19,11 @@ public abstract class Actor extends DomainEntity{
 	private String postalCode;
 	private String city;
 	private String country;
+	
 	private Collection<Annotation> annotations;
 	
 	
-	@OneToMany
+	@OneToMany(mappedBy="Actor")
 	public Collection<Annotation> getAnnotations() {
 		return annotations;
 	}

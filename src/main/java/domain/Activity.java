@@ -20,10 +20,9 @@ public class Activity extends DomainEntity{
 	private String description;
 	private String [] photos;
 	private Collection<Annotation> annotations;
-	private Collection<Trainer> trainers;
 	private Collection<Client> clients;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy="Client")
 	public Collection<Client> getClients() {
 		return clients;
 	}
@@ -32,16 +31,8 @@ public class Activity extends DomainEntity{
 		this.clients = clients;
 	}
 
-	@ManyToMany
-	public Collection<Trainer> getTrainers() {
-		return trainers;
-	}
 
-	public void setTrainers(Collection<Trainer> trainers) {
-		this.trainers = trainers;
-	}
-
-	@OneToMany
+	@OneToMany(mappedBy="Annotation")
 	public Collection<Annotation> getAnnotations() {
 		return annotations;
 	}

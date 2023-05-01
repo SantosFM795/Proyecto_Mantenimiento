@@ -28,7 +28,7 @@ public class Training extends DomainEntity{
 		this.steps = steps;
 	}
 
-	@OneToMany
+	@OneToMany(mappedBy="Annotation")
 	public Collection<Annotation> getAnnotations() {
 		return annotations;
 	}

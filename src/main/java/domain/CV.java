@@ -20,7 +20,7 @@ public class CV extends DomainEntity{
 	private Collection<SocialMedia> rrss;
 	private Trainer entrenador;
 	
-	@OneToOne(optional=false)
+	@OneToOne(optional=false,mappedBy="CV")
 	public Trainer getEntrenador() {
 		return entrenador;
 	}

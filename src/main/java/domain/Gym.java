@@ -22,21 +22,12 @@ public class Gym extends DomainEntity{
 	private String address;
 	private boolean active;
 	private float mensualCost;
+	
 	private Collection<Annotation> annotations;
 	private Collection<Activity> activities;
-	private Collection<Trainer> trainers;
 	private Collection<Client> clients;
 	private Collection<Training> trainings;
-	private Manager manager;
 	
-	@ManyToOne(optional=false)//
-	public Manager getManager() {
-		return manager;
-	}
-
-	public void setManager(Manager manager) {
-		this.manager = manager;
-	}
 
 	@ManyToMany
 	public Collection<Training> getTrainings() {
@@ -47,18 +38,10 @@ public class Gym extends DomainEntity{
 		this.trainings = trainings;
 	}
 
-	@ManyToMany
-	public Collection<Trainer> getTrainers() {
-		return trainers;
-	}
 	
-	@OneToMany
+	@OneToMany(mappedBy="Client")
 	public Collection<Client> getClients() {
 		return clients;
-	}
-
-	public void setTrainers(Collection<Trainer> trainers) {
-		this.trainers = trainers;
 	}
 
 	public void setClients(Collection<Client> clients) {
@@ -74,7 +57,7 @@ public class Gym extends DomainEntity{
 		this.activities = activities;
 	}
 
-	@OneToMany
+	@OneToMany(mappedBy="Annotation")
 	public Collection<Annotation> getAnnotations() {
 		return annotations;
 	}
