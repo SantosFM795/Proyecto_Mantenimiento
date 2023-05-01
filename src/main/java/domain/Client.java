@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 @Access(AccessType.PROPERTY)
 public class Client extends Actor{
 	private CreditCard creditCard;
+	
+	/*
 	private Gym gym;
 	private Collection<Activity> activities;
 	
@@ -33,7 +35,7 @@ public class Client extends Actor{
 
 	public void setGym(Gym gym) {
 		this.gym = gym;
-	}
+	}*/
 	
 	
 

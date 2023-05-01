@@ -13,10 +13,12 @@ import org.hibernate.validator.constraints.NotBlank;
 @Access(AccessType.PROPERTY)
 
 public class CV extends DomainEntity{
-	private String name;
+	private String nameCV;
 	private String skills;
 	private String formation;
 	private String workExperience;
+	
+	/*
 	private Collection<SocialMedia> rrss;
 	private Trainer entrenador;
 	
@@ -36,11 +38,11 @@ public class CV extends DomainEntity{
 
 	public void setRrss(Collection<SocialMedia> rrss) {
 		this.rrss = rrss;
-	}
+	}*/
 
 	//no se como funciona los derivados
 	public String getName() {
-		return name;
+		return nameCV;
 	}
 	
 	@NotBlank
@@ -58,7 +60,7 @@ public class CV extends DomainEntity{
 		return workExperience;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.nameCV = name;
 	}
 	public void setSkills(String skills) {
 		this.skills = skills;

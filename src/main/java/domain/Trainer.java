@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
 @Access(AccessType.PROPERTY)
 public class Trainer extends Actor{
 	private CV curriculum;
+	
+	/*
 	private Collection<Activity> activities;
 	private Collection<Gym> gyms;
 	
@@ -31,7 +33,7 @@ public class Trainer extends Actor{
 
 	public void setActivities(Collection<Activity> activities) {
 		this.activities = activities;
-	}
+	}*/
 
 	@OneToOne(optional=false)
 	public CV getCurriculum() {

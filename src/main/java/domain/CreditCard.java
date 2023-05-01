@@ -55,8 +55,8 @@ public class CreditCard {
 	public boolean isActive() {
 		return isActive;
 	}
-	public void setName(String name) {
-		this.nameCC = name;
+	public void setName(String nameCC) {
+		this.nameCC = nameCC;
 	}
 	public void setNumber(String number) {
 		this.number = number;

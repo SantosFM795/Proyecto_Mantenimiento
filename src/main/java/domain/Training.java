@@ -16,6 +16,8 @@ public class Training extends DomainEntity{
 	private String title;
 	private String description;
 	private String[] exercises;
+	
+	/*
 	private Collection<Annotation> annotations;
 	private Collection<Step> steps;
 	
@@ -35,7 +37,7 @@ public class Training extends DomainEntity{
 
 	public void setAnnotations(Collection<Annotation> annotations) {
 		this.annotations = annotations;
-	}
+	}*/
 	@NotBlank
 	public String getTitle() {
 		return title;

@@ -22,7 +22,7 @@ public class Gym extends DomainEntity{
 	private String address;
 	private boolean active;
 	private float mensualCost;
-	
+	/*
 	private Collection<Annotation> annotations;
 	private Collection<Activity> activities;
 	private Collection<Client> clients;
@@ -64,7 +64,7 @@ public class Gym extends DomainEntity{
 
 	public void setAnnotations(Collection<Annotation> annotations) {
 		this.annotations = annotations;
-	}
+	}*/
 
 	@URL
 	public String getLogo() {

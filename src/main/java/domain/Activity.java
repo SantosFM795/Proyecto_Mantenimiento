@@ -19,6 +19,8 @@ public class Activity extends DomainEntity{
 	private Integer availableSpots;
 	private String description;
 	private String [] photos;
+	
+	/*
 	private Collection<Annotation> annotations;
 	private Collection<Client> clients;
 	
@@ -39,7 +41,7 @@ public class Activity extends DomainEntity{
 
 	public void setAnnotations(Collection<Annotation> annotations) {
 		this.annotations = annotations;
-	}
+	}*/
 
 	@NotBlank
 	public String getTitle() {
