@@ -15,7 +15,6 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Training extends DomainEntity{
 	private String title;
 	private String description;
-	private String[] exercises;
 	
 	
 	private Collection<Annotation> annotations;
@@ -45,16 +44,10 @@ public class Training extends DomainEntity{
 	public String getDescription() {
 		return description;
 	}
-	public String[] getExercises() {
-		return exercises;
-	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	public void setExercises(String[] exercises) {
-		this.exercises = exercises;
 	}
 }
