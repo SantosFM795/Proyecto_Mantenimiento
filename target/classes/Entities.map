@@ -1,12 +1,16 @@
 #./src/main/resources/Entities.map
-#Tue May 02 14:42:00 CEST 2023
-annotation1=19
-gym1=16
-training1=18
-administrator1=15
-activity1=17
-userAccount3=13
-customer1=14
-userAccount2=12
-userAccount1=11
-social1=20
+#Tue May 02 15:05:44 CEST 2023
+annotation3=27
+annotation2=26
+annotation1=25
+gym1=20
+step2=24
+training1=22
+step1=23
+administrator1=19
+activity1=21
+userAccount3=17
+customer1=18
+userAccount2=16
+userAccount1=15
+social1=28

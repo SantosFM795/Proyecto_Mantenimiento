@@ -20,28 +20,28 @@ public class Activity extends DomainEntity{
 	private String description;
 	private Collection<String> photos;
 	
-	/*
-	private Collection<Annotation> annotations;
-	private Collection<Customer> clients;
 	
-	@ManyToMany(mappedBy="Annotation")
-	public Collection<Customer> getClients() {
-		return clients;
+	private Collection<Annotation> annotations;
+	private Collection<Customer> customers;
+	
+	@ManyToMany(mappedBy="activities")
+	public Collection<Customer> getCustomers() {
+		return customers;
 	}
 
-	public void setClients(Collection<Customer> clients) {
-		this.clients = clients;
+	public void setCustomers(Collection<Customer> customers) {
+		this.customers = customers;
 	}
 
 
-	@OneToMany(mappedBy="Annotation")
+	@OneToMany(mappedBy="activity")
 	public Collection<Annotation> getAnnotations() {
 		return annotations;
 	}
 
 	public void setAnnotations(Collection<Annotation> annotations) {
 		this.annotations = annotations;
-	}*/
+	}
 
 	@NotBlank
 	public String getTitle() {

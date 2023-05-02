@@ -76,6 +76,8 @@
 		<property name="annotation">
 			<list>
 				<ref bean="annotation1"></ref>
+				<ref bean="annotation2"></ref>
+				<ref bean="annotation3"></ref>
 			</list>
 		</property>
 		
@@ -135,7 +137,21 @@
 	<!-- Training -->
 	<bean id="training1" class="domain.Training">
 		<property name="title" value="Flexiones" />
-		<property name="description" value="Se harán 5 series de 20 flexiones" />	
+		<property name="description" value="Se harán 5 series de 20 flexiones" />
+		
+		<property name="steps">
+			<list>
+				<ref bean="step1"></ref>
+				<ref bean="step2"></ref>
+			</list>
+		</property>
+		
+		<property name="annotations">
+			<list>
+				<ref bean="annotation2"></ref>
+			</list>
+		</property>
+			
 	</bean>
 	
 	<!-- Activity -->
@@ -151,6 +167,20 @@
 				<value>https://cdn.logo.com/hotlink-ok/logo-social.png</value>
 			</list>
 		</property>	
+		
+		<property name="annotations">
+			<list>
+				<ref bean="annotation3"></ref>
+			</list>
+		</property>
+		
+		<property name="customers">
+			<list>
+				<ref bean="customer1"></ref>
+			</list>
+		</property>
+		
+		
 	</bean>
 	
 	<!-- Annotation -->
@@ -162,11 +192,37 @@
 		<property name="gym" ref="gym1"></property>	
 	</bean>
 	
+	<bean id="annotation2" class="domain.Annotation">
+		<property name="date_send" value="10/10/2020" />
+		<property name="text" value="Horrible" />
+		<property name="rating" value="1" />	
+		<property name="actor" ref="customer1" />
+		<property name="training" ref="training1"></property>	
+	</bean>
+	
+	<bean id="annotation3" class="domain.Annotation">
+		<property name="date_send" value="10/10/2020" />
+		<property name="text" value="Horrible" />
+		<property name="rating" value="1" />	
+		<property name="actor" ref="customer1" />
+		<property name="activity" ref="activity1"></property>	
+	</bean>
+	
 	<!-- Social Media -->
 	<bean id="social1" class="domain.SocialMedia">
 		<property name="nick" value="pepe2007" />
 		<property name="url" value="https://twitter.com/pepe2007" />
 		<property name="rrss" value="Twitter" />	
+	</bean>
+	
+	<!-- Step -->
+	<bean id="step1" class="domain.Step">
+		<property name="description" value="Bajamos el pecho" />
+		<property name="video" value="https://www.youtube.com/watch?v=2ZSq1BRYwAI" />	
+	</bean>
+	
+	<bean id="step2" class="domain.Step">
+		<property name="description" value="Subimos el pecho" />
 	</bean>
 	
 	<!-- Credit Card -->

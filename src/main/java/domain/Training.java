@@ -17,7 +17,7 @@ public class Training extends DomainEntity{
 	private String description;
 	private String[] exercises;
 	
-	/*
+	
 	private Collection<Annotation> annotations;
 	private Collection<Step> steps;
 	
@@ -30,14 +30,14 @@ public class Training extends DomainEntity{
 		this.steps = steps;
 	}
 
-	@OneToMany(mappedBy="Annotation")
+	@OneToMany(mappedBy="training")
 	public Collection<Annotation> getAnnotations() {
 		return annotations;
 	}
 
 	public void setAnnotations(Collection<Annotation> annotations) {
 		this.annotations = annotations;
-	}*/
+	}
 	@NotBlank
 	public String getTitle() {
 		return title;
