@@ -20,9 +20,9 @@ public class Annotation extends DomainEntity{
 	private String text;
 	private Integer rating;
 	
-	/*
+	
 	private Actor actor;
-	private Gym gym;
+	/*private Gym gym;
 	private Training training;
 	private Activity activity;
 	
@@ -48,14 +48,14 @@ public class Annotation extends DomainEntity{
 	}
 	public void setActivity(Activity activity) {
 		this.activity = activity;
-	}
+	}*/
 	@ManyToOne(optional=false)
-	public Actor getPerson() {
+	public Actor getActor() {
 		return actor;
 	}
-	public void setPerson(Actor person) {
-		this.actor = person;
-	}*/
+	public void setActor(Actor actor) {
+		this.actor = actor;
+	}
 	@Past
 	@NotNull
 	public Date getDate_send() {

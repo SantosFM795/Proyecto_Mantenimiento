@@ -26,6 +26,19 @@ public abstract class Actor extends DomainEntity{
 	
 	private UserAccount userAccount;
 	
+	
+	private Collection<Annotation> annotation;
+	
+	
+	@OneToMany(mappedBy = "actor")
+	public Collection<Annotation> getAnnotation() {
+		return annotation;
+	}
+
+	public void setAnnotation(Collection<Annotation> annotation) {
+		this.annotation = annotation;
+	}
+	
 	@NotNull
 	@Valid
 	@OneToOne(cascade=CascadeType.ALL, optional=false)
@@ -36,18 +49,6 @@ public abstract class Actor extends DomainEntity{
 	public void setUserAccount(final UserAccount userAccount) {
 		this.userAccount=userAccount;
 	}
-	/*
-	private Collection<Annotation> annotation;
-	
-	
-	@OneToMany(mappedBy = "actor")
-	public Collection<Annotation> getAnnotations() {
-		return annotation;
-	}
-
-	public void setAnnotations(Collection<Annotation> annotation) {
-		this.annotation = annotation;
-	}*/
 
 	@NotBlank
 	public String getName() {

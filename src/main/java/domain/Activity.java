@@ -18,18 +18,18 @@ public class Activity extends DomainEntity{
 	private Integer endTime;
 	private Integer availableSpots;
 	private String description;
-	private String [] photos;
+	private Collection<String> photos;
 	
 	/*
 	private Collection<Annotation> annotations;
-	private Collection<Costumer> clients;
+	private Collection<Customer> clients;
 	
-	@ManyToMany(mappedBy="Costumer")
-	public Collection<Costumer> getClients() {
+	@ManyToMany(mappedBy="Customer")
+	public Collection<Customer> getClients() {
 		return clients;
 	}
 
-	public void setClients(Collection<Costumer> clients) {
+	public void setClients(Collection<Customer> clients) {
 		this.clients = clients;
 	}
 
@@ -71,8 +71,9 @@ public class Activity extends DomainEntity{
 		return description;
 	}
 	
-	@URL
-	public String[] getPhotos() {
+	//@URL
+	@ElementCollection
+	public Collection<String> getPhotos() {
 		return photos;
 	}
 	public void setTitle(String title) {
@@ -93,7 +94,7 @@ public class Activity extends DomainEntity{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public void setPhotos(String[] photos) {
+	public void setPhotos(Collection<String> photos) {
 		this.photos = photos;
 	}
 }

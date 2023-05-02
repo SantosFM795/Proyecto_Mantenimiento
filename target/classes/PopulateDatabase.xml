@@ -60,7 +60,7 @@
 	<!-- Other domain beans come here -->	
 	
 	<!--Actor -->
-	<bean id="costumer1" class="domain.Costumer">
+	<bean id="costumer1" class="domain.Customer">
 		<property name="name" value="Pepe" />
 		<property name="lastName" value="Botella" />
 		<property name="email" value="pepe@gmail.com" />
@@ -69,9 +69,64 @@
 		<property name="city" value="Huelva" />
 		<property name="country" value="ESP" />
 		<property name="userAccount" ref="userAccount2" />
-		<property name="creditCard" ref="card1" />
-		
-		
+		<property name="creditCard" ref="card1" />		
+	</bean>
+	
+	<bean id="administrator1" class="domain.Administrator">
+		<property name="name" value="Pepi" />
+		<property name="lastName" value="Botella" />
+		<property name="email" value="pepi@gmail.com" />
+		<property name="phoneNumber" value="959959950" />
+		<property name="postalCode" value="21003" />
+		<property name="city" value="Huelva" />
+		<property name="country" value="ESP" />
+		<property name="userAccount" ref="userAccount1" />	
+	</bean>
+	
+	
+	<!-- Gym -->
+	
+	<bean id="gym1" class="domain.Gym">
+		<property name="name" value="Fit" />
+		<property name="logo" value="https://cdn.logo.com/hotlink-ok/logo-social.png" />
+		<property name="address" value="C/Concepción, 17" />
+		<property name="active" value="true" />
+		<property name="mensualCost" value="30.00" />	
+	</bean>
+	
+	<!-- Training -->
+	<bean id="training1" class="domain.Training">
+		<property name="title" value="Flexiones" />
+		<property name="description" value="Se harán 5 series de 20 flexiones" />	
+	</bean>
+	
+	<!-- Activity -->
+	<bean id="activity1" class="domain.Activity">
+		<property name="title" value="Spinning" />
+		<property name="day" value="Monday" />
+		<property name="startTime" value="15" />
+		<property name="endTime" value="16" />
+		<property name="availableSpots" value="30" />
+		<property name="description" value="1h of Spinning" />
+		<property name="photos">
+			<list>
+				<value>https://cdn.logo.com/hotlink-ok/logo-social.png</value>
+			</list>
+		</property>	
+	</bean>
+	
+	<!-- Annotation -->
+	<bean id="annotation1" class="domain.Annotation">
+		<property name="date_send" value="10/10/2020" />
+		<property name="text" value="Horrible" />
+		<property name="rating" value="1" />		
+	</bean>
+	
+	<!-- Social Media -->
+	<bean id="social1" class="domain.SocialMedia">
+		<property name="nick" value="pepe2007" />
+		<property name="url" value="twitter.com/pepe2007" />
+		<property name="rrss" value="Twitter" />	
 	</bean>
 	
 	<!-- Credit Card -->

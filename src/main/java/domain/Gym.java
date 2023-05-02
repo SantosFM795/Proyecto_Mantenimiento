@@ -18,14 +18,14 @@ import org.hibernate.validator.constraints.URL;
 public class Gym extends DomainEntity{
 
 	private String logo;
-	private String nameGym;
+	private String name;
 	private String address;
 	private boolean active;
 	private float mensualCost;
 	/*
 	private Collection<Annotation> annotations;
 	private Collection<Activity> activities;
-	private Collection<Costumer> clients;
+	private Collection<Customer> clients;
 	private Collection<Training> trainings;
 	
 
@@ -39,12 +39,12 @@ public class Gym extends DomainEntity{
 	}
 
 	
-	@OneToMany(mappedBy="Costumer")
-	public Collection<Costumer> getClients() {
+	@OneToMany(mappedBy="Customer")
+	public Collection<Customer> getClients() {
 		return clients;
 	}
 
-	public void setClients(Collection<Costumer> clients) {
+	public void setClients(Collection<Customer> clients) {
 		this.clients = clients;
 	}
 
@@ -73,7 +73,7 @@ public class Gym extends DomainEntity{
 	
 	@NotBlank
 	public String getName() {
-		return nameGym;
+		return name;
 	}
 	
 	@NotBlank
@@ -90,7 +90,7 @@ public class Gym extends DomainEntity{
 		this.logo = logo;
 	}
 	public void setName(String name) {
-		this.nameGym = name;
+		this.name = name;
 	}
 	public void setAddress(String address) {
 		this.address = address;

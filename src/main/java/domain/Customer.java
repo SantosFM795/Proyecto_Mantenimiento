@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class Costumer extends Actor{
+public class Customer extends Actor{
 	private CreditCard creditCard;
 	
 	/*
