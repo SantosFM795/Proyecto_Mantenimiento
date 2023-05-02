@@ -3,22 +3,39 @@ package domain;
 import java.util.Collection;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+
+import security.UserAccount;
 
 @Entity
 @Access(AccessType.PROPERTY)
 
 public abstract class Actor extends DomainEntity{
 
-	private String nameActor;
+	private String name;
 	private String lastName;
 	private String email;
 	private String phoneNumber;
 	private String postalCode;
 	private String city;
 	private String country;
+	
+	private UserAccount userAccount;
+	
+	@NotNull
+	@Valid
+	@OneToOne(cascade=CascadeType.ALL, optional=false)
+	public UserAccount getUserAccount() {
+		return this.userAccount;
+	}
+	
+	public void setUserAccount(final UserAccount userAccount) {
+		this.userAccount=userAccount;
+	}
 	/*
 	private Collection<Annotation> annotation;
 	
@@ -34,7 +51,7 @@ public abstract class Actor extends DomainEntity{
 
 	@NotBlank
 	public String getName() {
-		return nameActor;
+		return name;
 	}
 	
 	@NotBlank
@@ -60,7 +77,7 @@ public abstract class Actor extends DomainEntity{
 		return country;
 	}
 	public void setName(final String name) {
-		this.nameActor = name;
+		this.name = name;
 	}
 	public void setLastName(final String lastName) {
 		this.lastName = lastName;

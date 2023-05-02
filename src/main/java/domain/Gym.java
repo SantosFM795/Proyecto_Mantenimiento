@@ -25,7 +25,7 @@ public class Gym extends DomainEntity{
 	/*
 	private Collection<Annotation> annotations;
 	private Collection<Activity> activities;
-	private Collection<Client> clients;
+	private Collection<Costumer> clients;
 	private Collection<Training> trainings;
 	
 
@@ -39,12 +39,12 @@ public class Gym extends DomainEntity{
 	}
 
 	
-	@OneToMany(mappedBy="Client")
-	public Collection<Client> getClients() {
+	@OneToMany(mappedBy="Costumer")
+	public Collection<Costumer> getClients() {
 		return clients;
 	}
 
-	public void setClients(Collection<Client> clients) {
+	public void setClients(Collection<Costumer> clients) {
 		this.clients = clients;
 	}
 

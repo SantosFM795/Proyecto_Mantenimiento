@@ -59,4 +59,31 @@
 	
 	<!-- Other domain beans come here -->	
 	
+	<!--Actor -->
+	<bean id="costumer1" class="domain.Costumer">
+		<property name="name" value="Pepe" />
+		<property name="lastName" value="Botella" />
+		<property name="email" value="pepe@gmail.com" />
+		<property name="phoneNumber" value="959959959" />
+		<property name="postalCode" value="21003" />
+		<property name="city" value="Huelva" />
+		<property name="country" value="ESP" />
+		<property name="userAccount" ref="userAccount2" />
+		<property name="creditCard" ref="card1" />
+		
+		
+	</bean>
+	
+	<!-- Credit Card -->
+	<bean id="card1" class="domain.CreditCard">
+		<property name="nameCC" value="Pepe Botella" />
+		<property name="number" value="4548812049400004" />
+		<property name="brand" value="Caixa" />
+		<property name="expirationMonth" value="12" />
+		<property name="expirationYear" value="23" />
+		<property name="cvv" value="285" />
+		<property name="active" value="true" />
+		
+	</bean>
+	
 </beans>

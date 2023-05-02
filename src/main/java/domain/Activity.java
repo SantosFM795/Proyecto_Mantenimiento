@@ -22,14 +22,14 @@ public class Activity extends DomainEntity{
 	
 	/*
 	private Collection<Annotation> annotations;
-	private Collection<Client> clients;
+	private Collection<Costumer> clients;
 	
-	@ManyToMany(mappedBy="Client")
-	public Collection<Client> getClients() {
+	@ManyToMany(mappedBy="Costumer")
+	public Collection<Costumer> getClients() {
 		return clients;
 	}
 
-	public void setClients(Collection<Client> clients) {
+	public void setClients(Collection<Costumer> clients) {
 		this.clients = clients;
 	}
 

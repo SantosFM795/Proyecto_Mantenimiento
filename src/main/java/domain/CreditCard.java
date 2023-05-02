@@ -20,7 +20,7 @@ public class CreditCard {
 	private boolean isActive;
 	
 	@NotBlank
-	public String getName() {
+	public String getNameCC() {
 		return nameCC;
 	}
 	
@@ -55,7 +55,7 @@ public class CreditCard {
 	public boolean isActive() {
 		return isActive;
 	}
-	public void setName(String nameCC) {
+	public void setNameCC(String nameCC) {
 		this.nameCC = nameCC;
 	}
 	public void setNumber(String number) {
