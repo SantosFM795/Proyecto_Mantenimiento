@@ -59,7 +59,7 @@
 	
 	<!-- Other domain beans come here -->	
 	
-	<!--Actor -->
+	<!--Customer -->
 	<bean id="customer1" class="domain.Customer">
 		<property name="name" value="Pepe" />
 		<property name="lastName" value="Botella" />
@@ -71,7 +71,11 @@
 		<property name="userAccount" ref="userAccount2" />
 		<property name="creditCard" ref="card1" />	
 		
-		<property name="gym" ref="gym1"></property>
+		<property name="signing">
+			<list>
+				<ref bean="signing1"/>
+			</list>
+		</property>
 		
 		<property name="annotation">
 			<list>
@@ -88,6 +92,7 @@
 		</property>	
 	</bean>
 	
+	<!-- Administrator -->
 	<bean id="administrator1" class="domain.Administrator">
 		<property name="name" value="Pepi" />
 		<property name="lastName" value="Botella" />
@@ -99,6 +104,12 @@
 		<property name="userAccount" ref="userAccount1" />	
 	</bean>
 	
+	<!-- Signing -->
+	<bean id="signing1" class="domain.Signing">
+		<property name="sign_date" value="10/10/2020" />
+		<property name="customer" ref="customer1" />
+		<property name="gym" ref="gym1" />
+	</bean>
 	
 	<!-- Gym -->
 	
@@ -115,9 +126,9 @@
 			</list>
 		</property>
 		
-		<property name="customer">
+		<property name="signing">
 			<list>
-				<ref bean="customer1"></ref>
+				<ref bean="signing1"></ref>
 			</list>
 		</property>
 		

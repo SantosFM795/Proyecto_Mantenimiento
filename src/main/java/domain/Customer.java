@@ -14,9 +14,20 @@ import javax.persistence.OneToMany;
 public class Customer extends Actor{
 	private CreditCard creditCard;
 	
-	
-	private Gym gym;
 	private Collection<Activity> activities;
+	private Collection<Signing> signing;
+	
+	
+	@OneToMany(mappedBy="customer")
+	public Collection<Signing> getSigning() {
+		return signing;
+	}
+
+	public void setSigning(Collection<Signing> signing) {
+		this.signing = signing;
+	}
+
+	
 	
 	
 	@ManyToMany
@@ -28,14 +39,7 @@ public class Customer extends Actor{
 		this.activities = activities;
 	}
 
-	@ManyToOne(optional=true)
-	public Gym getGym() {
-		return gym;
-	}
-
-	public void setGym(Gym gym) {
-		this.gym = gym;
-	}	
+		
 
 
 	public CreditCard getCreditCard() {

@@ -25,7 +25,7 @@ public class Gym extends DomainEntity{
 	
 	private Collection<Annotation> annotation;
 	private Collection<Activity> activity;
-	private Collection<Customer> customer;
+	private Collection<Signing> signing;
 	private Collection<Training> training;
 	
 
@@ -40,12 +40,12 @@ public class Gym extends DomainEntity{
 
 	
 	@OneToMany(mappedBy="gym")
-	public Collection<Customer> getCustomer() {
-		return customer;
+	public Collection<Signing> getSigning() {
+		return signing;
 	}
 
-	public void setCustomer(Collection<Customer> customer) {
-		this.customer = customer;
+	public void setSigning(Collection<Signing> signing) {
+		this.signing = signing;
 	}
 
 	@OneToMany(cascade=CascadeType.ALL)
