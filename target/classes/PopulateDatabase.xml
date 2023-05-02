@@ -43,15 +43,24 @@
 	</bean>
 
 	<bean id="userAccount3" class="security.UserAccount">
-		<property name="username" value="super" />
+		<property name="username" value="manager" />
 		<property name="password" value="1b3231655cebb7a1f783eddf27d254ca" />
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
-					<property name="authority" value="ADMIN" />
+					<property name="authority" value="MANAGER" />
 				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="trainer" />
+		<property name="password" value="jeje2222" />
+		<property name="authorities">
+			<list>
 				<bean class="security.Authority">
-					<property name="authority" value="CUSTOMER" />
+					<property name="authority" value="TRAINER" />
 				</bean>
 			</list>
 		</property>
@@ -102,6 +111,42 @@
 		<property name="city" value="Huelva" />
 		<property name="country" value="ESP" />
 		<property name="userAccount" ref="userAccount1" />	
+	</bean>
+	
+	<!-- Manager -->
+	<bean id="manager1" class="domain.Manager">
+		<property name="name" value="Pepito" />
+		<property name="lastName" value="Botella" />
+		<property name="email" value="pepito@gmail.com" />
+		<property name="phoneNumber" value="959959950" />
+		<property name="postalCode" value="21003" />
+		<property name="city" value="Huelva" />
+		<property name="country" value="ESP" />
+		<property name="userAccount" ref="userAccount3" />	
+	</bean>
+	
+	<!-- Trainer -->
+	<bean id="trainer1" class="domain.Trainer">
+		<property name="name" value="Pepita" />
+		<property name="lastName" value="Botella" />
+		<property name="email" value="pepita@gmail.com" />
+		<property name="phoneNumber" value="959959950" />
+		<property name="postalCode" value="21003" />
+		<property name="city" value="Huelva" />
+		<property name="country" value="ESP" />
+		<property name="userAccount" ref="userAccount4" />	
+		
+		<property name="activities">
+			<list>
+				<ref bean="activity1"></ref>
+			</list>
+		</property>
+		
+		<property name="gyms">
+			<list>
+				<ref bean="gym1"></ref>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Signing -->
@@ -218,6 +263,8 @@
 		<property name="actor" ref="customer1" />
 		<property name="activity" ref="activity1"></property>	
 	</bean>
+	
+	<!-- CV -->
 	
 	<!-- Social Media -->
 	<bean id="social1" class="domain.SocialMedia">

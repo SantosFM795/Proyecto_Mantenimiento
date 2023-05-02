@@ -11,18 +11,18 @@ import javax.persistence.OneToOne;
 @Entity
 @Access(AccessType.PROPERTY)
 public class Trainer extends Actor{
-	private CV curriculum;
+	//private CV curriculum;
 	
-	/*
+	
 	private Collection<Activity> activities;
 	private Collection<Gym> gyms;
 	
 	@ManyToMany
-	public Collection<Gym> getClients() {
+	public Collection<Gym> getGyms() {
 		return gyms;
 	}
 
-	public void setClients(Collection<Gym> clients) {
+	public void setGyms(Collection<Gym> clients) {
 		this.gyms = clients;
 	}
 
@@ -33,8 +33,8 @@ public class Trainer extends Actor{
 
 	public void setActivities(Collection<Activity> activities) {
 		this.activities = activities;
-	}*/
-
+	}
+	/*
 	@OneToOne(optional=false)
 	public CV getCurriculum() {
 		return curriculum;
@@ -42,5 +42,5 @@ public class Trainer extends Actor{
 
 	public void setCurriculum(CV curriculum) {
 		this.curriculum = curriculum;
-	}
+	}*/
 }
