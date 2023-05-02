@@ -24,7 +24,7 @@ public class Activity extends DomainEntity{
 	private Collection<Annotation> annotations;
 	private Collection<Customer> clients;
 	
-	@ManyToMany(mappedBy="Customer")
+	@ManyToMany(mappedBy="Annotation")
 	public Collection<Customer> getClients() {
 		return clients;
 	}

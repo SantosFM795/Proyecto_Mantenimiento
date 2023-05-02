@@ -22,49 +22,49 @@ public class Gym extends DomainEntity{
 	private String address;
 	private boolean active;
 	private float mensualCost;
-	/*
-	private Collection<Annotation> annotations;
-	private Collection<Activity> activities;
-	private Collection<Customer> clients;
-	private Collection<Training> trainings;
+	
+	private Collection<Annotation> annotation;
+	private Collection<Activity> activity;
+	private Collection<Customer> customer;
+	private Collection<Training> training;
 	
 
 	@ManyToMany
-	public Collection<Training> getTrainings() {
-		return trainings;
+	public Collection<Training> getTraining() {
+		return training;
 	}
 
-	public void setTrainings(Collection<Training> trainings) {
-		this.trainings = trainings;
+	public void setTraining(Collection<Training> training) {
+		this.training = training;
 	}
 
 	
-	@OneToMany(mappedBy="Customer")
-	public Collection<Customer> getClients() {
-		return clients;
+	@OneToMany(mappedBy="gym")
+	public Collection<Customer> getCustomer() {
+		return customer;
 	}
 
-	public void setClients(Collection<Customer> clients) {
-		this.clients = clients;
+	public void setCustomer(Collection<Customer> customer) {
+		this.customer = customer;
 	}
 
 	@OneToMany(cascade=CascadeType.ALL)
-	public Collection<Activity> getActivities() {
-		return activities;
+	public Collection<Activity> getActivity() {
+		return activity;
 	}
 
-	public void setActivities(Collection<Activity> activities) {
-		this.activities = activities;
+	public void setActivity(Collection<Activity> activity) {
+		this.activity = activity;
 	}
 
-	@OneToMany(mappedBy="Annotation")
-	public Collection<Annotation> getAnnotations() {
-		return annotations;
+	@OneToMany(mappedBy="gym")
+	public Collection<Annotation> getAnnotation() {
+		return annotation;
 	}
 
-	public void setAnnotations(Collection<Annotation> annotations) {
-		this.annotations = annotations;
-	}*/
+	public void setAnnotation(Collection<Annotation> annotation) {
+		this.annotation = annotation;
+	}
 
 	@URL
 	public String getLogo() {

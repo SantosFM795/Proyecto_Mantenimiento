@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 public class Customer extends Actor{
 	private CreditCard creditCard;
 	
-	/*
+	
 	private Gym gym;
 	private Collection<Activity> activities;
 	
@@ -35,9 +35,7 @@ public class Customer extends Actor{
 
 	public void setGym(Gym gym) {
 		this.gym = gym;
-	}*/
-	
-	
+	}	
 
 
 	public CreditCard getCreditCard() {

@@ -13,7 +13,7 @@ public class Manager extends Actor{
 
 	private boolean banned;
 	
-	/*
+	
 	private Collection<Gym> gyms;
 	
 	@OneToMany
@@ -23,7 +23,7 @@ public class Manager extends Actor{
 
 	public void setGyms(Collection<Gym> gyms) {
 		this.gyms = gyms;
-	}*/
+	}
 
 	public boolean isBanned() {
 		return banned;

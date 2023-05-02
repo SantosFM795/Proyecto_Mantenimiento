@@ -60,7 +60,7 @@
 	<!-- Other domain beans come here -->	
 	
 	<!--Actor -->
-	<bean id="costumer1" class="domain.Customer">
+	<bean id="customer1" class="domain.Customer">
 		<property name="name" value="Pepe" />
 		<property name="lastName" value="Botella" />
 		<property name="email" value="pepe@gmail.com" />
@@ -69,7 +69,21 @@
 		<property name="city" value="Huelva" />
 		<property name="country" value="ESP" />
 		<property name="userAccount" ref="userAccount2" />
-		<property name="creditCard" ref="card1" />		
+		<property name="creditCard" ref="card1" />	
+		
+		<property name="gym" ref="gym1"></property>
+		
+		<property name="annotation">
+			<list>
+				<ref bean="annotation1"></ref>
+			</list>
+		</property>
+		
+		<property name="activities">
+			<list>
+				<ref bean="activity1"></ref>
+			</list>
+		</property>	
 	</bean>
 	
 	<bean id="administrator1" class="domain.Administrator">
@@ -92,6 +106,30 @@
 		<property name="address" value="C/Concepción, 17" />
 		<property name="active" value="true" />
 		<property name="mensualCost" value="30.00" />	
+		
+		<property name="annotation">
+			<list>
+				<ref bean="annotation1"></ref>
+			</list>
+		</property>
+		
+		<property name="customer">
+			<list>
+				<ref bean="customer1"></ref>
+			</list>
+		</property>
+		
+		<property name="activity">
+			<list>
+				<ref bean="activity1"></ref>
+			</list>
+		</property>
+		
+		<property name="training">
+			<list>
+				<ref bean="training1"></ref>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Training -->
@@ -119,13 +157,15 @@
 	<bean id="annotation1" class="domain.Annotation">
 		<property name="date_send" value="10/10/2020" />
 		<property name="text" value="Horrible" />
-		<property name="rating" value="1" />		
+		<property name="rating" value="1" />	
+		<property name="actor" ref="customer1" />
+		<property name="gym" ref="gym1"></property>	
 	</bean>
 	
 	<!-- Social Media -->
 	<bean id="social1" class="domain.SocialMedia">
 		<property name="nick" value="pepe2007" />
-		<property name="url" value="twitter.com/pepe2007" />
+		<property name="url" value="https://twitter.com/pepe2007" />
 		<property name="rrss" value="Twitter" />	
 	</bean>
 	
