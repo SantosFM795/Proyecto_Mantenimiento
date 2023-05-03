@@ -198,13 +198,31 @@
 		<property name="steps">
 			<list>
 				<ref bean="step1"></ref>
-				<ref bean="step2"></ref>
 			</list>
 		</property>
 		
 		<property name="annotations">
 			<list>
 				<ref bean="annotation2"></ref>
+				<ref bean="annotation4"></ref>
+			</list>
+		</property>
+			
+	</bean>
+	
+	<bean id="training2" class="domain.Training">
+		<property name="title" value="Abdominales" />
+		<property name="description" value="Se harán 5 series de 20 Abdominales" />
+		
+		<property name="steps">
+			<list>
+				<ref bean="step2"></ref>
+			</list>
+		</property>
+		
+		<property name="annotations">
+			<list>
+				<ref bean="annotation5"></ref>
 			</list>
 		</property>
 			
@@ -262,6 +280,22 @@
 		<property name="rating" value="1" />	
 		<property name="actor" ref="customer1" />
 		<property name="activity" ref="activity1"></property>	
+	</bean>
+	
+	<bean id="annotation4" class="domain.Annotation">
+		<property name="date_send" value="10/10/2020" />
+		<property name="text" value="Horrible" />
+		<property name="rating" value="3" />	
+		<property name="actor" ref="customer1" />
+		<property name="training" ref="training1"></property>	
+	</bean>
+	
+	<bean id="annotation5" class="domain.Annotation">
+		<property name="date_send" value="10/10/2020" />
+		<property name="text" value="Horrible" />
+		<property name="rating" value="1" />	
+		<property name="actor" ref="customer1" />
+		<property name="training" ref="training2"></property>	
 	</bean>
 	
 	<!-- CV -->

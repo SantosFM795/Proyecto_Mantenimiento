@@ -12,7 +12,13 @@ import domain.Customer;
 @Repository
 public interface ActivityRepository extends JpaRepository<Activity, Integer>{
 	
-	@Query("select c.activities from Customer c where c.userAccount.id = ?1")
-	Collection<Activity> findByUserAccountId(int userAccountId);
+	@Query("select c.activities from Customer c where c.userAccount_id = ?1")
+	Collection<Activity> findByUserAccountCustomerId(int userAccountId);
+	
+	@Query("select m.gyms.activity from Manager m where m.userAccount_id = ?1")
+	Collection<Activity> findByUserAccountManagerId(int userAccountId);
+	
+	
+	
 	
 }
