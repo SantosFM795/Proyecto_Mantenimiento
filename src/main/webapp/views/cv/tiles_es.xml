@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+<definition extends="master.page" name="cv/list">
+<put-attribute name="title" value="Lista de Currículums"/>
+<put-attribute name="body" value="/views/cv/list.jsp"/>
+</definition>
+
+<definition extends="master.page" name="cv/edit">
+<put-attribute name="title" value="Editar Currículum"/>
+<put-attribute name="body" value="/views/cv/edit.jsp"/>
+</definition>
+
+
+</tiles-definitions>

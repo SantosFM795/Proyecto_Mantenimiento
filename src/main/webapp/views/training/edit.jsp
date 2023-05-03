@@ -19,42 +19,35 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="client/administrator/edit.do" modelAttribute="client">
+<form:form action="training/manager/edit.do" modelAttribute="training">
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 
-	<form:label path="name">
-		<spring:message code="client.name" />:
+	<form:label path="title">
+		<spring:message code="training.title" />:
 	</form:label>
-	<form:input path="name" />
-	<form:errors cssClass="error" path="name" />
+	<form:input path="title" />
+	<form:errors cssClass="error" path="title" />
 	<br />
 
-	<form:label path="surname">
-		<spring:message code="client.surname" />:
+	<form:label path="description">
+		<spring:message code="training.description" />:
 	</form:label>
-	<form:input path="surname" />
-	<form:errors cssClass="error" path="surname" />
-	<br />
-
-	<form:label path="creditCard">
-		<spring:message code="client.creditCard.number" />:
-	</form:label>
-	<form:input path="creditCard" />
-	<form:errors cssClass="error" path="creditCard" />
+	<form:input path="training" />
+	<form:errors cssClass="error" path="training" />
 	<br />
 
 	<input type="submit" name="save"
-		value="<spring:message code="client.save" />" />&nbsp; 
-	<jstl:if test="${client.id != 0}">
+		value="<spring:message code="training.save" />" />&nbsp; 
+	<jstl:if test="${trainer.id != 0}">
 		<input type="submit" name="delete"
-			value="<spring:message code="client.delete" />"
-			onclick="return confirm('<spring:message code="client.confirm.delete" />')" />&nbsp;
+			value="<spring:message code="training.delete" />"
+			onclick="return confirm('<spring:message code="training.confirm.delete" />')" />&nbsp;
 	</jstl:if>
 	<input type="button" name="cancel"
-		value="<spring:message code="client.cancel" />"
-		onclick="javascript: relativeRedir('client/administrator/list.do');" />
+		value="<spring:message code="training.cancel" />"
+		onclick="javascript: relativeRedir('training/manager/list.do');" />
 	<br />
 
 	<%-- Se debe añadir un script de control, revisar acme-Certifications --%>
