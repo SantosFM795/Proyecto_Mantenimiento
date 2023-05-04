@@ -13,7 +13,7 @@ import repositories.ActivityRepository;
 
 @Service
 @Transactional
-public class ActivityService {
+public class ActivityServiceTest {
 	
 	// Managed repository -------------------------
 	
@@ -24,7 +24,7 @@ public class ActivityService {
 	
 	// Constructor --------------------------------
 	
-	public ActivityService() {
+	public ActivityServiceTest() {
 		super();
 	}
 	
