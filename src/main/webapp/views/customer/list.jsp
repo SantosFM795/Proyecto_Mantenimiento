@@ -16,26 +16,26 @@
 <!-- Listing grid -->
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="clients" requestURI="${requestURI}" id="row">
+	name="customers" requestURI="${requestURI}" id="row">
 	
-	<display:column property="name" titleKey="client.name"/>
-	<display:column property="surname" titleKey="client.surname"/>
-	<display:column property="creditCard" titleKey="client.creditCard"/>
+	<display:column property="name" titleKey="customer.name"/>
+	<display:column property="surname" titleKey="customer.surname"/>
+	<display:column property="creditCard" titleKey="customer.creditCard"/>
 	
 	<!-- Action links -->
 
 	<security:authorize access="hasRole('ADMIN')">
 		<display:column>
-			<a href="client/administrator/edit.do?clientId=${row.id}"> <spring:message
-					code="client.edit" />
+			<a href="customer/administrator/edit.do?customerId=${row.id}"> <spring:message
+					code="customer.edit" />
 			</a>
 		</display:column>
 	</security:authorize>
 
 	<security:authorize access="hasRole('ADMIN')">
 		<div>
-			<a href="client/administrator/create.do"> <spring:message
-					code="client.create" />
+			<a href="customer/administrator/create.do"> <spring:message
+					code="customer.create" />
 			</a>
 		</div>
 	</security:authorize>
