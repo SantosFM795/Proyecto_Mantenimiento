@@ -254,6 +254,12 @@
 			</list>
 		</property>
 		
+		<property name="trainer">
+			<list>
+				<ref bean="trainer1"></ref>
+			</list>
+		</property>
+		
 		
 	</bean>
 	

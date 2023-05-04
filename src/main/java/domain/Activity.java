@@ -23,7 +23,17 @@ public class Activity extends DomainEntity{
 	
 	private Collection<Annotation> annotations;
 	private Collection<Customer> customers;
+	private Collection<Trainer> trainer;
 	
+	@ManyToMany(mappedBy="activities")
+	public Collection<Trainer> getTrainer() {
+		return trainer;
+	}
+
+	public void setTrainer(Collection<Trainer> trainer) {
+		this.trainer = trainer;
+	}
+
 	@ManyToMany(mappedBy="activities")
 	public Collection<Customer> getCustomers() {
 		return customers;
