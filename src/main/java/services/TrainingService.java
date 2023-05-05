@@ -46,6 +46,14 @@ public class TrainingService {
 		return result;
 	}
 	
+	public Training create() {
+		Training result;
+		
+		result = new Training();
+		
+		return result;
+	}
+	
 	public Training save(Training training) {
 		Assert.notNull(training);
 		

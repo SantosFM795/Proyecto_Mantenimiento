@@ -9,8 +9,6 @@ import org.springframework.util.Assert;
 
 import domain.Gym;
 import repositories.GymRepository;
-import security.LoginService;
-
 @Service
 @Transactional
 public class GymService {
@@ -44,6 +42,14 @@ public class GymService {
 		Gym result;
 		
 		result=this.gymRepository.findOne(gymId);
+		
+		return result;
+	}
+	
+	public Gym create() {
+		Gym result;
+		
+		result = new Gym();
 		
 		return result;
 	}
