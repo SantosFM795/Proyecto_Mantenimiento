@@ -29,6 +29,16 @@ public class CVService {
 		
 		//Simple CRUD methods -------------------------
 		
+		public CV save(CV cv) {
+			Assert.notNull(cv);
+			
+			CV result;
+			
+			result=cvRepository.save(cv);
+			
+			return result;
+		}
+		
 		//LAS ACTIVIDADES NO SE PUEDEN CREAR NI BORRAR
 		
 		public Collection<CV> findAll(){
