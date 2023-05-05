@@ -12,11 +12,11 @@ import domain.Gym;
 public interface GymRepository extends JpaRepository<Gym, Integer>{
 
 	@Query("select m.gyms from Manager m where m.userAccount_id = ?1")
-	Collection<Gym> findByUserAccountManagerId(int UserAccountId);
+	Collection<Gym> findByManager(int UserAccountId);
 	
 	@Query("select t.gyms from Trainer t where t.userAccount_id = ?1")
-	Collection<Gym> findByUserAccountTrainerId(int UserAccountId);
+	Collection<Gym> findByTrainer(int UserAccountId);
 	
 	@Query("select s.gym from Signing s where s.customer.userAccount_id = ?1")
-	Collection<Gym> findByUserAccountCustomerId(int UserAccountId);
+	Collection<Gym> findByCustomer(int UserAccountId);
 }
