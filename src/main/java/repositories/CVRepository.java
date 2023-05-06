@@ -11,6 +11,6 @@ import domain.CV;
 @Repository
 public interface CVRepository extends JpaRepository<CV, Integer>{
 
-	@Query("select t.cv from Trainer t where t.userAccount_id = ?1")
+	@Query("select t.curriculum from Trainer t where t.userAccount.id = ?1")
 	CV findByTrainerId(int userAccountId);
 }

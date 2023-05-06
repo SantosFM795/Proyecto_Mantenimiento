@@ -37,11 +37,11 @@
 	<!-- JPA -->
 
 	<bean id="persistenceUnit" class="java.lang.String">
-		<constructor-arg value="Sample" />
+		<constructor-arg value="AcmeGym" />
 	</bean>
 
 	<bean id="sqlDialect" class="java.lang.String">
-		<constructor-arg value="AcmeGym" />
+		<constructor-arg value="org.hibernate.dialect.MySQLDialect" />
 	</bean>
 
 	<util:properties id="jpaProperties">

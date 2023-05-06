@@ -10,7 +10,7 @@ import domain.Annotation;
 
 @Repository
 public interface AnnotationRepository extends JpaRepository<Annotation, Integer>{
-
+	
 	@Query("select a from Annotation a where a.training.id = ?1")
 	Collection<Annotation> findByTrainingId(int TrainingId);
 	
