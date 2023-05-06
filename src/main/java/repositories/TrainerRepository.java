@@ -8,9 +8,6 @@ import domain.Trainer;
 
 @Repository
 public interface TrainerRepository extends JpaRepository<Trainer, Integer>{
-	
-	@Query("select t from Trainer t where t.userAccount.id = ?1")
-	Trainer findByUserAccountId(int userAccountId);
-	
+		
 	
 }
