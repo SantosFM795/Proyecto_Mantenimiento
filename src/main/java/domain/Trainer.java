@@ -7,11 +7,12 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
 
 @Entity
 @Access(AccessType.PROPERTY)
 public class Trainer extends Actor{
-	//private CV curriculum;
+	private CV curriculum;
 	
 	
 	private Collection<Activity> activities;
@@ -34,7 +35,8 @@ public class Trainer extends Actor{
 	public void setActivities(Collection<Activity> activities) {
 		this.activities = activities;
 	}
-	/*
+	
+	@Valid
 	@OneToOne(optional=false)
 	public CV getCurriculum() {
 		return curriculum;
@@ -42,5 +44,5 @@ public class Trainer extends Actor{
 
 	public void setCurriculum(CV curriculum) {
 		this.curriculum = curriculum;
-	}*/
+	}
 }

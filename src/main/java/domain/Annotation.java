@@ -6,6 +6,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -26,19 +27,28 @@ public class Annotation extends DomainEntity{
 	private Training training;
 	private Activity activity;
 	
+	@Valid
 	@ManyToOne(optional=true)
 	public Gym getGym() {
 		return gym;
 	}
 	
+	@Valid
 	@ManyToOne(optional=true)
 	public Training getTraining() {
 		return training;
 	}
 	
+	@Valid
 	@ManyToOne(optional=true)
 	public Activity getActivity() {
 		return activity;
+	}
+	
+	@Valid
+	@ManyToOne(optional=false)
+	public Actor getActor() {
+		return actor;
 	}
 	public void setGym(Gym gym) {
 		this.gym = gym;
@@ -49,10 +59,7 @@ public class Annotation extends DomainEntity{
 	public void setActivity(Activity activity) {
 		this.activity = activity;
 	}
-	@ManyToOne(optional=false)
-	public Actor getActor() {
-		return actor;
-	}
+	
 	public void setActor(Actor actor) {
 		this.actor = actor;
 	}

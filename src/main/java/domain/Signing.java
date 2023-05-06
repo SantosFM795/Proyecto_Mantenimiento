@@ -6,6 +6,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -17,11 +18,13 @@ public class Signing extends DomainEntity{
 	private Customer customer;
 	private Gym gym;
 	
+	@Valid
 	@ManyToOne(optional=false)
 	public Customer getCustomer() {
 		return customer;
 	}
 	
+	@Valid
 	@ManyToOne(optional=false)
 	public Gym getGym() {
 		return gym;

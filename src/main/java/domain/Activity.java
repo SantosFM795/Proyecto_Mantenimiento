@@ -3,6 +3,7 @@ package domain;
 import java.util.Collection;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
@@ -25,6 +26,7 @@ public class Activity extends DomainEntity{
 	private Collection<Customer> customers;
 	private Collection<Trainer> trainer;
 	
+	@Valid
 	@ManyToMany(mappedBy="activities")
 	public Collection<Trainer> getTrainer() {
 		return trainer;
@@ -33,7 +35,7 @@ public class Activity extends DomainEntity{
 	public void setTrainer(Collection<Trainer> trainer) {
 		this.trainer = trainer;
 	}
-
+	
 	@ManyToMany(mappedBy="activities")
 	public Collection<Customer> getCustomers() {
 		return customers;

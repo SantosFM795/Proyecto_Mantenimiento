@@ -135,7 +135,7 @@
 		<property name="city" value="Huelva" />
 		<property name="country" value="ESP" />
 		<property name="userAccount" ref="userAccount4" />	
-		
+		<property name="curriculum" ref="cv1"></property>
 		<property name="activities">
 			<list>
 				<ref bean="activity1"></ref>
@@ -305,6 +305,18 @@
 	</bean>
 	
 	<!-- CV -->
+	
+	<bean id="cv1" class="domain.CV">
+		<property name="skills" value="lo que sea" />
+		<property name="formation" value="el que sea" />
+		<property name="workExperience" value="mucho" />	
+		<property name="trainer" ref="trainer1" />
+		<property name="rrss">
+			<list>
+				<ref bean="social1"></ref>
+			</list>
+		</property>
+	</bean>
 	
 	<!-- Social Media -->
 	<bean id="social1" class="domain.SocialMedia">
