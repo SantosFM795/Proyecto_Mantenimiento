@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import domain.Customer;
 import domain.Gym;
+import domain.Manager;
+import domain.Trainer;
 import repositories.GymRepository;
 @Service
 @Transactional
@@ -19,6 +22,10 @@ public class GymService {
 	private GymRepository gymRepository;
 	
 	// Supporting services ------------------------
+	
+	private ManagerService managerService;
+	private TrainerService trainerService;
+	private CustomerService customerService;
 	
 	// Constructor --------------------------------
 	
@@ -75,37 +82,36 @@ public class GymService {
 	}
 	
 	//Other business methods ----------------------
-	//siempre el id del userAccount
-	public Collection<Gym> findByManager(int managerId){
-		Assert.isTrue(managerId != 0);
-		
+	public Collection<Gym> findByManager(){
 		Collection<Gym> result;
+		Manager manager;
 		
-		result=gymRepository.findByManager(managerId);
+		manager = this.managerService.findByPrincipal();
+		Assert.notNull(manager);
+		result = this.gymRepository.findByManager(manager.getId());
 		
 		return result;
-		
 	}
 	
-	public Collection<Gym> findByTrainer(int trainerId){
-		Assert.isTrue(trainerId != 0);
-		
+	public Collection<Gym> findByTrainer(){
 		Collection<Gym> result;
+		Trainer trainer;
 		
-		result=gymRepository.findByTrainer(trainerId);
+		trainer = this.trainerService.findByPrincipal();
+		Assert.notNull(trainer);
+		result = this.gymRepository.findByTrainer(trainer.getId());
 		
 		return result;
-		
 	}
 	
-	public Collection<Gym> findByCustomer(int customerId){
-		Assert.isTrue(customerId != 0);
-		
+	public Collection<Gym> findByCustomer(){
 		Collection<Gym> result;
+		Customer customer;
 		
-		result=gymRepository.findByCustomer(customerId);
+		customer = this.customerService.findByPrincipal();
+		Assert.notNull(customer);
+		result = this.gymRepository.findByCustomer(customer.getId());
 		
 		return result;
-		
 	}
 }

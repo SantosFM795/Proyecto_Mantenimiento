@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import domain.CV;
+import domain.Trainer;
 import repositories.CVRepository;
 
 @Service
@@ -21,6 +22,7 @@ public class CVService {
 		
 		// Supporting services ------------------------
 		
+		private TrainerService trainerService;
 		// Constructor --------------------------------
 		
 		public CVService() {
@@ -54,12 +56,13 @@ public class CVService {
 		
 		//Other business methods ----------------------
 		
-		public CV findByTrainer (int trainerId) {
-			Assert.isTrue(trainerId != 0);
-			
+		public CV findByTrainer () {
 			CV result;
+			Trainer trainer;
 			
-			result=cvRepository.findByTrainerId(trainerId);
+			trainer = this.trainerService.findByPrincipal();
+			Assert.notNull(trainer);
+			result = this.cvRepository.findByTrainerId(trainer.getId());
 			
 			return result;
 		}

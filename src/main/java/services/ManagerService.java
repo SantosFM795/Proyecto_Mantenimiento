@@ -9,6 +9,8 @@ import org.springframework.util.Assert;
 
 import domain.Manager;
 import repositories.ManagerRepository;
+import security.LoginService;
+import security.UserAccount;
 
 @Service
 @Transactional
@@ -16,53 +18,79 @@ public class ManagerService {
 	
 	// Managed repository -------------------------
 	
-		@Autowired
-		private ManagerRepository managerRepository;
+	@Autowired
+	private ManagerRepository managerRepository;
+	
+	// Supporting services ------------------------
+	
+	// Constructor --------------------------------
+	
+	public ManagerService() {
+		super();
+	}
+	
+	//Simple CRUD methods -------------------------
+	
+	public Collection<Manager> findAll(){
+		Collection<Manager> result;
 		
-		// Supporting services ------------------------
+		Assert.notNull(this.managerRepository);
+		result=this.managerRepository.findAll();
+		Assert.notNull(result);
 		
-		// Constructor --------------------------------
+		return result;
+	}
+	
+	public Manager findOne(final int managerId) {
+		Manager result;
 		
-		public ManagerService() {
-			super();
-		}
+		result=this.managerRepository.findOne(managerId);
 		
-		//Simple CRUD methods -------------------------
+		return result;
+	}
+	
+	public Manager create() {
+		Manager result;
 		
-		public Collection<Manager> findAll(){
-			Collection<Manager> result;
-			
-			Assert.notNull(this.managerRepository);
-			result=this.managerRepository.findAll();
-			Assert.notNull(result);
-			
-			return result;
-		}
+		result = new Manager();
 		
-		public Manager findOne(final int managerId) {
-			Manager result;
-			
-			result=this.managerRepository.findOne(managerId);
-			
-			return result;
-		}
+		return result;
+	}
+	
+	public Manager save(Manager manager) {
+		Assert.notNull(manager);
 		
-		public Manager create() {
-			Manager result;
-			
-			result = new Manager();
-			
-			return result;
-		}
+		Manager result;
 		
-		public Manager save(Manager manager) {
-			Assert.notNull(manager);
-			
-			Manager result;
-			
-			result = managerRepository.save(manager);
-			
-			return result;
-		}
+		result = managerRepository.save(manager);
+		
+		return result;
+	}
+	
+	//Other business methods ----------------------
+	
+	public Manager findByPrincipal() {
+		Manager result;
+		UserAccount userAccount;
+		
+		userAccount= LoginService.getPrincipal();
+		Assert.notNull(userAccount);
+		result = findByUserAccount(userAccount);
+		Assert.notNull(result);
+		
+		return result;
+	}
+	
+	public Manager findByUserAccount(UserAccount userAccount) {
+		Assert.notNull(userAccount);
+		
+		Manager result;
+		
+		result = managerRepository.findByUserAccountId(userAccount.getId());
+		
+		return result;
+		
+		
+	}
 		
 }
