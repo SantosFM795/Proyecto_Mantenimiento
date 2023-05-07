@@ -29,7 +29,18 @@ public class Gym extends DomainEntity{
 	private Collection<Signing> signing;
 	private Collection<Training> training;
 	private Manager manager;
+	private Collection<Trainer> trainer;
+
+	@Valid
+	@ManyToMany(mappedBy="gyms")
+	public Collection<Trainer> getTrainer() {
+		return trainer;
+	}
 	
+	public void setTrainer(Collection<Trainer> trainer) {
+		this.trainer = trainer;
+	}
+
 	@Valid
 	@ManyToOne(optional=false)
 	public Manager getManager() {
