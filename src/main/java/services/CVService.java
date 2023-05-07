@@ -21,7 +21,7 @@ public class CVService {
 		private CVRepository cvRepository;
 		
 		// Supporting services ------------------------
-		
+		@Autowired
 		private TrainerService trainerService;
 		// Constructor --------------------------------
 		

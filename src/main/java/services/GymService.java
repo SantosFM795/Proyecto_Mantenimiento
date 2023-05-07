@@ -22,9 +22,13 @@ public class GymService {
 	private GymRepository gymRepository;
 	
 	// Supporting services ------------------------
-	
+	@Autowired
 	private ManagerService managerService;
+	
+	@Autowired
 	private TrainerService trainerService;
+	
+	@Autowired
 	private CustomerService customerService;
 	
 	// Constructor --------------------------------

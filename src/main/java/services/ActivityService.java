@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import domain.Activity;
+import domain.Manager;
 import repositories.ActivityRepository;
 
 @Service
@@ -20,7 +21,8 @@ public class ActivityService {
 	private ActivityRepository activityRepository;
 	
 	// Supporting services ------------------------
-	
+	@Autowired
+	private ManagerService managerService;
 	// Constructor --------------------------------
 	
 	public ActivityService() {
@@ -50,5 +52,26 @@ public class ActivityService {
 	}
 	
 	//Other business methods ----------------------
+	//HABRIA QUE CREAR UNO QUE SEA MOSTRAR TODAS LAS ACTIVIDADES A LAS QUE SE PUEDA APUNTAR UN CUSTOMER
+	
+	public Collection<Activity> findByManager(){
+		Collection<Activity> result;
+		Manager manager;
+		
+		manager = this.managerService.findByPrincipal();
+		Assert.notNull(manager);
+		result = this.activityRepository.findByManagerId(manager.getId());
+		
+		return result;
+	}
+	
+	public Collection<Activity> findAllActive(){
+		Collection<Activity> result;
+		
+		result=this.activityRepository.findAllActive();
+		Assert.notNull(result);
+		
+		return result;
+	}
 
 }
