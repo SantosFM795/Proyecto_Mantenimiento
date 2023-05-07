@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
@@ -27,7 +28,17 @@ public class Gym extends DomainEntity{
 	private Collection<Activity> activity;
 	private Collection<Signing> signing;
 	private Collection<Training> training;
+	private Manager manager;
 	
+	@Valid
+	@ManyToOne(optional=false)
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
+	}
 
 	@ManyToMany
 	public Collection<Training> getTraining() {

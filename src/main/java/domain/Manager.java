@@ -16,7 +16,7 @@ public class Manager extends Actor{
 	
 	private Collection<Gym> gyms;
 	
-	@OneToMany
+	@OneToMany(mappedBy="manager")
 	public Collection<Gym> getGyms() {
 		return gyms;
 	}

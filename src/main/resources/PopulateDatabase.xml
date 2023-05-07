@@ -163,7 +163,8 @@
 		<property name="logo" value="https://cdn.logo.com/hotlink-ok/logo-social.png" />
 		<property name="address" value="C/Concepción, 17" />
 		<property name="active" value="true" />
-		<property name="mensualCost" value="30.00" />	
+		<property name="mensualCost" value="30.00" />
+		<property name="manager" ref="manager1" />	
 		
 		<property name="annotation">
 			<list>

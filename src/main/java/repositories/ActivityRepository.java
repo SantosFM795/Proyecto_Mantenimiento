@@ -15,10 +15,11 @@ public interface ActivityRepository extends JpaRepository<Activity, Integer>{
 	@Query("select c.activities from Customer c where c.userAccount.id = ?1")
 	Collection<Activity> findByUserAccountCustomerId(int userAccountId);
 	
-	/*@Query("select m.gyms.activity from Manager m where m.userAccount.id = ?1")
-	Collection<Activity> findByUserAccountManagerId(int userAccountId);*/
+	@Query("select g.activity from Gym g where active=true")
+	Collection<Activity> findAllActive();
 	
-	
+	@Query("select g.activity from Gym g where g.manager.userAccount.id = ?1")
+	Collection<Activity> findByUserAccountManagerId(int userAccountId);
 	
 	
 }
