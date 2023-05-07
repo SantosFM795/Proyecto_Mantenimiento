@@ -9,6 +9,7 @@ import org.springframework.util.Assert;
 
 import domain.CV;
 import domain.Trainer;
+import domain.Training;
 import repositories.CVRepository;
 
 @Service
@@ -53,7 +54,14 @@ public class CVService {
 			return result;
 		}
 		
-		
+		public  CV findOne(int cvId) {
+			CV result;
+			
+			result=this.cvRepository.findOne(cvId);
+			
+			return result;
+		}
+
 		//Other business methods ----------------------
 		
 		public CV findByTrainer () {
@@ -66,5 +74,15 @@ public class CVService {
 			
 			return result;
 		}
+		
+		public void delete(CV cv) {
+			Assert.notNull(cv);
+			
+			Assert.isTrue(cv.getId() != 0);
+			
+			cvRepository.delete(cv);
+			
+		}
 
+	
 }
