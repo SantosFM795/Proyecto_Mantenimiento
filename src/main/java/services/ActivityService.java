@@ -53,6 +53,8 @@ public class ActivityService {
 	
 	//Other business methods ----------------------
 	//HABRIA QUE CREAR UNO QUE SEA MOSTRAR TODAS LAS ACTIVIDADES A LAS QUE SE PUEDA APUNTAR UN CUSTOMER
+	//Solucionao, al final no hace falta, con que se muestren las actividades de un gimnasio basta
+	//ya que lo unico que hay que hacer es obtener lso gyms de un customer
 	
 	public Collection<Activity> findByManager(){
 		Collection<Activity> result;
@@ -69,6 +71,16 @@ public class ActivityService {
 		Collection<Activity> result;
 		
 		result=this.activityRepository.findAllActive();
+		Assert.notNull(result);
+		
+		return result;
+	}
+	
+	public Collection<Activity> findByGym(int gymId){
+		Assert.isTrue(gymId != 0);
+		Collection<Activity> result;
+		
+		result=this.activityRepository.findByGymId(gymId);
 		Assert.notNull(result);
 		
 		return result;
