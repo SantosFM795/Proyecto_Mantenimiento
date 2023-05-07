@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import domain.Activity;
+import domain.Manager;
 import domain.Trainer;
 import repositories.TrainerRepository;
 import security.LoginService;
@@ -22,7 +24,8 @@ public class TrainerService {
 	private TrainerRepository trainerRepository;
 	
 	// Supporting services ------------------------
-	
+	@Autowired
+	private ManagerService managerService;
 	// Constructor --------------------------------
 	
 	public TrainerService() {
@@ -75,5 +78,16 @@ public class TrainerService {
 		return result;
 		
 		
+	}
+
+	public Collection<Trainer> findByManager() {
+		Collection<Trainer> result;
+		Manager manager;
+		
+		manager = this.managerService.findByPrincipal();
+		Assert.notNull(manager);
+		result = this.trainerRepository.findByManagerId(manager.getId());
+		
+		return result;
 	}
 }

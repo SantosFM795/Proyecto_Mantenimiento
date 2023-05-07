@@ -1,39 +1,40 @@
 package controllers.manager;
 
 import java.util.Collection;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import controllers.AbstractController;
-import domain.Activity;
-import services.ActivityService;
-
-
-// Se puede dar de alta, listar y cancelar actividades
+import domain.Trainer;
+import services.TrainerService;
 
 @Controller
-@RequestMapping("/Activity/manager")
-public class ActivityManagerController extends AbstractController {
+@RequestMapping("/trainer/manager")
+public class TrainerManagerController extends AbstractController {
 	// Services ---------------------------------------------------------------
 	@Autowired
-	private ActivityService ActivityService;
+	private TrainerService TrainerService;
 	// Constructors -----------------------------------------------------------
-	public ActivityManagerController() {
+	public TrainerManagerController() {
 		super();
 	}
 	// Listing ----------------------------------------------------------------
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView result;
-		Collection<Activity> Activitys;
-		
-		Activitys = this.ActivityService.findAll();
-		result = new ModelAndView("Activity/list");
-		result.addObject("requestURI", "Activity/manager/list.do");
-		result.addObject("Activitys",Activitys);
+		Collection<Trainer> trainers;
+		// Para listar solo los trainers de los gyms que gestiona el manager
+		trainers = this.TrainerService.findByManager();
+		result = new ModelAndView("trainer/list");
+		result.addObject("requestURI", "trainer/manager/list.do");
+		result.addObject("Trainers",trainers);
 		return result;
 	}
 	// Creation ---------------------------------------------------------------
@@ -41,19 +42,6 @@ public class ActivityManagerController extends AbstractController {
 	// Save
 	// Delete
 	// Ancillary methods ------------------------------------------------------
+	
 
-		protected ModelAndView createEditModelAndView(final Activity Activity) {
-			ModelAndView result;
-
-			result = this.createEditModelAndView(Activity, null);
-
-			return result;
-		}
-	protected ModelAndView createEditModelAndView(Activity Activity, final String message) {
-		ModelAndView result;
-		result = new ModelAndView("Activity/edit");
-		result.addObject("Activity",Activity);
-		result.addObject("message",message);
-		return result;
-	}
 }
