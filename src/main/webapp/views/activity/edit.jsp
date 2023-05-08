@@ -19,7 +19,7 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="activity/administrator/edit.do" modelAttribute="activity">
+<form:form action="activity/manager/edit.do" modelAttribute="activity">
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
@@ -54,7 +54,7 @@
 	</jstl:if>
 	<input type="button" name="cancel"
 		value="<spring:message code="activity.cancel" />"
-		onclick="javascript: relativeRedir('activity/administrator/list.do');" />
+		onclick="javascript: relativeRedir('activity/manager/list.do');" />
 	<br />
 
 	<%-- Se debe añadir un script de control, revisar acme-Certifications --%>

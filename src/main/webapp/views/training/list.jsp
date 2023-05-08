@@ -16,7 +16,7 @@
 <!-- Listing grid -->
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="trainings" requestURI="${requestURI}" id="row">
+	name="trainings" requestURI="training/customer/list.do" id="row">
 	
 	<display:column property="title" titleKey="training.title"/>
 	<display:column property="description" titleKey="training.description"/>

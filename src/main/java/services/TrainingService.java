@@ -71,6 +71,8 @@ public class TrainingService {
 		
 		trainingRepository.delete(training);
 	}
+
+
 	
 	//Other business methods ----------------------
 }
