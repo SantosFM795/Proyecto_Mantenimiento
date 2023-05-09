@@ -62,7 +62,7 @@ public class ActivityService {
 		
 		manager = this.managerService.findByPrincipal();
 		Assert.notNull(manager);
-		result = this.activityRepository.findByManagerId(manager.getId());
+		result = this.activityRepository.findByManagerId(manager.getUserAccount().getId());
 		
 		return result;
 	}

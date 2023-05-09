@@ -86,7 +86,7 @@ public class TrainerService {
 		
 		manager = this.managerService.findByPrincipal();
 		Assert.notNull(manager);
-		result = this.trainerRepository.findByManagerId(manager.getId());
+		result = this.trainerRepository.findByManagerId(manager.getUserAccount().getId());
 		
 		return result;
 	}

@@ -92,7 +92,7 @@ public class GymService {
 		
 		manager = this.managerService.findByPrincipal();
 		Assert.notNull(manager);
-		result = this.gymRepository.findByManager(manager.getId());
+		result = this.gymRepository.findByManager(manager.getUserAccount().getId());
 		
 		return result;
 	}
@@ -103,7 +103,7 @@ public class GymService {
 		
 		trainer = this.trainerService.findByPrincipal();
 		Assert.notNull(trainer);
-		result = this.gymRepository.findByTrainer(trainer.getId());
+		result = this.gymRepository.findByTrainer(trainer.getUserAccount().getId());
 		
 		return result;
 	}
@@ -114,7 +114,7 @@ public class GymService {
 		
 		customer = this.customerService.findByPrincipal();
 		Assert.notNull(customer);
-		result = this.gymRepository.findByCustomer(customer.getId());
+		result = this.gymRepository.findByCustomer(customer.getUserAccount().getId());
 		
 		return result;
 	}

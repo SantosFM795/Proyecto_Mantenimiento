@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import domain.Customer;
+import domain.Gym;
+import domain.Manager;
 import domain.Training;
 import repositories.TrainingRepository;
 
@@ -19,6 +22,11 @@ public class TrainingService {
 	private TrainingRepository trainingRepository;
 	
 	// Supporting services ------------------------
+	@Autowired
+	private CustomerService customerService;
+	@Autowired
+	private ManagerService managerService;
+	
 	
 	// Constructor --------------------------------
 	
@@ -75,4 +83,26 @@ public class TrainingService {
 
 	
 	//Other business methods ----------------------
+	
+	public Collection<Training> findByCustomer(){
+		Collection<Training> result;
+		Customer customer;
+		
+		customer = this.customerService.findByPrincipal();
+		Assert.notNull(customer);
+		result = this.trainingRepository.findByCustomerId(customer.getUserAccount().getId());
+		
+		return result;
+	}
+	
+	public Collection<Training> findByManager(){
+		Collection<Training> result;
+		Manager manager;
+		
+		manager = this.managerService.findByPrincipal();
+		Assert.notNull(manager);
+		result = this.trainingRepository.findByManagerId(manager.getUserAccount().getId());
+		
+		return result;
+	}
 }

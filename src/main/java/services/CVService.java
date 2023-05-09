@@ -61,19 +61,6 @@ public class CVService {
 			
 			return result;
 		}
-
-		//Other business methods ----------------------
-		
-		public CV findByTrainer () {
-			CV result;
-			Trainer trainer;
-			
-			trainer = this.trainerService.findByPrincipal();
-			Assert.notNull(trainer);
-			result = this.cvRepository.findByTrainerId(trainer.getId());
-			
-			return result;
-		}
 		
 		public void delete(CV cv) {
 			Assert.notNull(cv);
@@ -83,6 +70,21 @@ public class CVService {
 			cvRepository.delete(cv);
 			
 		}
+
+		//Other business methods ----------------------
+		
+		public CV findByTrainer () {
+			CV result;
+			Trainer trainer;
+			
+			trainer = this.trainerService.findByPrincipal();
+			Assert.notNull(trainer);
+			result = this.cvRepository.findByTrainerId(trainer.getUserAccount().getId());
+			
+			return result;
+		}
+		
+		
 
 	
 }

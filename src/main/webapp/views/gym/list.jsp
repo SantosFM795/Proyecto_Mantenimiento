@@ -17,21 +17,27 @@
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="gyms" requestURI="${requestURI}" id="row">
-
-	<display:column property="name" titleKey="gym.nameGym" />
-	<display:column property="address" titleKey="gym.address" />
-	<display:column property="mensualCost" titleKey="gym.mensualCost" />
-
-	<!-- Action links -->
-
-	<security:authorize access="hasRole('ADMIN')">
+	
+	<%-- <security:authorize access="hasRole('MANAGER')">
 		<display:column>
 			<a href="gym/administrator/edit.do?gymId=${row.id}"> <spring:message
 					code="gym.edit" />
 			</a>
 		</display:column>
-	</security:authorize>
+	</security:authorize> --%>
+	
+	<spring:message code="gym.name" var="nameHeader"/>
+	<display:column property="name" title="${nameHeader}" sortable="true"/>
+	
+	<spring:message code="gym.address" var="addressHeader"/>
+	<display:column property="address" title="${addressHeader}" sortable="true"/>
+	
+	<spring:message code="gym.mensualCost" var="mensualCostHeader"/>
+	<display:column property="mensualCost" title="${mensualCostHeader}" sortable="true" />
 
+	<!-- Action links -->
+
+	
 </display:table>
 <%-- 	 Check 
 	<security:authorize access="hasRole('ADMIN')">
