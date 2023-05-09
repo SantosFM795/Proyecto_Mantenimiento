@@ -24,5 +24,10 @@
 	<spring:message code="trainer.lastName" var="lastNameHeader"/>
 	<display:column property="lastName" title="${lastNameHeader}" sortable="true"/>
 	
+	<spring:message code="trainer.cv.workExperience" var="workExperienceHeader"/>
+	<display:column property="curriculum.workExperience" title="${workExperienceHeader}" sortable="true"/>
+	
+	
+	
 	
 </display:table>
