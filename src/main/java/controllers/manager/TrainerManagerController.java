@@ -31,10 +31,10 @@ public class TrainerManagerController extends AbstractController {
 		ModelAndView result;
 		Collection<Trainer> trainers;
 		// Para listar solo los trainers de los gyms que gestiona el manager
-		trainers = this.TrainerService.findByManager();
+		trainers = this.TrainerService.findAll();
 		result = new ModelAndView("trainer/list");
 		result.addObject("requestURI", "trainer/manager/list.do");
-		result.addObject("Trainers",trainers);
+		result.addObject("trainers",trainers);
 		return result;
 	}
 	// Creation ---------------------------------------------------------------

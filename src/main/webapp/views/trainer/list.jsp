@@ -18,7 +18,11 @@
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="trainers" requestURI="${requestURI}" id="row">
 	
-	<display:column property="name" titleKey="trainer.name"/>
-	<display:column property="surname" titleKey="trainer.surname"/>
-	<display:column property="cv" titleKey="trainer.cv.workExperience"/>
+	<spring:message code="trainer.name" var="trainerHeader"/>
+	<display:column property="name" title="${trainerHeader}" sortable="true"/>
+	
+	<spring:message code="trainer.lastName" var="lastNameHeader"/>
+	<display:column property="lastName" title="${lastNameHeader}" sortable="true"/>
+	
+	
 </display:table>
