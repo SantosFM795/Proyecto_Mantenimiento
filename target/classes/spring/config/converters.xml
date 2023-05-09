@@ -22,6 +22,51 @@
 			Add your own converters using entries of the following form: 
 			<bean class="converters.Class1ToClass2" /> 
 		-->
+		<bean class="converters.ActivityToStringConverter"/>
+		<bean class="converters.StringToActivityConverter"/>
+		
+		<bean class="converters.ActorToStringConverter"/>
+		<bean class="converters.StringToActorConverter"/>
+		
+		<bean class="converters.AdministratorToStringConverter"/>
+		<bean class="converters.StringToAdministratorConverter"/>
+		
+		<bean class="converters.AnnotationToStringConverter"/>
+		<bean class="converters.StringToAnnotationConverter"/>
+		
+		<bean class="converters.AuthorityToStringConverter"/>
+		<bean class="converters.StringToAuthorityConverter"/>
+		
+		<bean class="converters.CreditCardToStringConverter"/>
+		<bean class="converters.StringToCreditCardConverter"/>
+		
+		<bean class="converters.CustomerToStringConverter"/>
+		<bean class="converters.StringToCustomerConverter"/>
+		
+		<bean class="converters.CVToStringConverter"/>
+		<bean class="converters.StringToCVConverter"/>
+		
+		<bean class="converters.GymToStringConverter"/>
+		<bean class="converters.StringToGymConverter"/>
+		
+		<bean class="converters.ManagerToStringConverter"/>
+		<bean class="converters.StringToManagerConverter"/>
+		
+		<bean class="converters.SigningToStringConverter"/>
+		<bean class="converters.StringToSigningConverter"/>
+		
+		<bean class="converters.SocialMediaToStringConverter"/>
+		<bean class="converters.StringToSocialMediaConverter"/>
+		
+		<bean class="converters.StepToStringConverter"/>
+		<bean class="converters.StringToStepConverter"/>
+		
+		<bean class="converters.TrainerToStringConverter"/>
+		<bean class="converters.StringToTrainerConverter"/>
+		
+		<bean class="converters.TrainingToStringConverter"/>
+		<bean class="converters.StringToTrainingConverter"/>
+				
 	</util:list>
 	
 </beans>
