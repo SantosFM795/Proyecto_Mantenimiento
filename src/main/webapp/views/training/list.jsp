@@ -17,7 +17,7 @@
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="trainings" requestURI="training/customer/list.do" id="row">
-	
-	<display:column property="title" titleKey="training.title"/>
+	<spring:message code="training.title" var="titleHeader" />
+	<display:column property="title" title="${titleHeader}" sortable="true" />
 	<display:column property="description" titleKey="training.description"/>
 </display:table>
