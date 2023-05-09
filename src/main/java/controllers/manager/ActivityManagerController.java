@@ -15,11 +15,11 @@ import services.ActivityService;
 // Se puede dar de alta, listar y cancelar actividades
 
 @Controller
-@RequestMapping("/Activity/manager")
+@RequestMapping("/activity/manager")
 public class ActivityManagerController extends AbstractController {
 	// Services ---------------------------------------------------------------
 	@Autowired
-	private ActivityService ActivityService;
+	private ActivityService activityService;
 	// Constructors -----------------------------------------------------------
 	public ActivityManagerController() {
 		super();
@@ -28,12 +28,12 @@ public class ActivityManagerController extends AbstractController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView result;
-		Collection<Activity> Activitys;
+		Collection<Activity> activities;
 		
-		Activitys = this.ActivityService.findAll();
-		result = new ModelAndView("Activity/list");
-		result.addObject("requestURI", "Activity/manager/list.do");
-		result.addObject("Activitys",Activitys);
+		activities = this.activityService.findByManager();
+		result = new ModelAndView("activity/list");
+		result.addObject("requestURI", "activity/manager/list.do");
+		result.addObject("activities",activities);
 		return result;
 	}
 	// Creation ---------------------------------------------------------------
@@ -42,17 +42,17 @@ public class ActivityManagerController extends AbstractController {
 	// Delete
 	// Ancillary methods ------------------------------------------------------
 
-		protected ModelAndView createEditModelAndView(final Activity Activity) {
+		protected ModelAndView createEditModelAndView(final Activity activity) {
 			ModelAndView result;
 
-			result = this.createEditModelAndView(Activity, null);
+			result = this.createEditModelAndView(activity, null);
 
 			return result;
 		}
-	protected ModelAndView createEditModelAndView(Activity Activity, final String message) {
+	protected ModelAndView createEditModelAndView(Activity activity, final String message) {
 		ModelAndView result;
-		result = new ModelAndView("Activity/edit");
-		result.addObject("Activity",Activity);
+		result = new ModelAndView("activity/edit");
+		result.addObject("activity",activity);
 		result.addObject("message",message);
 		return result;
 	}

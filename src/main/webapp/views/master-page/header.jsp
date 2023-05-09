@@ -45,6 +45,7 @@
 				<ul>
 					<li class="arrow"></li>
 					<li><a href="gym/manager/list.do"><spring:message code="master.page.manager.gyms" /></a></li>
+					<li><a href="activity/manager/list.do"><spring:message code="master.page.manager.activities" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>

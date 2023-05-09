@@ -41,7 +41,7 @@ public class TrainingManagerController extends AbstractController {
 		ModelAndView result;
 		Collection<Training> trainings;
 		
-		trainings = this.trainingService.findAll();
+		trainings = this.trainingService.findByManager();
 		result = new ModelAndView("training/list");
 		result.addObject("requestURI", "training/manager/list.do");
 		result.addObject("trainings",trainings);

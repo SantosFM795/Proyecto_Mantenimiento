@@ -5,14 +5,14 @@
       
 <tiles-definitions>
 
-	<definition name="client/list" extends="master.page">	
-		<put-attribute name="title" value="Client list" />
-		<put-attribute name="body" value="/views/client/list.jsp" />
+	<definition name="activity/list" extends="master.page">	
+		<put-attribute name="title" value="Activity list" />
+		<put-attribute name="body" value="/views/activity/list.jsp" />
 	</definition>
 	
-	<definition name="client/edit" extends="master.page">	
-		<put-attribute name="title" value="Edit client" />
-		<put-attribute name="body" value="/views/client/edit.jsp" />
+	<definition name="activity/edit" extends="master.page">	
+		<put-attribute name="title" value="Edit activity" />
+		<put-attribute name="body" value="/views/activity/edit.jsp" />
 	</definition>
 	
 </tiles-definitions>

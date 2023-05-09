@@ -18,13 +18,18 @@
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="activities" requestURI="${requestURI}" id="row">
 	
-	<display:column property="title" titleKey="activity.title"/>
-	<display:column property="description" titleKey="activity.description"/>
-	<display:column property="day" titleKey="activity.day"/>
+	<spring:message code="activity.title" var="titleHeader"/>
+	<display:column property="title" title="${titleHeader}" sortable="true"/>
+	
+	<spring:message code="activity.description" var="descriptionHeader"/>
+	<display:column property="description" title="${descriptionHeader}" sortable="false"/>
+	
+	<spring:message code="activity.day" var="dayHeader"/>
+	<display:column property="day" title="${dayHeader}" sortable="true"/>
 	
 	<!-- Action links -->
 
-	<security:authorize access="hasRole('ADMIN')">
+	<!--<security:authorize access="hasRole('ADMIN')">
 		<display:column>
 			<a href="activity/administrator/edit.do?activityId=${row.id}"> <spring:message
 					code="activity.edit" />
@@ -38,6 +43,6 @@
 					code="activity.create" />
 			</a>
 		</div>
-	</security:authorize>
+	</security:authorize> -->
 
 </display:table>
