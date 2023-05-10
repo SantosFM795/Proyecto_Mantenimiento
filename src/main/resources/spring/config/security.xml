@@ -37,6 +37,10 @@
 		<security:intercept-url pattern="/security/login.do" access="permitAll" /> 
 		<security:intercept-url pattern="/security/loginFailure.do" access="permitAll" /> 
 
+		<security:intercept-url pattern="/gym/customer/**"
+								access="hasRole('CUSTOMER')" />
+		<security:intercept-url pattern="/activity/customer/**"
+								access="hasRole('CUSTOMER')" />
 		<security:intercept-url pattern="/training/customer/**"
 								access="hasRole('CUSTOMER')" />
 		<security:intercept-url pattern="/activity/manager/**"

@@ -17,6 +17,6 @@ public interface GymRepository extends JpaRepository<Gym, Integer>{
 	@Query("select t.gyms from Trainer t where t.userAccount.id = ?1")
 	Collection<Gym> findByTrainer(int UserAccountId);
 	
-	@Query("select s.gym from Signing s where s.customer.userAccount.id = ?1")
+	@Query("select s.gym from Signing s where s.customer.userAccount.id = ?1 AND s.gym.active=true")
 	Collection<Gym> findByCustomer(int UserAccountId);
 }

@@ -18,13 +18,13 @@
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="gyms" requestURI="${requestURI}" id="row">
 	
-	<%-- <security:authorize access="hasRole('MANAGER')">
+	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
-			<a href="gym/administrator/edit.do?gymId=${row.id}"> <spring:message
+			<a href="gym/manager/edit.do?gymId=${row.id}"> <spring:message
 					code="gym.edit" />
 			</a>
 		</display:column>
-	</security:authorize> --%>
+	</security:authorize>
 	
 	<spring:message code="gym.name" var="nameHeader"/>
 	<display:column property="name" title="${nameHeader}" sortable="true"/>

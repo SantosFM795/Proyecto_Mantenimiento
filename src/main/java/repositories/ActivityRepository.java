@@ -21,5 +21,7 @@ public interface ActivityRepository extends JpaRepository<Activity, Integer>{
 	@Query("select g.activity from Gym g where g.manager.userAccount.id = ?1")
 	Collection<Activity> findByManagerId(int userAccountId);
 	
+	@Query("select s.gym.activity from Signing s where s.customer.userAccount.id = ?1")
+	Collection<Activity> findByCustomerId(int userAccountId);
 	
 }

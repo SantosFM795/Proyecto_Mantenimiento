@@ -9,29 +9,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import controllers.AbstractController;
-import domain.Activity;
-import services.ActivityService;
+import domain.Gym;
+import services.GymService;
+
 
 @Controller
-@RequestMapping("/activity/customer")
-public class ActivityCustomerController extends AbstractController {
+@RequestMapping("/gym/customer")
+public class GymCustomerController extends AbstractController {
 	// Services ---------------------------------------------------------------
 	@Autowired
-	private ActivityService activityService;
+	private GymService gymService;
 	// Constructors -----------------------------------------------------------
-	public ActivityCustomerController() {
+	public GymCustomerController() {
 		super();
 	}
 	// Listing ----------------------------------------------------------------
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView result;
-		Collection<Activity> activities;
+		Collection<Gym> gyms;
 		
-		activities = this.activityService.findByCustomer();
-		result = new ModelAndView("activity/list");
-		result.addObject("requestURI", "activity/customer/list.do");
-		result.addObject("activities",activities);
+		gyms = this.gymService.findAll();
+		result = new ModelAndView("gym/list");
+		result.addObject("requestURI", "gym/customer/list.do");
+		result.addObject("gyms",gyms);
 		return result;
 	}
 }

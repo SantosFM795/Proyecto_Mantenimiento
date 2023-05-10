@@ -35,7 +35,8 @@
 				<ul>
 					<li class="arrow"></li>
 					<li><a href="activity/customer/list.do"><spring:message code="master.page.customer.activities" /></a></li>
-					<li><a href="training/customer/list.do"><spring:message code="master.page.customer.trainings" /></a></li>					
+					<li><a href="training/customer/list.do"><spring:message code="master.page.customer.trainings" /></a></li>
+					<li><a href="gym/customer/list.do"><spring:message code="master.page.customer.gyms" /></a></li>					
 				</ul>
 			</li>
 		</security:authorize>

@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import domain.Activity;
+import domain.Customer;
 import domain.Manager;
 import repositories.ActivityRepository;
 
@@ -23,6 +24,9 @@ public class ActivityService {
 	// Supporting services ------------------------
 	@Autowired
 	private ManagerService managerService;
+	
+	@Autowired
+	private CustomerService customerService;
 	// Constructor --------------------------------
 	
 	public ActivityService() {
@@ -85,5 +89,18 @@ public class ActivityService {
 		
 		return result;
 	}
+	
+	public Collection<Activity> findByCustomer(){
+		Collection<Activity> result;
+		Customer customer;
+		
+		customer = this.customerService.findByPrincipal();
+		Assert.notNull(customer);
+		result = this.activityRepository.findByCustomerId(customer.getUserAccount().getId());
+		
+		return result;
+	}
+		
+	
 
 }
