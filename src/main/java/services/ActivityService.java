@@ -58,7 +58,7 @@ public class ActivityService {
 	//Other business methods ----------------------
 	//HABRIA QUE CREAR UNO QUE SEA MOSTRAR TODAS LAS ACTIVIDADES A LAS QUE SE PUEDA APUNTAR UN CUSTOMER
 	//Solucionao, al final no hace falta, con que se muestren las actividades de un gimnasio basta
-	//ya que lo unico que hay que hacer es obtener lso gyms de un customer
+	//ya que lo unico que hay que hacer es obtener los gyms de un customer
 	
 	public Collection<Activity> findByManager(){
 		Collection<Activity> result;

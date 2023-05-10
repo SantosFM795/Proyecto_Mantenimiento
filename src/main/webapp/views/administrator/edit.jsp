@@ -16,4 +16,11 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<p><spring:message code="administrator.action.1" /></p>
+<form:form action="administrator/edit.do" modelAttribute="administrator">
+
+	<form:hidden path="id" />
+	<form:hidden path="version" />
+
+
+	<%-- Se debe añadir un script de control, revisar acme-Certifications --%>
+</form:form>
