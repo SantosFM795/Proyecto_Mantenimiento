@@ -1,5 +1,6 @@
 
 
+
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -19,7 +20,7 @@
 	name="customers" requestURI="${requestURI}" id="row">
 	
 	<display:column property="name" titleKey="customer.name"/>
-	<display:column property="surname" titleKey="customer.surname"/>
+	<display:column property="lastName" titleKey="customer.lastName"/>
 	<display:column property="creditCard" titleKey="customer.creditCard"/>
 	
 	<!-- Action links -->
@@ -39,5 +40,4 @@
 			</a>
 		</div>
 	</security:authorize>
-
 </display:table>

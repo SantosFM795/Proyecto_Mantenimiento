@@ -45,6 +45,8 @@
 								access="hasRole('CUSTOMER')" />
 		<security:intercept-url pattern="/training/customer/**"
 								access="hasRole('CUSTOMER')" />
+		<security:intercept-url pattern="/customer/**"
+								access="hasRole('CUSTOMER')" />							
 		<security:intercept-url pattern="/activity/manager/**"
 								access="hasRole('MANAGER')" />
 		<security:intercept-url pattern="/trainer/manager/**"
