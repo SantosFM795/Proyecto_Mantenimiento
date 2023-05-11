@@ -29,20 +29,13 @@
 	
 	<!-- Action links -->
 
-	<!--<security:authorize access="hasRole('ADMIN')">
-		<display:column>
-			<a href="activity/administrator/edit.do?activityId=${row.id}"> <spring:message
-					code="activity.edit" />
-			</a>
-		</display:column>
-	</security:authorize>
 
-	<security:authorize access="hasRole('ADMIN')">
+</display:table>
+
+	<security:authorize access="hasRole('MANAGER')">
 		<div>
-			<a href="activity/administrator/create.do"> <spring:message
+			<a href="activity/manager/create.do"> <spring:message
 					code="activity.create" />
 			</a>
 		</div>
-	</security:authorize> -->
-
-</display:table>
+	</security:authorize>

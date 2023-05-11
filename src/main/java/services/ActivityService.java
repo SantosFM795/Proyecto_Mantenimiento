@@ -9,6 +9,7 @@ import org.springframework.util.Assert;
 
 import domain.Activity;
 import domain.Customer;
+import domain.Gym;
 import domain.Manager;
 import repositories.ActivityRepository;
 
@@ -54,6 +55,25 @@ public class ActivityService {
 		
 		return result;
 	}
+	
+	public Activity create() {
+		Activity result;
+		
+		result = new Activity();
+		
+		return result;
+	}
+	
+	public Activity save(Activity activity) {
+		Assert.notNull(activity);
+		
+		Activity result;
+		
+		result = activityRepository.save(activity);
+		
+		return result;
+	}
+	
 	
 	//Other business methods ----------------------
 	//HABRIA QUE CREAR UNO QUE SEA MOSTRAR TODAS LAS ACTIVIDADES A LAS QUE SE PUEDA APUNTAR UN CUSTOMER

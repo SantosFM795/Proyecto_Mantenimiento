@@ -44,6 +44,29 @@
 	<form:input path="description" />
 	<form:errors cssClass="error" path="description" />
 	<br />
+	
+	<form:label path="startTime">
+		<spring:message code="activity.startTime" />:
+	</form:label>
+	<form:input path="startTime" />
+	<form:errors cssClass="error" path="startTime" />
+	<br />
+	
+	<form:label path="endTime">
+		<spring:message code="activity.endTime" />:
+	</form:label>
+	<form:input path="endTime" />
+	<form:errors cssClass="error" path="endTime" />
+	<br />
+	
+	<form:label path="availableSpots">
+		<spring:message code="activity.availableSpots" />:
+	</form:label>
+	<form:input path="availableSpots" />
+	<form:errors cssClass="error" path="availableSpots" />
+	<br />
+	
+	
 
 	<input type="submit" name="save"
 		value="<spring:message code="activity.save" />" />&nbsp; 
