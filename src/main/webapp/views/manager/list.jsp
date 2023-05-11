@@ -14,10 +14,9 @@
 <!-- Listing grid -->
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="customers" requestURI="${requestURI}" id="row">
+	name="managers" requestURI="${requestURI}" id="row">
 	
-	<display:column property="name" titleKey="manager.name"/>
-	<display:column property="surname" titleKey="manager.surname"/>
+	
 	
 	<!-- Action links -->
 
@@ -28,6 +27,14 @@
 			</a>
 		</display:column>
 	</security:authorize>
+	
+	<spring:message code="manager.name" var="nameHeader" />
+	<display:column property="name" title="${nameHeader}" sortable="true" />
+	
+	<spring:message code="manager.lastName" var="lastNameHeader" />
+	<display:column property="lastName" title="${lastNameHeader}" sortable="true" />
+	
+</display:table>
 
 	<security:authorize access="hasRole('ADMIN')">
 		<div>
@@ -37,4 +44,3 @@
 		</div>
 	</security:authorize>
 
-</display:table>

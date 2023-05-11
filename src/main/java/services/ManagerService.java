@@ -53,6 +53,7 @@ public class ManagerService {
 		Manager result;
 		
 		result = new Manager();
+		result.setBanned(false);
 		
 		return result;
 	}

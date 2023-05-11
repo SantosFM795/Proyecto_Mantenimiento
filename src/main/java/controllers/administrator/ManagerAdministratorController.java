@@ -2,8 +2,11 @@ package controllers.administrator;
 
 import java.util.Collection;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,6 +49,56 @@ public class ManagerAdministratorController extends AbstractController {
 		result = new ModelAndView("manager/edit");
 		result.addObject("requestURI", "manager/administrator/edit.do");
 		result.addObject("manager",manager);
+		return result;
+	}
+	
+	// Create ----------------------------------------------------------------
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public ModelAndView create() {
+		ModelAndView result;
+		Manager manager;
+		
+		manager = this.ManagerService.create();
+		result = createEditModelAndView(manager);
+		return result;
+	}
+	
+	// Save ----------------------------------------------------------------
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, params="save")
+	public ModelAndView save(@Valid Manager manager, BindingResult binding) {
+		ModelAndView result;
+		
+		if(binding.hasErrors()) {
+			result = createEditModelAndView(manager);
+		}else {
+			try {
+				ManagerService.save(manager);
+				result = new ModelAndView("redirect:list.do");
+			}catch(Throwable oops) {
+				result = createEditModelAndView(manager,"manager.commit.error");
+			}
+		}
+		return result;
+	}
+	
+	
+	//Ancillary method--------------------------------------------------------
+	
+	protected ModelAndView createEditModelAndView(Manager manager) {
+		ModelAndView result;
+		
+		result = this.createEditModelAndView(manager,null);
+		
+		return result;
+	}
+	protected ModelAndView createEditModelAndView(Manager manager, String message) {
+		ModelAndView result;
+		
+		result=new ModelAndView("manager/edit");
+		result.addObject("manager", manager);
+		result.addObject("message", message);
+		result.addObject("requestURI", "manager/administrator/edit.do");
+		
 		return result;
 	}
 }
