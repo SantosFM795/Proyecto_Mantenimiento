@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import domain.Customer;
 import domain.Manager;
 import repositories.ManagerRepository;
 import security.LoginService;
@@ -66,6 +67,14 @@ public class ManagerService {
 		result = managerRepository.save(manager);
 		
 		return result;
+	}
+	
+	public void delete (Manager manager) {
+		Assert.notNull(manager);
+		
+		Assert.isTrue(manager.getId() != 0);
+		
+		managerRepository.delete(manager);
 	}
 	
 	//Other business methods ----------------------
