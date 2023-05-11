@@ -35,11 +35,11 @@ public class CvTrainerController extends AbstractController {
 	// Creation ---------------------------------------------------------------
 	// Edition ----------------------------------------------------------------
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam int cvId) {
+	public ModelAndView edit() {
 		ModelAndView result;
 		CV cv;
 
-		cv = cvService.findOne(cvId);
+		cv = cvService.findByTrainer();
 		Assert.notNull(cv);
 		result = createEditModelAndView(cv);
 		return result;
@@ -55,7 +55,7 @@ public class CvTrainerController extends AbstractController {
 		else
 			try {
 				this.cvService.save(cv);
-				result = new ModelAndView("redirect:list.do");
+				result = new ModelAndView("redirect:");
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(cv, "cv.commit.error");
 			}
@@ -64,19 +64,6 @@ public class CvTrainerController extends AbstractController {
 	}
 
 	// Delete
-	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
-	public ModelAndView delete(final CV cv, final BindingResult binding) {
-		ModelAndView result;
-
-		try {
-			this.cvService.delete(cv);
-			result = new ModelAndView("redirect:list.do");
-		} catch (final Throwable oops) {
-			result = this.createEditModelAndView(cv, "cv.commit.error");
-		}
-
-		return result;
-	}
 	// Ancillary methods ------------------------------------------------------
 
 	protected ModelAndView createEditModelAndView(final CV cv) {
@@ -94,6 +81,7 @@ public class CvTrainerController extends AbstractController {
 		result = new ModelAndView("cv/edit");
 		result.addObject("cv", cv);
 		result.addObject("message", message);
+		result.addObject("requestURI", "/cv/trainer/edit.do");
 		return result;
 	}
 }

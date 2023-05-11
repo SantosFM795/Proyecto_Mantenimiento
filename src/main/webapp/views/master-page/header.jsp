@@ -61,7 +61,7 @@
 			<li><a class="fNiv"><spring:message	code="master.page.trainer" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="trainer/edit.do"><spring:message code="master.page.trainer.editcv" /></a></li>
+					<li><a href="cv/trainer/edit.do"><spring:message code="master.page.trainer.editcv" /></a></li>
 					<li><a href="trainer/edit.do"><spring:message code="master.page.trainer.edit" /></a></li>
 				</ul>
 			</li>
