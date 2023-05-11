@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import controllers.AbstractController;
+import domain.Activity;
 import domain.Gym;
+import services.ActivityService;
 import services.GymService;
 
 @Controller
@@ -21,6 +23,8 @@ public class GymManagerController extends AbstractController {
 	// Services ---------------------------------------------------------------
 	@Autowired
 	private GymService gymService;
+	@Autowired
+	private ActivityService activityService;
 	// Constructors -----------------------------------------------------------
 	public GymManagerController() {
 		super();
@@ -75,6 +79,8 @@ public class GymManagerController extends AbstractController {
 
 		return result;
 	}
+	
+
 	// Delete, los gimnasios no se eliminan realmente, algo habrá que tocar en algún lado
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
 	public ModelAndView delete(final Gym gym, final BindingResult binding) {
@@ -89,8 +95,23 @@ public class GymManagerController extends AbstractController {
 
 		return result;
 	}
-	
-	
+	//Add an Activity
+	@RequestMapping(value="/addActivity",method = RequestMethod.GET)
+	public ModelAndView addActivity(@RequestParam int gymId) {
+		ModelAndView result;
+		Gym gym;
+		Collection<Activity> activities;
+		
+		gym = gymService.findOne(gymId);
+		Assert.notNull(gym);
+		
+		activities=activityService.findAll();
+		result = new ModelAndView("gym/addActivity");
+		result.addObject("gym", gym);
+		result.addObject("activity", activities);
+		result.addObject("requestURI", "gym/manager/addActivity.do");
+		return result;
+	}
 	// Ancillary methods ------------------------------------------------------
 	
 	protected ModelAndView createEditModelAndView(final Gym gym) {

@@ -16,5 +16,10 @@
 	<put-attribute name="body" value="/views/gym/edit.jsp"/>
 </definition>
 
+<definition extends="master.page" name="gym/addActivity">
+	<put-attribute name="title" value="Añadir Actividad"/>
+	<put-attribute name="body" value="/views/gym/addActivity.jsp"/>
+</definition>
+
 
 </tiles-definitions>

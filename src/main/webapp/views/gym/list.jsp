@@ -35,6 +35,13 @@
 	<spring:message code="gym.mensualCost" var="mensualCostHeader"/>
 	<display:column property="mensualCost" title="${mensualCostHeader}" sortable="true" />
 
+	<security:authorize access="hasRole('MANAGER')">
+		<display:column>
+			<a href="gym/manager/addActivity.do?gymId=${row.id}"> <spring:message
+					code="gym.addActivity" />
+			</a>
+		</display:column>
+	</security:authorize>
 	<!-- Action links -->
 
 	
