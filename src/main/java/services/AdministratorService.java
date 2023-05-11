@@ -8,7 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import domain.Administrator;
-import repositories.AdministratorRepository;;
+import repositories.AdministratorRepository;
+import security.LoginService;
+import security.UserAccount;;
 
 @Service
 @Transactional
@@ -17,7 +19,7 @@ public class AdministratorService {
 	// Managed repository -------------------------
 	
 	@Autowired
-	private AdministratorRepository AdministratorRepository;
+	private AdministratorRepository administratorRepository;
 	
 	// Supporting services ------------------------
 	
@@ -37,21 +39,42 @@ public class AdministratorService {
 		return result;
 	}
 	
-	public Administrator save(Administrator customer) {
-		Assert.notNull(customer);
+	public Administrator save(Administrator administrator) {
+		Assert.notNull(administrator);
 		
 		Administrator result;
 		
-		result = AdministratorRepository.save(customer);
+		result = administratorRepository.save(administrator);
 		
 		return result;
 	}
 	
-	public void delete (Administrator customer) {
-		Assert.notNull(customer);
+	public void delete (Administrator administrator) {
+		Assert.notNull(administrator);
 		
-		Assert.isTrue(customer.getId() != 0);
+		Assert.isTrue(administrator.getId() != 0);
 		
-		AdministratorRepository.delete(customer);
+		administratorRepository.delete(administrator);
+	}
+	public Administrator findByPrincipal() {
+		Administrator result;
+		UserAccount userAccount;
+		
+		userAccount= LoginService.getPrincipal();
+		Assert.notNull(userAccount);
+		result = findByUserAccount(userAccount);
+		Assert.notNull(result);
+		
+		return result;
+	}
+	public Administrator findByUserAccount(UserAccount userAccount) {
+		Assert.notNull(userAccount);
+		
+		Administrator result;
+		
+		result = administratorRepository.findByUserAccountId(userAccount.getId());
+		
+		return result;
+		
 	}
 }
