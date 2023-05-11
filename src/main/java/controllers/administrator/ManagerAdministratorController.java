@@ -40,15 +40,37 @@ public class ManagerAdministratorController extends AbstractController {
 	}
 	
 	// Banning ----------------------------------------------------------------
-	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	@RequestMapping(value = "/ban", method = RequestMethod.GET)
 	public ModelAndView banManager(@RequestParam int managerId) {
 		ModelAndView result;
-		Manager manager;
+		try {
+			this.managerService.ban(managerId);
+			result=this.list();
+			result.addObject("message", "manager.commit.ok");
+		}catch(final Throwable oops) {
+			result=this.list();
+			result.addObject("message", "manager.commit.error");
+		}
 		
-		manager = this.managerService.findOne(managerId);
-		result = new ModelAndView("manager/edit");
-		result.addObject("requestURI", "manager/administrator/edit.do");
-		result.addObject("manager",manager);
+		
+		
+		return result;
+	}
+	
+	@RequestMapping(value = "/unban", method = RequestMethod.GET)
+	public ModelAndView unbanManager(@RequestParam int managerId) {
+		ModelAndView result;
+		try {
+			this.managerService.unban(managerId);
+			result=this.list();
+			result.addObject("message", "manager.commit.ok");
+		}catch(final Throwable oops) {
+			result=this.list();
+			result.addObject("message", "manager.commit.error");
+		}
+		
+		
+		
 		return result;
 	}
 	
@@ -80,6 +102,8 @@ public class ManagerAdministratorController extends AbstractController {
 		}
 		return result;
 	}
+	
+	
 	
 	
 	//Ancillary method--------------------------------------------------------

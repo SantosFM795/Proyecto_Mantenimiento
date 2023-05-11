@@ -102,5 +102,23 @@ public class ManagerService {
 		
 		
 	}
+	
+	public void ban(int managerId) {
+		Manager manager;
+		
+		manager=this.findOne(managerId);
+		Assert.notNull(manager);
+		manager.setBanned(true);
+		managerRepository.save(manager);
+	}
+	
+	public void unban(int managerId) {
+		Manager manager;
+		
+		manager=this.findOne(managerId);
+		Assert.notNull(manager);
+		manager.setBanned(false);
+		managerRepository.save(manager);
+	}
 		
 }

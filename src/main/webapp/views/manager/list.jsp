@@ -34,6 +34,23 @@
 	<spring:message code="manager.lastName" var="lastNameHeader" />
 	<display:column property="lastName" title="${lastNameHeader}" sortable="true" />
 	
+	<security:authorize access="hasRole('ADMIN')">
+		<display:column>
+			<jstl:choose>
+				<jstl:when test="${row.banned==false}">
+					<a href="manager/administrator/ban.do?managerId=${row.id}">
+						<spring:message code="manager.ban"/>
+					</a>
+				</jstl:when>
+				<jstl:otherwise>
+					<a href="manager/administrator/unban.do?managerId=${row.id}">
+						<spring:message code="manager.unban"/>
+					</a>
+				</jstl:otherwise>
+			</jstl:choose>
+		</display:column>
+	</security:authorize>
+	
 </display:table>
 
 	
