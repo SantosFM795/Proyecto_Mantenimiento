@@ -65,7 +65,7 @@
 	<form:input path="availableSpots" />
 	<form:errors cssClass="error" path="availableSpots" />
 	<br />
-	
+		
 	
 
 	<input type="submit" name="save"
