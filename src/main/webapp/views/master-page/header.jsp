@@ -57,6 +57,16 @@
 			</li>
 		</security:authorize>
 		
+		<security:authorize access="hasRole('TRAINER')">
+			<li><a class="fNiv"><spring:message	code="master.page.trainer" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="trainer/edit.do"><spring:message code="master.page.trainer.editcv" /></a></li>
+					<li><a href="trainer/edit.do"><spring:message code="master.page.trainer.edit" /></a></li>
+				</ul>
+			</li>
+		</security:authorize>
+		
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
 		</security:authorize>
