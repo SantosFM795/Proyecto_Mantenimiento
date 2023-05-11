@@ -28,6 +28,12 @@
 	<display:column property="curriculum.workExperience" title="${workExperienceHeader}" sortable="true"/>
 	
 	
-	
-	
 </display:table>
+
+<security:authorize access="hasRole('MANAGER')">
+		<div>
+			<a href="trainer/manager/create.do"> <spring:message
+					code="trainer.create" />
+			</a>
+		</div>
+	</security:authorize>

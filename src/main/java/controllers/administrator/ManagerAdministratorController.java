@@ -21,7 +21,7 @@ import services.ManagerService;
 public class ManagerAdministratorController extends AbstractController {
 	// Services ---------------------------------------------------------------
 	@Autowired
-	private ManagerService ManagerService;
+	private ManagerService managerService;
 	// Constructors -----------------------------------------------------------
 	public ManagerAdministratorController() {
 		super();
@@ -32,7 +32,7 @@ public class ManagerAdministratorController extends AbstractController {
 		ModelAndView result;
 		Collection<Manager> managers;
 		
-		managers = this.ManagerService.findAll();
+		managers = this.managerService.findAll();
 		result = new ModelAndView("manager/list");
 		result.addObject("requestURI", "manager/administrator/list.do");
 		result.addObject("managers",managers);
@@ -45,7 +45,7 @@ public class ManagerAdministratorController extends AbstractController {
 		ModelAndView result;
 		Manager manager;
 		
-		manager = this.ManagerService.findOne(managerId);
+		manager = this.managerService.findOne(managerId);
 		result = new ModelAndView("manager/edit");
 		result.addObject("requestURI", "manager/administrator/edit.do");
 		result.addObject("manager",manager);
@@ -58,7 +58,7 @@ public class ManagerAdministratorController extends AbstractController {
 		ModelAndView result;
 		Manager manager;
 		
-		manager = this.ManagerService.create();
+		manager = this.managerService.create();
 		result = createEditModelAndView(manager);
 		return result;
 	}
@@ -72,7 +72,7 @@ public class ManagerAdministratorController extends AbstractController {
 			result = createEditModelAndView(manager);
 		}else {
 			try {
-				ManagerService.save(manager);
+				managerService.save(manager);
 				result = new ModelAndView("redirect:list.do");
 			}catch(Throwable oops) {
 				result = createEditModelAndView(manager,"manager.commit.error");

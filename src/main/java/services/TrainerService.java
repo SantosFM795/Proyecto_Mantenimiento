@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import domain.Activity;
 import domain.Manager;
 import domain.Trainer;
 import repositories.TrainerRepository;
@@ -50,6 +49,32 @@ public class TrainerService {
 		result=this.trainerRepository.findOne(trainerId);
 		
 		return result;
+	}
+	
+	public Trainer create() {
+		Trainer result;
+		
+		result = new Trainer();
+		
+		return result;
+	}
+	
+	public Trainer save(Trainer trainer) {
+		Assert.notNull(trainer);
+		
+		Trainer result;
+		
+		result = trainerRepository.save(trainer);
+		
+		return result;
+	}
+	
+	public void delete (Trainer trainer) {
+		Assert.notNull(trainer);
+		
+		Assert.isTrue(trainer.getId() != 0);
+		
+		trainerRepository.delete(trainer);
 	}
 	
 	

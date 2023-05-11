@@ -113,6 +113,7 @@ public class TrainingManagerController extends AbstractController {
 		ModelAndView result;
 		result = new ModelAndView("training/edit");
 		result.addObject("training",training);
+		result.addObject("requestURI","training/manager/edit.do");
 		result.addObject("message",message);
 		return result;
 	}

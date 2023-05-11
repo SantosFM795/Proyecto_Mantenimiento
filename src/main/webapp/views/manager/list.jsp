@@ -36,11 +36,5 @@
 	
 </display:table>
 
-	<security:authorize access="hasRole('ADMIN')">
-		<div>
-			<a href="manager/administrator/create.do"> <spring:message
-					code="manager.create" />
-			</a>
-		</div>
-	</security:authorize>
+	
 

@@ -30,3 +30,11 @@
 	<display:column property="title" title="${titleHeader}" sortable="true" />
 	<display:column property="description" titleKey="training.description"/>
 </display:table>
+
+<security:authorize access="hasRole('MANAGER')">
+		<div>
+			<a href="training/manager/create.do"> <spring:message
+					code="training.create" />
+			</a>
+		</div>
+	</security:authorize>
