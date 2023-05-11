@@ -60,6 +60,8 @@
 								access="hasRole('MANAGER')" />
 		<security:intercept-url pattern="/training/manager/**"
 								access="hasRole('MANAGER')" />
+		<security:intercept-url pattern="/manager/**"
+								access="hasRole('MANAGER')" />
 		<security:intercept-url pattern="/cv/trainer/**"
 								access="hasRole('TRAINER')" />
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
