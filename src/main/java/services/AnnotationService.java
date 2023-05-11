@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import domain.Annotation;
+import domain.Training;
 import repositories.AnnotationRepository;
 
 @Service
@@ -90,6 +91,16 @@ public class AnnotationService {
 		Collection<Annotation> result;
 		
 		result=annotationRepository.findByTrainingId(trainingId);
+		
+		return result;
+	}
+
+	public Annotation save(Annotation annotation) {
+		Assert.notNull(annotation);
+		
+		Annotation result;
+		
+		result = annotationRepository.save(annotation);
 		
 		return result;
 	}

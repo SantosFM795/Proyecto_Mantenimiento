@@ -38,7 +38,8 @@
 					<li><a href="activity/customer/list.do"><spring:message code="master.page.customer.activities" /></a></li>
 					<li><a href="training/customer/list.do"><spring:message code="master.page.customer.trainings" /></a></li>
 					<li><a href="gym/customer/list.do"><spring:message code="master.page.customer.gyms" /></a></li>			
-					<li><a href="customer/edit.do"><spring:message code="master.page.customer.edit" /></a></li>											
+					<li><a href="customer/edit.do"><spring:message code="master.page.customer.edit" /></a></li>
+					<li><a href="annotation/customer/create.do"><spring:message code="master.page.customer.annotations" /></a></li>												
 				</ul>
 			</li>
 		</security:authorize>
