@@ -14,8 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 import controllers.AbstractController;
 import domain.Activity;
 import domain.Gym;
+import domain.Training;
 import services.ActivityService;
 import services.GymService;
+import services.TrainingService;
 
 @Controller
 @RequestMapping("/gym/manager")
@@ -25,6 +27,8 @@ public class GymManagerController extends AbstractController {
 	private GymService gymService;
 	@Autowired
 	private ActivityService activityService;
+	@Autowired
+	private TrainingService trainingService;
 	// Constructors -----------------------------------------------------------
 	public GymManagerController() {
 		super();
@@ -110,6 +114,23 @@ public class GymManagerController extends AbstractController {
 		result.addObject("gym", gym);
 		result.addObject("activity", activities);
 		result.addObject("requestURI", "gym/manager/addActivity.do");
+		return result;
+	}
+	
+	@RequestMapping(value="/addTraining",method = RequestMethod.GET)
+	public ModelAndView addTraining(@RequestParam int gymId) {
+		ModelAndView result;
+		Gym gym;
+		Collection<Training> training;
+		
+		gym = gymService.findOne(gymId);
+		Assert.notNull(gym);
+		
+		training=trainingService.findAll();
+		result = new ModelAndView("gym/addTraining");
+		result.addObject("gym", gym);
+		result.addObject("training", training);
+		result.addObject("requestURI", "gym/manager/addTraining.do");
 		return result;
 	}
 	// Ancillary methods ------------------------------------------------------

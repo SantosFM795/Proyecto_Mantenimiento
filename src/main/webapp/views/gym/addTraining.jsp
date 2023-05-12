@@ -24,14 +24,14 @@
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	
-	<form:label path="activity">
-		<spring:message code="gym.activity"></spring:message>
+	<form:label path="training">
+		<spring:message code="gym.training"></spring:message>
 	</form:label>
-	<form:select id="activity" path="activity">
+	<form:select id="training" path="training">
 		<form:option value="0" label="----"/>
-		<form:options items="${activity}" itemValue="id" itemLabel="title"/>
+		<form:options items="${training}" itemValue="id" itemLabel="title"/>
 	</form:select>
-	<form:errors cssClass="error" path="activity"></form:errors>
+	<form:errors cssClass="error" path="training"></form:errors>
 
 	<input type="submit" name="add"
 		value="<spring:message code="gym.save" />" />&nbsp; 
