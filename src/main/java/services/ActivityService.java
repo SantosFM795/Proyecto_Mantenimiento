@@ -11,6 +11,7 @@ import domain.Activity;
 import domain.Customer;
 import domain.Gym;
 import domain.Manager;
+import domain.Trainer;
 import repositories.ActivityRepository;
 
 @Service
@@ -117,6 +118,15 @@ public class ActivityService {
 		customer = this.customerService.findByPrincipal();
 		Assert.notNull(customer);
 		result = this.activityRepository.findByCustomerId(customer.getUserAccount().getId());
+		
+		return result;
+	}
+
+	public Collection<Activity> findTrainerByKeyWord(String keyWord) {
+		Collection<Activity> result;
+		
+		Assert.notNull(keyWord);
+		result = this.activityRepository.findTrainerByKeyWord(keyWord);
 		
 		return result;
 	}

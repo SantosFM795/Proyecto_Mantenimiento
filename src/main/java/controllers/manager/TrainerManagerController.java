@@ -39,7 +39,7 @@ public class TrainerManagerController extends AbstractController {
 		return result;
 	}
 	// Listing by Key word ----------------------------------------------------------------
-		@RequestMapping(value = "/list", method = RequestMethod.GET)
+		/*@RequestMapping(value = "/list", method = RequestMethod.GET)
 		public ModelAndView listKeyWord(String name) {
 			ModelAndView result;
 			Collection<Trainer> trainers;
@@ -49,7 +49,7 @@ public class TrainerManagerController extends AbstractController {
 			result.addObject("requestURI", "trainer/manager/list.do");
 			result.addObject("trainers",trainers);
 			return result;
-		}
+		}*/
 	// Create ----------------------------------------------------------------
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {
