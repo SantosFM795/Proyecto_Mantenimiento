@@ -38,6 +38,18 @@ public class TrainerManagerController extends AbstractController {
 		result.addObject("trainers",trainers);
 		return result;
 	}
+	// Listing by Key word ----------------------------------------------------------------
+		@RequestMapping(value = "/list", method = RequestMethod.GET)
+		public ModelAndView listKeyWord(String name) {
+			ModelAndView result;
+			Collection<Trainer> trainers;
+			// Para listar solo los trainers de los gyms que gestiona el manager
+			trainers = this.trainerService.findTrainerByKeyWord(name);
+			result = new ModelAndView("trainer/list");
+			result.addObject("requestURI", "trainer/manager/list.do");
+			result.addObject("trainers",trainers);
+			return result;
+		}
 	// Create ----------------------------------------------------------------
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {

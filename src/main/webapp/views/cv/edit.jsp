@@ -20,7 +20,7 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 <security:authorize access="hasRole('TRAINER')">
-	<form:form action="${requestURI}" modelAttribute="cv">
+	<form:form action="${url}" modelAttribute="cv">
 	
 		<form:hidden path="id" />
 		<form:hidden path="version" />
@@ -55,7 +55,7 @@
 		</jstl:if>
 		<input type="button" name="cancel"
 			value="<spring:message code="cv.cancel" />"
-			onclick="javascript: relativeRedir('cv/administrator/list.do');" />
+			onclick="javascript: relativeRedir('cv/trainer/list.do');" />
 		<br />
 		
 		<%-- !! Quien lista/controla la vista de listar cv --%>
