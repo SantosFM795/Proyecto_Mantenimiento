@@ -20,6 +20,7 @@ public class Activity extends DomainEntity{
 	private Integer availableSpots;
 	private String description;
 	private Collection<String> photos;
+	private boolean cancelled;
 	
 	
 	private Collection<Annotation> annotations;
@@ -43,6 +44,10 @@ public class Activity extends DomainEntity{
 
 	public void setCustomers(Collection<Customer> customers) {
 		this.customers = customers;
+	}
+	
+	public void setCancelled(boolean cancelled) {
+		this.cancelled = cancelled;
 	}
 
 
@@ -74,6 +79,10 @@ public class Activity extends DomainEntity{
 	
 	public Integer getAvailableSpots() {
 		return availableSpots;
+	}
+	
+	public boolean getCancelled() {
+		return cancelled;
 	}
 	
 	

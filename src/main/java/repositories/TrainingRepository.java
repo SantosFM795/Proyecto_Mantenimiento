@@ -25,5 +25,9 @@ public interface TrainingRepository extends JpaRepository<Training, Integer>{
 	@Query("select s.gym.training from Signing s where s.customer.userAccount.id = ?1")
 	Collection<Training> findByCustomerId(int userAccountId);
 	
+	@Query("select min(g.training.size), avg(g.training.size), max(g.training.size) from Gym g")
+	Collection<Object[]> findTrainingByGym();
 	
+	@Query("select t from Training t order by t.steps.size DESC")
+	Collection<Training> findOrderTraining();
 }
