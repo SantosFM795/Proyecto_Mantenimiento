@@ -48,11 +48,6 @@
 	
 		<input type="submit" name="save"
 			value="<spring:message code="cv.save" />" />&nbsp; 
-		<jstl:if test="${cv.id != 0}">
-			<input type="submit" name="delete"
-				value="<spring:message code="cv.delete" />"
-				onclick="return confirm('<spring:message code="cv.confirm.delete" />')" />&nbsp;
-		</jstl:if>
 		<input type="button" name="cancel"
 			value="<spring:message code="cv.cancel" />"
 			onclick="javascript: relativeRedir('cv/trainer/list.do');" />

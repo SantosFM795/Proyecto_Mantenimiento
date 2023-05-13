@@ -19,7 +19,7 @@ public interface GymRepository extends JpaRepository<Gym, Integer>{
 	
 	@Query("select s.gym from Signing s where s.customer.userAccount.id = ?1 AND s.gym.active=true")
 	Collection<Gym> findByCustomer(int UserAccountId);
-	
+	/*
 	@Query("select min(m.gyms.size), avg(m.gyms.size), max(m.gyms.size), stddev(m.gyms.size) from Manager m")
 	Collection<Object[]> findGymsByManager(); 
 	
@@ -27,6 +27,6 @@ public interface GymRepository extends JpaRepository<Gym, Integer>{
 	Collection<Object[]> findGymsByCustomer();
 	
 	@Query("select g1 from Gym g1 where (select count(a1) from Gym g join g.activity a1 where a1.cancelled=false and g1=g) >= ALL(select count(a2) from Gym g2 join g2.activity a2 where a2.cancelled=false group by g2")
-	Collection<Gym> findMaxActivitiesGym();
+	Collection<Gym> findMaxActivitiesGym();*/
 	
 }

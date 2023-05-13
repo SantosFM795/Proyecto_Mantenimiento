@@ -55,7 +55,7 @@ public class CvTrainerController extends AbstractController {
 		else
 			try {
 				this.cvService.save(cv);
-				result = new ModelAndView("redirect:");
+				result = new ModelAndView("redirect:/");
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(cv, "cv.commit.error");
 			}
