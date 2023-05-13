@@ -35,8 +35,6 @@
 	<form:errors cssClass="error" path="endTime" />
 	<br />
 
-	
-	
-	<input type="submit"
-	value="<spring:message code='search.list'/>" >
+	<input type="submit" name="search"
+	value="<spring:message code='search.search'/>" >
 </form:form>
