@@ -66,8 +66,20 @@
 								access="hasRole('TRAINER')" />
 		<security:intercept-url pattern="/cv/trainer/**"
 								access="hasRole('TRAINER')" />
-		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
-
+		<security:intercept-url pattern="/activity/list.do"
+								access="permitAll" />
+		<security:intercept-url pattern="/training/list.do"
+								access="permitAll" />
+		<security:intercept-url pattern="/gym/list.do"
+								access="permitAll" />
+		<security:intercept-url pattern="/cv/list.do"
+								access="permitAll" />								
+		<security:intercept-url pattern="/trainer/list.do"
+								access="permitAll" />																								
+		<security:intercept-url pattern="/annotation/list.do"
+								access="permitAll" />						
+		 <security:intercept-url pattern="/**" access="hasRole('NONE')" />
+		
 		<security:form-login 
 			login-page="/security/login.do"
 			password-parameter="password" 

@@ -59,6 +59,9 @@ public class TrainerService {
 		CV cv;
 		cv= new CV();
 		result.setCurriculum(cv);
+		UserAccount uc=new UserAccount();
+		uc.setUsername("betis");
+		uc.setUsername("1b3231655cebb7a1f783eddf27d254ca");
 		
 		return result;
 	}

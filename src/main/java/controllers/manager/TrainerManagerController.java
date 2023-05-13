@@ -63,7 +63,7 @@ public class TrainerManagerController extends AbstractController {
 	
 	// Save ----------------------------------------------------------------
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params="save")
-	public ModelAndView save(@Valid Trainer trainer, BindingResult binding) {
+	public ModelAndView save(@Valid final Trainer trainer, final BindingResult binding) {
 		ModelAndView result;
 		
 		if(binding.hasErrors()) {

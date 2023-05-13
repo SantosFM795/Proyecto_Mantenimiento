@@ -69,7 +69,16 @@
 		</security:authorize>
 		
 		<security:authorize access="isAnonymous()">
-			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
+			<li><a class="fNiv"><spring:message	code="master.page.noLogin" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="gym/list.do"><spring:message code="master.page.gym.list" /></a></li>
+					<li><a href="activity/list.do"><spring:message code="master.page.activities" /></a></li>
+					<li><a href="training/list.do"><spring:message code="master.page.trainings" /></a></li>
+					<li><a href="security/login.do"><spring:message code="master.page.login" /></a></li>
+				</ul>
+			</li>
+			
 		</security:authorize>
 		
 		<security:authorize access="isAuthenticated()">

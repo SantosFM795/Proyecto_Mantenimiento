@@ -19,7 +19,7 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="${url}" modelAttribute="trainer">
+<form:form action="${requestURI}" modelAttribute="trainer">
 
 	<form:hidden path="id" />
 		<form:hidden path="version" />

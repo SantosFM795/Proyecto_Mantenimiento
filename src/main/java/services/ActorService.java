@@ -8,7 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import domain.Actor;
+import domain.CV;
+import domain.Trainer;
 import repositories.ActorRepository;
+import security.UserAccount;
 
 @Service
 @Transactional
@@ -38,4 +41,5 @@ public class ActorService {
 		
 		return result;
 	}
+	
 }
