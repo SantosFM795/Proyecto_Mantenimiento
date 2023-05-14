@@ -30,4 +30,7 @@ public interface TrainingRepository extends JpaRepository<Training, Integer>{
 	
 	@Query("select t from Training t order by t.steps.size DESC")
 	Collection<Training> findOrderTraining();
+	
+	@Query("select t  from Training t where (t.title LIKE %?1% or t.description LIKE %?1%)")
+	Collection<Training> findTrainerByKeyWord(String keyWord);
 }

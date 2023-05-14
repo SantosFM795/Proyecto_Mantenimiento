@@ -40,7 +40,8 @@
 					<li><a href="gym/customer/list.do"><spring:message code="master.page.customer.gyms" /></a></li>			
 					<li><a href="customer/edit.do"><spring:message code="master.page.customer.edit" /></a></li>
 					<li><a href="annotation/customer/create.do"><spring:message code="master.page.customer.annotations" /></a></li>
-					<li><a href="activity/customer/search.do"><spring:message code="master.page.customer.search" /></a></li>												
+					<li><a href="activity/customer/search.do"><spring:message code="master.page.customer.search" /></a></li>
+					<li><a href="training/customer/search.do"><spring:message code="master.page.customer.searchTraining" /></a></li>													
 				</ul>
 			</li>
 		</security:authorize>

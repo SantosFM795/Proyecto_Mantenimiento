@@ -16,5 +16,8 @@
 <put-attribute name="body" value="/views/training/edit.jsp"/>
 </definition>
 
-
+	<definition name="training/search" extends="master.page">	
+		<put-attribute name="title" value="Search Training" />
+		<put-attribute name="body" value="/views/training/search.jsp" />
+	</definition>
 </tiles-definitions>

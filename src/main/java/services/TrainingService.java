@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import domain.Activity;
 import domain.Customer;
 import domain.Gym;
 import domain.Manager;
@@ -102,6 +103,15 @@ public class TrainingService {
 		manager = this.managerService.findByPrincipal();
 		Assert.notNull(manager);
 		result = this.trainingRepository.findByManagerId(manager.getUserAccount().getId());
+		
+		return result;
+	}
+
+	public Collection<Training> findTrainerByKeyWord(String keyWord) {
+		Collection<Training> result;
+		
+		Assert.notNull(keyWord);
+		result = this.trainingRepository.findTrainerByKeyWord(keyWord);
 		
 		return result;
 	}
