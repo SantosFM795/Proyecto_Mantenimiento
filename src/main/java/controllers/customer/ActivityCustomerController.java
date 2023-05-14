@@ -61,13 +61,13 @@ public class ActivityCustomerController extends AbstractController {
 	@RequestMapping(value = "/search", method = RequestMethod.POST, params = "search")
 	public ModelAndView listKeyWord(@Valid final Search search, final BindingResult binding) {
 		ModelAndView result;
-		// String keyword = request.getParameter("keyWord");
+		 String keyword = search.getKeyWord().replace(",","");
 		Collection<Activity> activities;
 		if (binding.hasErrors())
 			result = this.createEditModelAndView(search);
 		else
 			try {
-				activities = this.activityService.findTrainerByKeyWord("p");
+				activities = this.activityService.findTrainerByKeyWord(keyword);
 				result = new ModelAndView("activity/list");
 				result.addObject("requestURI", "activity/customer/list.do");
 				result.addObject("activities", activities);

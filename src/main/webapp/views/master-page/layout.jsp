@@ -61,10 +61,10 @@
 
 <body>
 
-	<div>
+	<div id="header">
 		<tiles:insertAttribute name="header" />
 	</div>
-	<div>
+	<div id="body">
 		<h1>
 			<tiles:insertAttribute name="title" />
 		</h1>
@@ -74,7 +74,7 @@
 			<span class="message"><spring:message code="${message}" /></span>
 		</jstl:if>	
 	</div>
-	<div>
+	<div id="footer">
 		<tiles:insertAttribute name="footer" />
 	</div>
 

@@ -8,6 +8,17 @@
  * 
  */
 
+*{
+	margin: 0;
+	padding: 0;
+	
+}
+
+#footer {
+	 position:absolute;
+   bottom:0;
+   width:100%;
+}
 .jMenu {
 	display: table;
 	margin: 0px;
