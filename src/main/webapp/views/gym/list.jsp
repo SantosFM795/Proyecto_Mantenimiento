@@ -54,12 +54,11 @@
 
 	
 </display:table>
-<%-- 	 Check 
-	<security:authorize access="hasRole('ADMIN')">
+
+	<security:authorize access="hasRole('MANAGER')">
 		<div>
-			<a href="gym/administrator/create.do"> <spring:message
+			<a href="gym/manager/create.do"> <spring:message
 					code="gym.create" />
 			</a>
 		</div>
 	</security:authorize>
- --%>

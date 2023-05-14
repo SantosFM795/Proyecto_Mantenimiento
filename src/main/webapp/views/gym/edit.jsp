@@ -19,13 +19,21 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="gym/administrator/edit.do" modelAttribute="activity">
+<form:form action="${requestURI}" modelAttribute="gym">
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
+	<form:hidden path="manager" />
+	
+	<form:label path="logo">
+		<spring:message code="gym.logo" />:
+	</form:label>
+	<form:input path="logo" />
+	<form:errors cssClass="error" path="logo" />
+	<br />
 
 	<form:label path="name">
-		<spring:message code="gym.nameGym" />:
+		<spring:message code="gym.name" />:
 	</form:label>
 	<form:input path="name" />
 	<form:errors cssClass="error" path="name" />
@@ -39,22 +47,17 @@
 	<br />
 
 	<form:label path="mensualCost">
-		<spring:message code="activity.mensualCost" />:
+		<spring:message code="gym.mensualCost" />:
 	</form:label>
 	<form:input path="mensualCost" />
 	<form:errors cssClass="error" path="mensualCost" />
 	<br />
 
 	<input type="submit" name="save"
-		value="<spring:message code="activity.save" />" />&nbsp; 
-	<jstl:if test="${activity.id != 0}">
-		<input type="submit" name="delete"
-			value="<spring:message code="activity.delete" />"
-			onclick="return confirm('<spring:message code="activity.confirm.delete" />')" />&nbsp;
-	</jstl:if>
+		value="<spring:message code="gym.save" />" />&nbsp; 
 	<input type="button" name="cancel"
-		value="<spring:message code="activity.cancel" />"
-		onclick="javascript: relativeRedir('activity/administrator/list.do');" />
+		value="<spring:message code="gym.cancel" />"
+		onclick="javascript: relativeRedir('gym/manager/list.do');" />
 	<br />
 
 	<%-- Se debe añadir un script de control, revisar acme-Certifications --%>

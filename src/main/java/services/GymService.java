@@ -57,10 +57,12 @@ public class GymService {
 		return result;
 	}
 	
-	public Gym create() {
+	public Gym create(Manager manager) {
 		Gym result;
 		
 		result = new Gym();
+		
+		result.setManager(manager);
 		
 		return result;
 	}
@@ -118,4 +120,5 @@ public class GymService {
 		
 		return result;
 	}
+
 }

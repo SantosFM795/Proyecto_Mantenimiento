@@ -15,8 +15,10 @@ import controllers.AbstractController;
 import domain.Activity;
 import domain.Gym;
 import domain.Training;
+import domain.Manager;
 import services.ActivityService;
 import services.GymService;
+import services.ManagerService;
 import services.TrainingService;
 
 @Controller
@@ -29,6 +31,8 @@ public class GymManagerController extends AbstractController {
 	private ActivityService activityService;
 	@Autowired
 	private TrainingService trainingService;
+	@Autowired
+	private ManagerService managerService;
 	// Constructors -----------------------------------------------------------
 	public GymManagerController() {
 		super();
@@ -50,8 +54,8 @@ public class GymManagerController extends AbstractController {
 	public ModelAndView create() {
 		ModelAndView result;
 		Gym gym;
-		
-		gym = this.gymService.create();
+		Manager manager=managerService.findByPrincipal();
+		gym = this.gymService.create(manager);
 		result = this.createEditModelAndView(gym);
 		return result;
 	}
@@ -151,6 +155,7 @@ public class GymManagerController extends AbstractController {
 		result = new ModelAndView("gym/edit");
 		result.addObject("gym",gym);
 		result.addObject("message",message);
+		result.addObject("requestURI","gym/manager/edit.do");
 		return result;
 	}
 }
