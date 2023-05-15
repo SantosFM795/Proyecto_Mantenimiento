@@ -31,6 +31,9 @@
 		<value>/views/trainer/messages</value>
 		<value>/views/manager/messages</value>
 		<value>/views/cv/messages</value>
+		<value>/views/annotation/messages</value>
+
+		<value>/views/step/messages</value>
 	</util:list>
 
 </beans>

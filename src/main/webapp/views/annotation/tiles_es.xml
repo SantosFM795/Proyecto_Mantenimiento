@@ -15,9 +15,13 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
       
 <tiles-definitions>
-	<definition name="annotation/create" extends="master.page">	
-		<put-attribute name="title" value="Crear Anotación" />
-		<put-attribute name="body" value="/views/annotation/create.jsp" />
+	<definition name="annotation/edit" extends="master.page">	
+		<put-attribute name="title" value="Editar Anotación" />
+		<put-attribute name="body" value="/views/annotation/edit.jsp" />
+	</definition>
+	<definition name="annotation/list" extends="master.page">	
+		<put-attribute name="title" value="Listar Anotación" />
+		<put-attribute name="body" value="/views/annotation/list.jsp" />
 	</definition>
 	
 </tiles-definitions>

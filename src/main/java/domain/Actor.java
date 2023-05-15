@@ -30,7 +30,7 @@ public abstract class Actor extends DomainEntity{
 	private Collection<Annotation> annotation;
 	
 	
-	@OneToMany(mappedBy = "actor")
+	@OneToMany
 	public Collection<Annotation> getAnnotation() {
 		return annotation;
 	}

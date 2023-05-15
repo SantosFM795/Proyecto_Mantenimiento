@@ -30,8 +30,7 @@ public class ActivityController {
 			activities = this.activityService.findAll();
 			result = new ModelAndView("activity/list");
 			result.addObject("requestURI", "activity/list.do");
-			result.addObject("activities",activities);
-			return result;
+			result.addObject("activities",activities);			return result;
 		}
 		// Listing ----------------------------------------------------------------
 		// Listing Activities of each gym
@@ -47,5 +46,6 @@ public class ActivityController {
 			return result;
 		}
 		
-
+		
+		
 }

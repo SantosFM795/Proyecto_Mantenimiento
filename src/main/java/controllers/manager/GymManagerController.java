@@ -138,7 +138,7 @@ public class GymManagerController extends AbstractController {
 		return result;
 	}
 	
-	// Banning ----------------------------------------------------------------
+	// Activate ----------------------------------------------------------------
 		@RequestMapping(value = "/activate", method = RequestMethod.GET)
 		public ModelAndView activateGym(@RequestParam int gymId) {
 			ModelAndView result;

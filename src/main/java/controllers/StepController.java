@@ -9,28 +9,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import domain.Activity;
-import domain.Gym;
-import services.GymService;
+import domain.Step;
+import services.StepService;
 
 @Controller
-@RequestMapping("/gym")
-public class GymController {
+@RequestMapping("/step")
+public class StepController {
 	// Services ---------------------------------------------------------------
 		@Autowired
-		private GymService gymService;
+		private StepService stepService;
 		
 		// Listing ----------------------------------------------------------------
 		@RequestMapping(value = "/list", method = RequestMethod.GET)
-		public ModelAndView list() {
+		public ModelAndView list(@RequestParam  int trainingId) {
 			ModelAndView result;
-			Collection<Gym> gyms;
+			Collection<Step> steps;
 			
-			gyms = this.gymService.findAll();
-			result = new ModelAndView("gym/list");
-			result.addObject("requestURI", "gym/list.do");
-			result.addObject("gyms",gyms);
+			steps = this.stepService.findByTraining(trainingId);
+			result = new ModelAndView("step/list");
+			result.addObject("requestURI", "step/list.do");
+			result.addObject("steps",steps);
 			return result;
 		}
 	
+
 }

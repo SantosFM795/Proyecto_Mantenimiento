@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import controllers.AbstractController;
@@ -71,6 +72,42 @@ public class ActivityManagerController extends AbstractController {
 		return result;
 	}
 	// Delete
+	
+	
+	// Activate ----------------------------------------------------------------
+		@RequestMapping(value = "/cancel", method = RequestMethod.GET)
+		public ModelAndView activateGym(@RequestParam int activityId) {
+			ModelAndView result;
+			try {
+				this.activityService.desactivate(activityId);
+				result=this.list();
+				result.addObject("message", "manager.commit.ok");
+			}catch(final Throwable oops) {
+				result=this.list();
+				result.addObject("message", "manager.commit.error");
+			}
+			
+			
+			
+			return result;
+		}
+			
+		@RequestMapping(value = "/notCancel", method = RequestMethod.GET)
+		public ModelAndView desactivateGym(@RequestParam int activityId) {
+			ModelAndView result;
+			try {
+				this.activityService.activate(activityId);
+				result=this.list();
+				result.addObject("message", "manager.commit.ok");
+			}catch(final Throwable oops) {
+				result=this.list();
+				result.addObject("message", "manager.commit.error");
+			}
+			
+			
+			
+			return result;
+		}
 	// Ancillary methods ------------------------------------------------------
 
 	protected ModelAndView createEditModelAndView(final Activity activity) {

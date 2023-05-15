@@ -77,10 +77,12 @@
 		<security:intercept-url pattern="/trainer/list.do"
 								access="permitAll" />																								
 		<security:intercept-url pattern="/annotation/list.do"
-								access="permitAll" />	
+								access="permitAll" />
+			<security:intercept-url pattern="/step/list.do"
+								access="permitAll" />
 		<security:intercept-url pattern="/activity/listByGym.do"
-								access="permitAll" />					
-		 <security:intercept-url pattern="/**" access="hasRole('NONE')" />
+								access="permitAll" />				
+		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
 		
 		<security:form-login 
 			login-page="/security/login.do"

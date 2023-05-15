@@ -76,10 +76,11 @@
 					<li><a href="gym/list.do"><spring:message code="master.page.gym.list" /></a></li>
 					<li><a href="activity/list.do"><spring:message code="master.page.activities" /></a></li>
 					<li><a href="training/list.do"><spring:message code="master.page.trainings" /></a></li>
-					<li><a href="security/login.do"><spring:message code="master.page.login" /></a></li>
+					<li><a href="annotation/list.do"><spring:message code="master.page.annotations" /></a></li>
 				</ul>
 			</li>
-			
+			<li><a href="security/login.do"><spring:message code="master.page.login" /></a></li>
+
 		</security:authorize>
 		
 		<security:authorize access="isAuthenticated()">

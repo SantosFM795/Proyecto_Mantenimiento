@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import domain.Activity;
 import domain.Gym;
 
 @Repository
@@ -19,6 +20,7 @@ public interface GymRepository extends JpaRepository<Gym, Integer>{
 	
 	@Query("select s.gym from Signing s where s.customer.userAccount.id = ?1 AND s.gym.active=true")
 	Collection<Gym> findByCustomer(int UserAccountId);
+
 	/*
 	@Query("select min(m.gyms.size), avg(m.gyms.size), max(m.gyms.size), stddev(m.gyms.size) from Manager m")
 	Collection<Object[]> findGymsByManager(); 

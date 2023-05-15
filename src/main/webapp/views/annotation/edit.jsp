@@ -20,16 +20,22 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<security:authorize access="hasRole('CUSTOMER')">
+<security:authorize access="isAuthenticated()">
 	<form:form action="${url}" modelAttribute="annotations">
 
 		<form:hidden path="id" />
 		<form:hidden path="version" />
 
 		<form:label path="text">
-			<spring:message code="annotation.text" />:
-	</form:label>
+			<spring:message code="annotation.text" />
+		</form:label>
 		<form:textarea path="text" />
+		
+		<form:label path="rating">
+			<spring:message code="annotation.rating" />
+		</form:label>
+		<form:textarea path="rating" />
+		
 		<br />
 	<input type="submit" name="save"
 			value="<spring:message code="annotation.save" />" />&nbsp; 
