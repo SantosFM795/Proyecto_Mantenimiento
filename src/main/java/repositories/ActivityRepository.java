@@ -14,7 +14,7 @@ import domain.Trainer;
 public interface ActivityRepository extends JpaRepository<Activity, Integer>{
 	
 	@Query("select g.activity from Gym g where g.id = ?1")
-	Collection<Activity> findByGymId(int userAccountId);
+	Collection<Activity> findByGymId(int gymId);
 	
 	@Query("select g.activity from Gym g where active=true")
 	Collection<Activity> findAllActive();

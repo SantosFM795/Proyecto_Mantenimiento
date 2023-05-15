@@ -118,4 +118,7 @@ public class Activity extends DomainEntity{
 	public void setPhotos(Collection<String> photos) {
 		this.photos = photos;
 	}
+	
+	
+	
 }

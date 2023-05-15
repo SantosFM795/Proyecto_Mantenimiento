@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import domain.Activity;
@@ -32,5 +33,19 @@ public class ActivityController {
 			result.addObject("activities",activities);
 			return result;
 		}
+		// Listing ----------------------------------------------------------------
+		// Listing Activities of each gym
+		@RequestMapping(value = "/listByGym", method = RequestMethod.GET)
+		public ModelAndView listActivitiesOffered(@RequestParam  int gymId) {
+			ModelAndView result;
+			Collection<Activity> activities;
+			
+			activities = this.activityService.findByGym(gymId);
+			result = new ModelAndView("activity/list");
+			result.addObject("requestURI", "activity/listByGym.do");
+			result.addObject("activities",activities);
+			return result;
+		}
+		
 
 }
