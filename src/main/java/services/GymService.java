@@ -61,7 +61,7 @@ public class GymService {
 		Gym result;
 		
 		result = new Gym();
-		
+		result.setActive(true);
 		result.setManager(manager);
 		
 		return result;
@@ -121,4 +121,19 @@ public class GymService {
 		return result;
 	}
 
+	public void activate(int gymId) {
+		Gym gym;
+		gym=this.findOne(gymId);
+		Assert.notNull(gym);
+		gym.setActive(true);
+		gymRepository.save(gym);
+	}
+	
+	public void desactivate(int gymId) {
+		Gym gym;
+		gym=this.findOne(gymId);
+		Assert.notNull(gym);
+		gym.setActive(false);
+		gymRepository.save(gym);
+	}
 }
