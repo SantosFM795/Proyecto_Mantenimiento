@@ -34,6 +34,23 @@
 	<display:column property="endTime" title="${endHeader}" sortable="true"/>
 	
 	<!-- Action links -->
+	
+	<security:authorize access="hasRole('MANAGER')">
+		<display:column>
+			<jstl:choose>
+				<jstl:when test="${row.cancelled==true}">
+					<a href="activity/manager/notCancel.do?activityId=${row.id}">
+						<spring:message code="activity.activate"/>
+					</a>
+				</jstl:when>
+				<jstl:otherwise>
+					<a href="activity/manager/cancel.do?activityId=${row.id}">
+						<spring:message code="activity.desactivate"/>
+					</a>
+				</jstl:otherwise>
+			</jstl:choose>
+		</display:column>
+	</security:authorize>
 
 
 </display:table>

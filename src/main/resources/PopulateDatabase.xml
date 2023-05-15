@@ -242,6 +242,7 @@
 		<property name="startTime" value="15" />
 		<property name="endTime" value="16" />
 		<property name="availableSpots" value="30" />
+		<property name="cancelled" value="false" />
 		<property name="description" value="1h of Spinning" />
 		<property name="photos">
 			<list>

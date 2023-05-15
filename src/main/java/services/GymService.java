@@ -1,6 +1,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,9 @@ public class GymService {
 	
 	@Autowired
 	private CustomerService customerService;
+	
+	@Autowired
+	private ActivityService activityService;
 	
 	// Constructor --------------------------------
 	
@@ -135,6 +139,10 @@ public class GymService {
 		gym=this.findOne(gymId);
 		Assert.notNull(gym);
 		gym.setActive(false);
+		Iterator<Activity> act= gym.getActivity().iterator();
+		while(act.hasNext()) {
+			activityService.desactivate(act.next().getId());
+		}
 		gymRepository.save(gym);
 	}
 }
