@@ -27,6 +27,12 @@
 	<spring:message code="activity.day" var="dayHeader"/>
 	<display:column property="day" title="${dayHeader}" sortable="true"/>
 	
+	<spring:message code="activity.startTime" var="startHeader"/>
+	<display:column property="startTime" title="${startHeader}" sortable="true"/>
+	
+	<spring:message code="activity.endTime" var="endHeader"/>
+	<display:column property="endTime" title="${endHeader}" sortable="true"/>
+	
 	<!-- Action links -->
 
 
