@@ -61,7 +61,7 @@ public class ActivityService {
 		Activity result;
 		
 		result = new Activity();
-		
+		result.setCancelled(false);
 		return result;
 	}
 	
@@ -129,6 +129,24 @@ public class ActivityService {
 		result = this.activityRepository.findTrainerByKeyWord(keyWord);
 		
 		return result;
+	}
+
+	public void activate(int activityId) {
+		Activity activity;
+		activity=this.findOne(activityId);
+		Assert.notNull(activity);
+		activity.setCancelled(false);
+		activityRepository.save(activity);
+		
+	}
+
+	public void desactivate(int activityId) {
+		Activity activity;
+		activity=this.findOne(activityId);
+		Assert.notNull(activity);
+		activity.setCancelled(true);
+		activityRepository.save(activity);
+		
 	}
 		
 	

@@ -29,6 +29,13 @@
 	<spring:message code="training.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}" sortable="true" />
 	<display:column property="description" titleKey="training.description"/>
+	
+	<spring:message code="training.step" var="stepHeader" />
+		<display:column>
+			<a href="step/list.do?trainingId=${row.id}"> <spring:message
+					code="training.showSteps" />
+			</a>
+		</display:column>
 </display:table>
 
 <security:authorize access="hasRole('MANAGER')">

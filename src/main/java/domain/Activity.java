@@ -46,6 +46,7 @@ public class Activity extends DomainEntity{
 		this.customers = customers;
 	}
 	
+	
 	public void setCancelled(boolean cancelled) {
 		this.cancelled = cancelled;
 	}

@@ -61,8 +61,25 @@
 			</a>
 		</display:column>
 	</security:authorize>
+	
+	
 	<!-- Action links -->
-
+	<security:authorize access="hasRole('MANAGER')">
+		<display:column>
+			<jstl:choose>
+				<jstl:when test="${row.active==true}">
+					<a href="gym/manager/desactivate.do?gymId=${row.id}">
+						<spring:message code="gym.desactivate"/>
+					</a>
+				</jstl:when>
+				<jstl:otherwise>
+					<a href="gym/manager/activate.do?gymId=${row.id}">
+						<spring:message code="gym.activate"/>
+					</a>
+				</jstl:otherwise>
+			</jstl:choose>
+		</display:column>
+	</security:authorize>
 
 </display:table>
 

@@ -137,6 +137,41 @@ public class GymManagerController extends AbstractController {
 		result.addObject("requestURI", "gym/manager/addTraining.do");
 		return result;
 	}
+	
+	// Activate ----------------------------------------------------------------
+		@RequestMapping(value = "/activate", method = RequestMethod.GET)
+		public ModelAndView activateGym(@RequestParam int gymId) {
+			ModelAndView result;
+			try {
+				this.gymService.activate(gymId);
+				result=this.list();
+				result.addObject("message", "manager.commit.ok");
+			}catch(final Throwable oops) {
+				result=this.list();
+				result.addObject("message", "manager.commit.error");
+			}
+			
+			
+			
+			return result;
+		}
+		
+		@RequestMapping(value = "/desactivate", method = RequestMethod.GET)
+		public ModelAndView desactivateGym(@RequestParam int gymId) {
+			ModelAndView result;
+			try {
+				this.gymService.desactivate(gymId);
+				result=this.list();
+				result.addObject("message", "manager.commit.ok");
+			}catch(final Throwable oops) {
+				result=this.list();
+				result.addObject("message", "manager.commit.error");
+			}
+			
+			
+			
+			return result;
+		}
 	// Ancillary methods ------------------------------------------------------
 	
 	protected ModelAndView createEditModelAndView(final Gym gym) {
