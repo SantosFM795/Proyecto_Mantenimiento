@@ -32,6 +32,7 @@
 		<value>/views/trainer/tiles.xml</value>
 		<value>/views/annotation/tiles.xml</value>
 		<value>/views/cv/tiles.xml</value>
+		<value>/views/step/tiles.xml</value>
 		
 	</util:list>
 
