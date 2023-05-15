@@ -35,5 +35,8 @@
 			<a href="trainer/manager/create.do"> <spring:message
 					code="trainer.create" />
 			</a>
+			<a href="trainer/manager/search.do"> <spring:message
+					code="search.search" />
+			</a>
 		</div>
 	</security:authorize>

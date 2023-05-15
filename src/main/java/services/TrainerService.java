@@ -122,14 +122,15 @@ public class TrainerService {
 		
 		return result;
 	}
+
 	
-	/*public Collection<Trainer> findTrainerByKeyWord(String name){
+	public Collection<Trainer> findTrainerByKeyWord(String name){
 		Collection<Trainer> result;
 		
 		Assert.notNull(name);
 		result = this.trainerRepository.findTrainerByKeyWord(name);
 		
 		return result;
-	}*/
+	}
 	
 }

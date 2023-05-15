@@ -16,5 +16,10 @@
 <put-attribute name="body" value="/views/trainer/edit.jsp"/>
 </definition>
 
+<definition name="trainer/search" extends="master.page">
+		<put-attribute name="title" value="Search Activity" />
+		<put-attribute name="body"
+			value="/views/trainer/search.jsp" />
+</definition>
 
 </tiles-definitions>
