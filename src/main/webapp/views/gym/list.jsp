@@ -17,7 +17,7 @@
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="gyms" requestURI="${requestURI}" id="row">
-	
+
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
 			<a href="gym/manager/edit.do?gymId=${row.id}"> <spring:message
@@ -25,15 +25,26 @@
 			</a>
 		</display:column>
 	</security:authorize>
-	
-	<spring:message code="gym.name" var="nameHeader"/>
-	<display:column property="name" title="${nameHeader}" sortable="true"/>
-	
-	<spring:message code="gym.address" var="addressHeader"/>
-	<display:column property="address" title="${addressHeader}" sortable="true"/>
-	
-	<spring:message code="gym.mensualCost" var="mensualCostHeader"/>
-	<display:column property="mensualCost" title="${mensualCostHeader}" sortable="true" />
+
+
+
+	<spring:message code="gym.name" var="nameHeader" />
+	<display:column property="name" title="${nameHeader}" sortable="true" />
+
+	<spring:message code="gym.address" var="addressHeader" />
+	<display:column property="address" title="${addressHeader}"
+		sortable="true" />
+
+	<spring:message code="gym.mensualCost" var="mensualCostHeader" />
+	<display:column property="mensualCost" title="${mensualCostHeader}"
+		sortable="true" />
+		
+
+	<display:column>
+		<a href="activity/listByGym.do?gymId=${row.id}"> <spring:message
+				code="gym.listActivities" />
+		</a>
+	</display:column>
 
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
@@ -42,7 +53,7 @@
 			</a>
 		</display:column>
 	</security:authorize>
-	
+
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
 			<a href="gym/manager/addTraining.do?gymId=${row.id}"> <spring:message
@@ -52,13 +63,12 @@
 	</security:authorize>
 	<!-- Action links -->
 
-	
+
 </display:table>
 
-	<security:authorize access="hasRole('MANAGER')">
-		<div>
-			<a href="gym/manager/create.do"> <spring:message
-					code="gym.create" />
-			</a>
-		</div>
-	</security:authorize>
+<security:authorize access="hasRole('MANAGER')">
+	<div>
+		<a href="gym/manager/create.do"> <spring:message code="gym.create" />
+		</a>
+	</div>
+</security:authorize>
