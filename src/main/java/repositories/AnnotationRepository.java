@@ -20,6 +20,4 @@ public interface AnnotationRepository extends JpaRepository<Annotation, Integer>
 	@Query("select a from Annotation a where a.activity.id = ?1")
 	Collection<Annotation> findByActivityId(int ActivityId);
 	
-	@Query("select a from Annotation a where a.actor.userAccount.id = ?1")
-	Collection<Annotation> findUserAccountId(int UserAccountId);
 }

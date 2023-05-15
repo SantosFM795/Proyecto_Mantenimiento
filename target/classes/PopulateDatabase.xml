@@ -272,10 +272,9 @@
 	
 	<!-- Annotation -->
 	<bean id="annotation1" class="domain.Annotation">
-		<property name="date_send" value="10/10/2020" />
+		<property name="date_send" value="21/12/2020" />
 		<property name="text" value="Horrible" />
 		<property name="rating" value="1" />	
-		<property name="actor" ref="customer1" />
 		<property name="gym" ref="gym1"></property>	
 	</bean>
 	
@@ -283,31 +282,27 @@
 		<property name="date_send" value="10/10/2020" />
 		<property name="text" value="Horrible" />
 		<property name="rating" value="1" />	
-		<property name="actor" ref="customer1" />
 		<property name="training" ref="training1"></property>	
 	</bean>
 	
 	<bean id="annotation3" class="domain.Annotation">
-		<property name="date_send" value="10/10/2020" />
+		<property name="date_send" value="12/02/2020" />
 		<property name="text" value="Horrible" />
 		<property name="rating" value="1" />	
-		<property name="actor" ref="customer1" />
 		<property name="activity" ref="activity1"></property>	
 	</bean>
 	
 	<bean id="annotation4" class="domain.Annotation">
-		<property name="date_send" value="10/10/2020" />
+		<property name="date_send" value="06/10/2020" />
 		<property name="text" value="Horrible" />
 		<property name="rating" value="3" />	
-		<property name="actor" ref="customer1" />
 		<property name="training" ref="training1"></property>	
 	</bean>
 	
 	<bean id="annotation5" class="domain.Annotation">
-		<property name="date_send" value="10/10/2020" />
+		<property name="date_send" value="10/01/2021" />
 		<property name="text" value="Horrible" />
 		<property name="rating" value="1" />	
-		<property name="actor" ref="customer1" />
 		<property name="training" ref="training2"></property>	
 	</bean>
 	

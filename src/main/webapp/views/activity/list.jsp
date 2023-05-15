@@ -33,6 +33,7 @@
 	<spring:message code="activity.endTime" var="endHeader"/>
 	<display:column property="endTime" title="${endHeader}" sortable="true"/>
 	
+	
 	<!-- Action links -->
 
 

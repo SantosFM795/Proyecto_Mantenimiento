@@ -21,8 +21,6 @@ public class Annotation extends DomainEntity{
 	private String text;
 	private Integer rating;
 	
-	
-	private Actor actor;
 	private Gym gym;
 	private Training training;
 	private Activity activity;
@@ -45,11 +43,6 @@ public class Annotation extends DomainEntity{
 		return activity;
 	}
 	
-	@Valid
-	@ManyToOne(optional=false)
-	public Actor getActor() {
-		return actor;
-	}
 	public void setGym(Gym gym) {
 		this.gym = gym;
 	}
@@ -60,9 +53,6 @@ public class Annotation extends DomainEntity{
 		this.activity = activity;
 	}
 	
-	public void setActor(Actor actor) {
-		this.actor = actor;
-	}
 	@Past
 	@NotNull
 	public Date getDate_send() {
