@@ -83,6 +83,15 @@ public class CVService {
 			
 			return result;
 		}
+
+		public CV findByTrainer(int trainerId) {
+			CV result;
+			
+			Assert.notNull(trainerId);
+			result = this.cvRepository.findByTrainerId2(trainerId);
+			
+			return result;
+		}
 		
 		
 

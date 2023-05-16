@@ -73,6 +73,12 @@
 		</jstl:if>
 	</security:authorize>
 
+
+	<display:column>
+		<a href="cv/list.do?trainerId=${row.id}">
+			<spring:message code="trainer.showCV"/>
+		</a>
+	</display:column>
 </display:table>
 <%--roles --%>
 

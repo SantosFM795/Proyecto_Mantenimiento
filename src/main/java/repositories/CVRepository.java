@@ -13,4 +13,7 @@ public interface CVRepository extends JpaRepository<CV, Integer>{
 
 	@Query("select t.curriculum from Trainer t where t.userAccount.id = ?1")
 	CV findByTrainerId(int userAccountId);
+	
+	@Query("select t.curriculum from Trainer t where t.id = ?1")
+	CV findByTrainerId2(int userAccountId);
 }

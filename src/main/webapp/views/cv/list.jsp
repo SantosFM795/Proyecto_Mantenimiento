@@ -18,26 +18,20 @@
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="cv" requestURI="${requestURI}" id="row">
 	
-	<display:column property="name" titleKey="cv.nameCv"/>
-	<display:column property="formation" titleKey="cv.formation"/>
-	<display:column property="workExperience" titleKey="cv.workExperience"/>
+	<spring:message code="cv.skills" var="skillsHeader"/>
+	<display:column property="skills" title="${skillsHeader}" sortable="true"/>
+	
+	<spring:message code="cv.formation" var="formationHeader"/>
+	<display:column property="formation" title="${formationHeader}" sortable="true"/>
+	
+	<spring:message code="cv.workExperience" var="workExperienceHeader"/>
+	<display:column property="workExperience" title="${workExperienceHeader}" sortable="true"/>
+	
 	
 	<!-- Action links -->
 		<%-- Aqui debería ser entrenador en lugar de admin --%>
-	<security:authorize access="hasRole('TRAINER')">
-		<display:column>
-			<a href="cv/trainer/edit.do?cvId=${row.id}"> <spring:message
-					code="cv.edit" />
-			</a>
-		</display:column>
-	</security:authorize>
+	
 
-	<security:authorize access="hasRole('ADMIN')">
-		<div>
-			<a href="cv/administrator/create.do"> <spring:message
-					code="cv.create" />
-			</a>
-		</div>
-	</security:authorize>
+	
 
 </display:table>
