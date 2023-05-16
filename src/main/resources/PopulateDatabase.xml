@@ -103,6 +103,18 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="userAccount8" class="security.UserAccount">
+		<property name="username" value="customer2" />
+		<property name="password" value="1b3231655cebb7a1f783eddf27d254ca" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 	<!-- Other domain beans come here -->	
 	
 	<!--Customer -->
@@ -134,6 +146,30 @@
 		<property name="activities">
 			<list>
 				<ref bean="activity1"></ref>
+			</list>
+		</property>	
+	</bean>
+	<bean id="customer2" class="domain.Customer">
+		<property name="name" value="Juanito" />
+		<property name="lastName" value="García" />
+		<property name="email" value="jgar@gmail.com" />
+		<property name="phoneNumber" value="959159251" />
+		<property name="postalCode" value="21004" />
+		<property name="city" value="Huelva" />
+		<property name="country" value="ESP" />
+		<property name="userAccount" ref="userAccount8" />
+		<property name="creditCard" ref="card2" />	
+		
+		<property name="signing">
+			<list>
+				<ref bean="signing2"/>
+			</list>
+		</property>
+		
+		<property name="activities">
+			<list>
+				<ref bean="activity1"></ref>
+				<ref bean="activity2"></ref>
 			</list>
 		</property>	
 	</bean>
@@ -602,6 +638,17 @@
 		<property name="expirationMonth" value="12" />
 		<property name="expirationYear" value="23" />
 		<property name="cvv" value="285" />
+		<property name="active" value="true" />
+		
+	</bean>
+	
+	<bean id="card2" class="domain.CreditCard">
+		<property name="nameCC" value="Juanito García" />
+		<property name="number" value="1236814049403204" />
+		<property name="brand" value="Caixa" />
+		<property name="expirationMonth" value="12" />
+		<property name="expirationYear" value="23" />
+		<property name="cvv" value="282" />
 		<property name="active" value="true" />
 		
 	</bean>

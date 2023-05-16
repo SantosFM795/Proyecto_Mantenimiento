@@ -27,6 +27,7 @@ import controllers.AbstractController;
 import domain.Administrator;
 import domain.Training;
 import services.AdministratorService;
+import services.CustomerService;
 import services.GymService;
 import services.StepService;
 import services.TrainingService;
@@ -43,6 +44,8 @@ public class AdministratorController extends AbstractController {
 	private TrainingService trainingService;
 	@Autowired
 	private StepService stepService;
+	@Autowired
+	private CustomerService customerService;
 	// Constructors -----------------------------------------------------------
 	public AdministratorController() {
 		super();
@@ -61,6 +64,8 @@ public class AdministratorController extends AbstractController {
 		//Assert.notNull(gymsM);
 		result = new ModelAndView("administrator/list");
 		result.addObject("gymsByManager",gymsByManager);
+		
+		
 		
 		trainingG = this.trainingService.findTrainingByGym();
 		//Assert.notNull(trainingG);

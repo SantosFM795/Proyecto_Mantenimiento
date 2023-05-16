@@ -43,5 +43,52 @@
 			</display:column>
 		</display:table>	
 	<br>
+	
+	<h2>
+		<spring:message code="administrator.trainingG" />
+	</h2>
+	<display:table name="trainingG" id="trainingG" pagesize="5" requestURI="${requestURI}" class="displaytag">
+			<spring:message code="administrator.min" var="min"/>
+			<spring:message code="administrator.avg" var="avg"/>
+			<spring:message code="administrator.max" var="max"/>
+			<display:column title="${min}">
+				<h3> <jstl:out value="${traininG[0]}" /> </h3> 
+			</display:column>
+			<display:column title="${avg}">
+				<h3> <jstl:out value="${trainingG[1]}" /> </h3> 
+			</display:column>
+			<display:column title="${max}">
+				<h3> <jstl:out value="${traininG[2]}" /> </h3> 
+			</display:column>
+		</display:table>	
+	<br>
+	
+	<h2>
+		<spring:message code="administrator.steps" />
+	</h2>
+	<display:table name="steps" id="steps" pagesize="5" requestURI="${requestURI}" class="displaytag">
+			<spring:message code="administrator.min" var="min"/>
+			<spring:message code="administrator.avg" var="avg"/>
+			<spring:message code="administrator.max" var="max"/>
+			<display:column title="${min}">
+				<h3> <jstl:out value="${steps[0]}" /> </h3> 
+			</display:column>
+			<display:column title="${avg}">
+				<h3> <jstl:out value="${steps[1]}" /> </h3> 
+			</display:column>
+			<display:column title="${max}">
+				<h3> <jstl:out value="${steps[2]}" /> </h3> 
+			</display:column>
+		</display:table>	
+	<br>
+	
+	<h2>
+		<spring:message code="administrator.trainingOrder" />
+	</h2>
+	<jstl:forEach items="${trainingOrder}" var="item">
+		<h4><jstl:out value="${item.title}"/></h4>
+	</jstl:forEach>
+	
+	<br>
 
 </security:authorize>
