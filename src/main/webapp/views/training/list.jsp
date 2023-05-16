@@ -38,21 +38,21 @@
 					code="training.showSteps" />
 			</a>
 		</display:column>
-</display:table>
-<security:authorize access="hasRole('MANAGER')">
 
-	<jstl:choose>
-				<jstl:when test="${gymId!=0}">
+	<security:authorize access="hasRole('MANAGER')">
+		
+		<jstl:if test="${gymId!=0}">
+		<spring:message code="training.AddToGym"/>
+			<display:column>
+				<a href="training/manager/addToGym.do?trainingId=${row.id}&gymId=${gymId}">
+					<spring:message code="training.AddToGym"/>
+				</a>
+			</display:column>
+		</jstl:if>
 				
-					<a href="manager/administrator/list.do">
-						<spring:message code="manager.ban"/>
-					</a>
-				
-				</jstl:when>
-				
-			</jstl:choose>
-				
+		
 	</security:authorize>
+</display:table>
 <security:authorize access="hasRole('MANAGER')">
 		<div>
 			<a href="training/manager/create.do"> <spring:message

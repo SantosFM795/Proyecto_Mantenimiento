@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import controllers.AbstractController;
 import domain.Training;
 import services.TrainingService;
+import services.GymService;
 
 @Controller
 @RequestMapping("/training/manager")
@@ -31,24 +32,29 @@ public class TrainingManagerController extends AbstractController {
 	// Services ---------------------------------------------------------------
 	@Autowired
 	private TrainingService trainingService;
+	
+	@Autowired
+	private GymService gymService;
 	// Constructors -----------------------------------------------------------
 	public TrainingManagerController() {
 		super();
 	}
 	// Listing ----------------------------------------------------------------
-	@RequestMapping(value = "/listToAdd", method = RequestMethod.GET)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView result;
 		Collection<Training> trainings;
-		
+		int gymId=0;
 		trainings = this.trainingService.findByManager();
+		
 		result = new ModelAndView("training/list");
+		result.addObject("gymId",gymId);
 		result.addObject("requestURI", "training/manager/list.do");
 		result.addObject("trainings",trainings);
 		return result;
 	}
 	
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/listToAdd", method = RequestMethod.GET)
 	public ModelAndView listTraining(@RequestParam int gymId) {
 		ModelAndView result;
 		Collection<Training> trainings;
@@ -111,6 +117,19 @@ public class TrainingManagerController extends AbstractController {
 			result = this.createEditModelAndView(training, "training.commit.error");
 		}
 
+		return result;
+	}
+	
+	//Add To Gym
+	
+	@RequestMapping(value = "/addToGym", method = RequestMethod.GET)
+	public ModelAndView addToGym(@RequestParam int trainingId, int gymId) {
+		ModelAndView result;
+		
+		gymService.addTraining(gymId, trainingId);
+		
+		result=this.list();
+		
 		return result;
 	}
 	// Ancillary methods ------------------------------------------------------

@@ -13,6 +13,7 @@ import domain.Customer;
 import domain.Gym;
 import domain.Manager;
 import domain.Trainer;
+import domain.Training;
 import repositories.GymRepository;
 @Service
 @Transactional
@@ -35,6 +36,9 @@ public class GymService {
 	
 	@Autowired
 	private ActivityService activityService;
+	
+	@Autowired
+	private TrainingService trainingService;
 	
 	// Constructor --------------------------------
 	
@@ -145,6 +149,14 @@ public class GymService {
 			activityService.desactivate(act.next().getId());
 		}
 		gymRepository.save(gym);
+	}
+
+	public void addTraining(int gymId, int trainingId) {
+		Gym gym=this.findOne(gymId);
+		Training training = trainingService.findOne(trainingId);
+		
+		gym.addTraining(training);
+		
 	}
 
 }
