@@ -91,63 +91,10 @@ public class GymManagerController extends AbstractController {
 	}
 	
 
-	// Delete, los gimnasios no se eliminan realmente, algo habrá que tocar en algún lado
-	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
-	public ModelAndView delete(final Gym gym, final BindingResult binding) {
-		ModelAndView result;
-
-		try {
-			this.gymService.delete(gym);
-			result = new ModelAndView("redirect:list.do");
-		} catch (final Throwable oops) {
-			result = this.createEditModelAndView(gym, "gym.commit.error");
-		}
-
-		return result;
-	}
-	//Add an Activity
-	@RequestMapping(value="/addActivity",method = RequestMethod.GET)
-	public ModelAndView addActivity(@RequestParam int gymId) {
-		ModelAndView result;
-		Gym gym;
-		Collection<Activity> activities;
-		
-		gym = gymService.findOne(gymId);
-		Assert.notNull(gym);
-		
-		activities=activityService.findAll();
-		result = new ModelAndView("gym/addActivity");
-		AddActivity addA=new AddActivity();
-		addA.setGymId(gymId);
-		int betis=23;
-		//result.addObject("gym", gym);
-		result.addObject("activities", activities);
-		result.addObject("addActivity", addA);
-		result.addObject("betis", betis);
-		result.addObject("requestURI", "gym/manager/addActivity.do");
-		return result;
-	}
 	
-	@RequestMapping(value="/saveActivity",method = RequestMethod.GET)
-	public ModelAndView saveActivity(@RequestParam int gymId, String activityId) {
-		ModelAndView result;
-		result=null;
-		//System.out.println(addActivity.getActivity().getTitle());
-//		Gym gym;
-//		Collection<Activity> activities;
-//		
-//		gym = gymService.findOne(gymId);
-//		Assert.notNull(gym);
-//		
-//		activities=activityService.findAll();
-//		result = new ModelAndView("gym/addActivity");
-//		result.addObject("gym", gym);
-//		result.addObject("activities", activities);
-//		result.addObject("addActivity", new AddActivity());
-//		result.addObject("requestURI", "gym/manager/addActivity.do");
-		System.out.println("hey");
-	return result;
-	}
+	
+	
+
 	
 	
 	

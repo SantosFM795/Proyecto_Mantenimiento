@@ -52,9 +52,21 @@
 			</jstl:choose>
 		</display:column>
 	</security:authorize>
+	
+	
+	<jstl:if test="${gymId!=0}">
+		<spring:message code="activity.AddToGym"/>
+		<display:column>
+			<a href="activity/manager/addToGym.do?activityId=${row.id}&gymId=${gymId}">
+				<spring:message code="activity.AddToGym"/>
+			</a>
+		</display:column>
+	</jstl:if>
 
 
 </display:table>
+
+	
 
 	<security:authorize access="hasRole('MANAGER')">
 		<div>
