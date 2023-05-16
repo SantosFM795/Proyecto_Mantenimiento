@@ -167,4 +167,20 @@ public class GymService {
 		
 	}
 
+	public void addTrainer(int gymId, int trainerId) {
+		Gym gym=this.findOne(gymId);
+		Trainer trainer = trainerService.findOne(trainerId);
+		
+		gym.addTrainer(trainer);
+		trainer.addGym(gym);
+		
+	}
+	
+	public Collection<Object[]> findGymsByManager(){
+		Collection<Object[]> result;
+		result = this.gymRepository.findGymsByManager();
+		
+		return result;
+	}
+
 }

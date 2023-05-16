@@ -50,6 +50,17 @@
 			</a>
 		</display:column>
 	</security:authorize>
+	
+	<security:authorize access="hasRole('MANAGER')">
+		<jstl:if test="${gymId!=0}">
+			<spring:message code="trainer.AddToGym"/>
+			<display:column>
+				<a href="trainer/manager/addToGym.do?trainerId=${row.id}&gymId=${gymId}">
+					<spring:message code="trainer.AddToGym"/>
+				</a>
+			</display:column>
+		</jstl:if>
+	</security:authorize>
 
 </display:table>
 <%--roles --%>

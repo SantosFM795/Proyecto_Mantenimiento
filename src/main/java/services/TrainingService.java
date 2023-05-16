@@ -132,4 +132,18 @@ public class TrainingService {
 		result.removeAll(gym);
 		return result;
 	}
+	
+	public Collection<Object[]> findTrainingByGym(){
+		Collection<Object[]> result;
+		
+		result = this.trainingRepository.findTrainingByGym();
+		return result;
+	}
+	
+	public Collection<Training> findOrderTraining(){
+		Collection<Training> result;
+		
+		result = this.trainingRepository.findOrderTraining();
+		return result;
+	}
 }

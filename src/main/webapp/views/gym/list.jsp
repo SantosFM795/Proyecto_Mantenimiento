@@ -78,6 +78,14 @@
 			</a>
 		</display:column>
 	</security:authorize>
+	
+	<security:authorize access="hasRole('MANAGER')">
+		<display:column>
+			<a href="trainer/manager/listToAdd.do?gymId=${row.id}"> <spring:message
+					code="gym.addTrainer" />
+			</a>
+		</display:column>
+	</security:authorize>
 
 
 	<!-- Action links -->

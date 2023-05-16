@@ -53,15 +53,16 @@
 		</display:column>
 	</security:authorize>
 	
-	
-	<jstl:if test="${gymId!=0}">
-		<spring:message code="activity.AddToGym"/>
-		<display:column>
-			<a href="activity/manager/addToGym.do?activityId=${row.id}&gymId=${gymId}">
-				<spring:message code="activity.AddToGym"/>
-			</a>
-		</display:column>
-	</jstl:if>
+	<security:authorize access="hasRole('MANAGER')">
+		<jstl:if test="${gymId!=0}">
+			<spring:message code="activity.AddToGym"/>
+			<display:column>
+				<a href="activity/manager/addToGym.do?activityId=${row.id}&gymId=${gymId}">
+					<spring:message code="activity.AddToGym"/>
+				</a>
+			</display:column>
+		</jstl:if>
+	</security:authorize>
 
 
 </display:table>

@@ -133,4 +133,9 @@ public class Gym extends DomainEntity{
 		this.activity.add(activity);
 		
 	}
+
+	public void addTrainer(Trainer trainer) {
+		this.trainer.add(trainer);
+		
+	}
 }

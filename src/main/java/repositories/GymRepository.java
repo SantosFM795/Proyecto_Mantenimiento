@@ -31,5 +31,9 @@ public interface GymRepository extends JpaRepository<Gym, Integer>{
 	
 	
 	@Query("select g1 from Gym g1 where (select count(a1) from Gym g inner join g.activity a1 where a1.cancelled=false and g1=g) >= ALL(select count(a2) from Gym g2 inner join g2.activity a2 where a2.cancelled=false group by g2")
-	Collection<Gym> findMaxActivitiesGym();*/
+	Collection<Gym> findMaxActivitiesGym();
+
+	@Query("select g1 from Gym g1 where (select count(a1) from Gym g join Activity a1 where a1.cancelled=false and g1=g and g.activity=a1) >= ALL(select count(a2) from Gym g2 inner join Activity a2 where a2.cancelled=false and g2.activity=a2 group by g2")
+	Collection<Gym> findMaxActivitiesGym();
+	*/
 }

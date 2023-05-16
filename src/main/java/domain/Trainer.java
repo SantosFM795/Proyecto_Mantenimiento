@@ -45,4 +45,9 @@ public class Trainer extends Actor{
 	public void setCurriculum(CV curriculum) {
 		this.curriculum = curriculum;
 	}
+
+	public void addGym(Gym gym) {
+		this.gyms.add(gym);
+		
+	}
 }

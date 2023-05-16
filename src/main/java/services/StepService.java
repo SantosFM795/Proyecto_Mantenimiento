@@ -58,4 +58,11 @@ public class StepService {
 			
 			return result;
 		}
+		
+		public Collection<Object[]> findStepsByTraining(){
+			Collection<Object[]> result;
+			
+			result = this.stepRepository.findStepsByTraining();
+			return result;
+		}
 }

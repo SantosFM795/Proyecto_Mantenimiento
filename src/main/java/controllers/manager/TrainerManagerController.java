@@ -8,11 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import controllers.AbstractController;
 import domain.Trainer;
+import domain.Training;
 import forms.Search;
+import services.GymService;
 import services.TrainerService;
 
 @Controller
@@ -21,7 +24,8 @@ public class TrainerManagerController extends AbstractController {
 	// Services ---------------------------------------------------------------
 	@Autowired
 	private TrainerService trainerService;
-
+	@Autowired
+	private GymService gymService;
 	// Constructors -----------------------------------------------------------
 	public TrainerManagerController() {
 		super();
@@ -32,13 +36,28 @@ public class TrainerManagerController extends AbstractController {
 	public ModelAndView list() {
 		ModelAndView result;
 		Collection<Trainer> trainers;
-		trainers = this.trainerService.findAll();
+		trainers = this.trainerService.findByManager();
+		int gymId=0;
 		result = new ModelAndView("trainer/list");
 		result.addObject("requestURI", "trainer/manager/list.do");
 		result.addObject("trainers", trainers);
+		result.addObject("gymId", gymId);
 		return result;
 	}
 
+	@RequestMapping(value = "/listToAdd", method = RequestMethod.GET)
+	public ModelAndView listTraining(@RequestParam int gymId) {
+		ModelAndView result;
+		Collection<Trainer> trainers;
+		
+		trainers = this.trainerService.findToAdd(gymId);
+		result = new ModelAndView("trainer/list");
+		result.addObject("gymId",gymId);
+		result.addObject("trainers",trainers);
+		result.addObject("requestURI", "trainer/manager/list.do");
+		
+		return result;
+	}
 	// Create ----------------------------------------------------------------
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {
@@ -103,6 +122,17 @@ public class TrainerManagerController extends AbstractController {
 
 		return result;
 
+	}
+	
+	@RequestMapping(value = "/addToGym", method = RequestMethod.GET)
+	public ModelAndView addToGym(@RequestParam int trainerId, int gymId) {
+		ModelAndView result;
+		
+		gymService.addTrainer(gymId, trainerId);
+		
+		result=this.list();
+		
+		return result;
 	}
 
 	// Ancillary methods ------------------------------------------------------
