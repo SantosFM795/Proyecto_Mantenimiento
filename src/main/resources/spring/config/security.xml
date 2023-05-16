@@ -78,6 +78,12 @@
 								access="permitAll" />																								
 		<security:intercept-url pattern="/annotation/list.do"
 								access="permitAll" />
+		<security:intercept-url pattern="/annotation/listActivity.do"
+								access="permitAll" />
+		<security:intercept-url pattern="/annotation/listTraining.do"
+								access="permitAll" />
+		<security:intercept-url pattern="/annotation/listGym.do"
+								access="permitAll" />
 			<security:intercept-url pattern="/step/list.do"
 								access="permitAll" />
 		<security:intercept-url pattern="/activity/listByGym.do"

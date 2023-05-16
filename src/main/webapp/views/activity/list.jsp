@@ -73,6 +73,12 @@
 				</a>
 			</display:column>
 	</security:authorize>
+	
+	<display:column>
+		<a href="annotation/listActivity.do?activityId=${row.id}">
+			<spring:message code="activity.listAnnotation"/>
+		</a>
+	</display:column>
 
 
 </display:table>

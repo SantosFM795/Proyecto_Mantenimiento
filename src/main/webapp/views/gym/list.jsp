@@ -54,14 +54,6 @@
 
 	<%--------------------------- Roles -----------------------------------%>
 
-	<security:authorize access="isAnonymous()">
-		<spring:message code="gym.annotation" var="stepHeader" />
-		<display:column>
-			<a href="annotation/list.do?gymId=${row.id}"> <spring:message
-					code="gym.showAnnotations" />
-			</a>
-		</display:column>
-	</security:authorize>
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
 			<a href="activity/manager/listToAdd.do?gymId=${row.id}"> <spring:message
@@ -105,6 +97,12 @@
 			</jstl:choose>
 		</display:column>
 	</security:authorize>
+	
+	<display:column>
+		<a href="annotation/listGym.do?gymId=${row.id}">
+			<spring:message code="gym.listAnnotation"/>
+		</a>
+	</display:column>
 
 </display:table>
 
