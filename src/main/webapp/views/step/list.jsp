@@ -22,7 +22,11 @@
 	<spring:message code="step.description" var="descriptionHeader"/>
 	<display:column property="description" title="${descriptionHeader}" sortable="false"/>
 	
-	
+	<spring:message code = "step.video" var="vtHeader"/>
+	<display:column title = "${vtHeader}">
+		<iframe width="420" height="300" src="${row.video}">
+		</iframe>
+	</display:column>
 	<!-- Action links -->
 	
 	

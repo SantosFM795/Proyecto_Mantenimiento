@@ -466,13 +466,13 @@
 	
 	
 	<bean id="activity2" class="domain.Activity">
-		<property name="title" value="Spinning" />
-		<property name="day" value="Monday" />
-		<property name="startTime" value="15" />
-		<property name="endTime" value="16" />
-		<property name="availableSpots" value="30" />
+		<property name="title" value="Zumba" />
+		<property name="day" value="Friday" />
+		<property name="startTime" value="11" />
+		<property name="endTime" value="19" />
+		<property name="availableSpots" value="15" />
 		<property name="cancelled" value="false" />
-		<property name="description" value="1h of Spinning" />
+		<property name="description" value="1h of Zumba" />
 		<property name="photos">
 			<list>
 				<value>https://cdn.logo.com/hotlink-ok/logo-social.png</value>
@@ -487,13 +487,13 @@
 		
 		<property name="customers">
 			<list>
-				<ref bean="customer1"></ref>
+				<ref bean="customer2"></ref>
 			</list>
 		</property>
 		
 		<property name="trainer">
 			<list>
-				<ref bean="trainer1"></ref>
+				<ref bean="trainer3"></ref>
 			</list>
 		</property>
 		
@@ -555,6 +555,7 @@
 		<property name="rating" value="1" />	
 		<property name="gym" ref="gym2"></property>	
 	</bean>
+	
 	
 	<!-- CV -->
 	
@@ -618,16 +619,17 @@
 	<!-- Step -->
 	<bean id="step1" class="domain.Step">
 		<property name="description" value="Bajamos el pecho" />
-		<property name="video" value="https://www.youtube.com/watch?v=2ZSq1BRYwAI" />	
+		<property name="video" value="https://www.youtube.com/embed/2ZSq1BRYwAI" />	
 	</bean>
 	
 	<bean id="step2" class="domain.Step">
 		<property name="description" value="Subimos el pecho" />
+		<property name="video" value="https://www.youtube.com/embed/isioQPUiAVk" />
 	</bean>
 	
 	<bean id="step4" class="domain.Step">
 		<property name="description" value="Bajamos el pecho" />
-		<property name="video" value="https://www.youtube.com/watch?v=2ZSq1BRYwAI" />	
+		<property name="video" value="https://www.youtube.com/embed/2ZSq1BRYwAI" />	
 	</bean>
 	
 	<!-- Credit Card -->
