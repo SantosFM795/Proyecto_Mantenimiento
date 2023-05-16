@@ -18,6 +18,8 @@
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="gyms" requestURI="${requestURI}" id="row">
 
+	<%--------------------------- Roles -----------------------------------%>
+
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
 			<a href="gym/manager/edit.do?gymId=${row.id}"> <spring:message
@@ -26,25 +28,36 @@
 		</display:column>
 	</security:authorize>
 
-
-
+	<%-- Main Information --%>
+	<spring:message code="gym.logo" var="logoHeader" />
+	<display:column property="logo" title="${logoHeader}" />
+	
 	<spring:message code="gym.name" var="nameHeader" />
-	<display:column property="name" title="${nameHeader}" sortable="true" />
+	<display:column property="name" title="${nameHeader}" />
 
 	<spring:message code="gym.address" var="addressHeader" />
-	<display:column property="address" title="${addressHeader}"
-		sortable="true" />
+	<display:column property="address" title="${addressHeader}" />
 
 	<spring:message code="gym.mensualCost" var="mensualCostHeader" />
-	<display:column property="mensualCost" title="${mensualCostHeader}"
-		sortable="true" />
-		
+	<display:column property="mensualCost" title="${mensualCostHeader}" />
+
 
 	<display:column>
 		<a href="activity/listByGym.do?gymId=${row.id}"> <spring:message
 				code="gym.listActivities" />
 		</a>
 	</display:column>
+
+
+	<spring:message code="gym.annotation" var="stepHeader" />
+	<display:column>
+		<a href="annotation/list.do?gymId=${row.id}"> <spring:message
+				code="gym.showAnnotations" />
+		</a>
+	</display:column>
+
+
+	<%--------------------------- Roles -----------------------------------%>
 
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
@@ -54,6 +67,7 @@
 		</display:column>
 	</security:authorize>
 
+
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
 			<a href="training/manager/listToAdd.do?gymId=${row.id}"> <spring:message
@@ -61,20 +75,20 @@
 			</a>
 		</display:column>
 	</security:authorize>
-	
-	
+
+
 	<!-- Action links -->
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
 			<jstl:choose>
 				<jstl:when test="${row.active==true}">
-					<a href="gym/manager/desactivate.do?gymId=${row.id}">
-						<spring:message code="gym.desactivate"/>
+					<a href="gym/manager/desactivate.do?gymId=${row.id}"> <spring:message
+							code="gym.desactivate" />
 					</a>
 				</jstl:when>
 				<jstl:otherwise>
-					<a href="gym/manager/activate.do?gymId=${row.id}">
-						<spring:message code="gym.activate"/>
+					<a href="gym/manager/activate.do?gymId=${row.id}"> <spring:message
+							code="gym.activate" />
 					</a>
 				</jstl:otherwise>
 			</jstl:choose>

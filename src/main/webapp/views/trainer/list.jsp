@@ -19,13 +19,16 @@
 	name="trainers" requestURI="${requestURI}" id="row">
 	
 	<spring:message code="trainer.name" var="trainerHeader"/>
-	<display:column property="name" title="${trainerHeader}" sortable="true"/>
+	<display:column property="name" title="${trainerHeader}" />
 	
 	<spring:message code="trainer.lastName" var="lastNameHeader"/>
-	<display:column property="lastName" title="${lastNameHeader}" sortable="true"/>
+	<display:column property="lastName" title="${lastNameHeader}" />
+	
+	<spring:message code="trainer.cv.formation" var="formationHeader"/>
+	<display:column property="curriculum.formation" title="${formationHeader}" "/>
 	
 	<spring:message code="trainer.cv.workExperience" var="workExperienceHeader"/>
-	<display:column property="curriculum.workExperience" title="${workExperienceHeader}" sortable="true"/>
+	<display:column property="curriculum.workExperience" title="${workExperienceHeader}" "/>
 	
 	
 </display:table>

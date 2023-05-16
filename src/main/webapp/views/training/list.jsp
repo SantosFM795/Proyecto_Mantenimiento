@@ -17,9 +17,9 @@
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="trainings" requestURI="${requestURI}" id="row">
-	
-	
-	
+
+
+
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
 			<a href="training/manager/edit.do?trainingId=${row.id}"> <spring:message
@@ -27,7 +27,7 @@
 			</a>
 		</display:column>
 	</security:authorize>
-	
+
 	<spring:message code="training.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}" sortable="true" />
 	<display:column property="description" titleKey="training.description"/>
