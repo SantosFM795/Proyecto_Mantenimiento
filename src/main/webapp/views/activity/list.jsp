@@ -79,6 +79,12 @@
 			<spring:message code="activity.listAnnotation"/>
 		</a>
 	</display:column>
+	
+	<display:column>
+		<a href="trainer/listByActivity.do?activityId=${row.id}">
+			<spring:message code="activity.showTrainers"/>
+		</a>
+	</display:column>
 
 
 </display:table>

@@ -1,5 +1,7 @@
 package controllers.trainer;
 
+import java.util.Collection;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +10,10 @@ import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import domain.Gym;
 import domain.Trainer;
 import services.TrainerService;
 
@@ -18,13 +22,25 @@ import services.TrainerService;
 public class TrainerController {
 	// Services ---------------------------------------------------------------
 	@Autowired
-	private TrainerService TrainerService;
+	private TrainerService trainerService;
 	// Constructors -----------------------------------------------------------
 	public TrainerController() {
 		super();
 	}
 	
 	// Listing ----------------------------------------------------------------
+	
+	@RequestMapping(value = "/listByActivity", method = RequestMethod.GET)
+	public ModelAndView listByActivity(@RequestParam int activityId) {
+		ModelAndView result;
+		Collection<Trainer> trainers;
+		
+		trainers = this.trainerService.findByActivity(activityId);
+		result = new ModelAndView("trainer/list");
+		result.addObject("requestURI", "trainer/list.do");
+		result.addObject("trainers",trainers);
+		return result;
+	}
 		// Creation ---------------------------------------------------------------
 		// Edition ----------------------------------------------------------------
 		@RequestMapping(value="/edit",method = RequestMethod.GET)
@@ -32,7 +48,7 @@ public class TrainerController {
 			ModelAndView result;
 			Trainer Trainer;
 			
-			Trainer = TrainerService.findByPrincipal();
+			Trainer = trainerService.findByPrincipal();
 			Assert.notNull(Trainer);
 			result = createEditModelAndView(Trainer);
 			return result;
@@ -47,7 +63,7 @@ public class TrainerController {
 				result = this.createEditModelAndView(Trainer);
 			else
 				try {
-					this.TrainerService.save(Trainer);
+					this.trainerService.save(Trainer);
 					result = new ModelAndView("redirect:");
 				} catch (final Throwable oops) {
 					result = this.createEditModelAndView(Trainer, "manager.commit.error");
@@ -61,7 +77,7 @@ public class TrainerController {
 			ModelAndView result;
 
 			try {
-				this.TrainerService.delete(Trainer);
+				this.trainerService.delete(Trainer);
 				result = new ModelAndView("redirect:/trainer");
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(Trainer, "trainer.commit.error");

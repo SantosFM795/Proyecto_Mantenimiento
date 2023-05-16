@@ -147,5 +147,15 @@ public class TrainerService {
 		result.removeAll(gym);
 		return result;
 	}
+
+	public Collection<Trainer> findByActivity(int activityId) {
+		Collection<Trainer> result;
+		
+		
+		Assert.notNull(activityId);
+		result = this.trainerRepository.findByActivityId(activityId);
+		
+		return result;
+	}
 	
 }
