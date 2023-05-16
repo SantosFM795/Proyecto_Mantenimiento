@@ -22,6 +22,10 @@ public interface TrainerRepository extends JpaRepository<Trainer, Integer>{
 	@Query("select g.trainer from Gym g where g.id = ?1")
 	Collection<Trainer> findByGymId(int gymId);
 	
+	@Query("select a.trainer from Activity a where a.id = ?1")
+	Collection<Trainer> findByActivityId(int activityId);
+	
+	
 	@Query("select t from Trainer t where (t.name LIKE %?1% OR t.lastName LIKE %?1%)")
 	Collection<Trainer> findTrainerByKeyWord(String name);
 	

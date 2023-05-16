@@ -30,6 +30,9 @@ public class ActivityService {
 	
 	@Autowired
 	private CustomerService customerService;
+	
+	@Autowired
+	private TrainerService trainerService;
 	// Constructor --------------------------------
 	
 	public ActivityService() {
@@ -155,6 +158,15 @@ public class ActivityService {
 		Collection<Activity> gym=activityRepository.findForAllGym();
 		result.removeAll(gym);
 		return result;
+	}
+
+	public void addTrainer(int activityId, int trainerId) {
+		Activity activity=this.findOne(activityId);
+		Trainer trainer = trainerService.findOne(trainerId);
+		
+		activity.addTrainer(trainer);
+		trainer.addActivity(activity);	
+		
 	}
 		
 	

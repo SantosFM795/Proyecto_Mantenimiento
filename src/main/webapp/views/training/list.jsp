@@ -38,14 +38,7 @@
 					code="training.showSteps" />
 			</a>
 		</display:column>
-	<security:authorize access="isAnonymous()">
-	<spring:message code="training.annotation" var="annotationHeader" />
-	<display:column>
-		<a href="annotation/list.do?trainingId=${row.id}"> <spring:message
-				code="training.showAnnotations" />
-		</a>
-	</display:column>
-	</security:authorize>
+	
 	
 	<security:authorize access="hasRole('MANAGER')">
 		
@@ -60,6 +53,12 @@
 				
 		
 	</security:authorize>
+	
+	<display:column>
+		<a href="annotation/listTraining.do?trainingId=${row.id}">
+			<spring:message code="training.listAnnotation"/>
+		</a>
+	</display:column>
 </display:table>
 <%-- Links --%>
 <div id="links">

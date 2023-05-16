@@ -16,7 +16,6 @@ import controllers.AbstractController;
 import domain.Activity;
 import domain.Gym;
 import domain.Training;
-import forms.AddActivity;
 import domain.Manager;
 import services.ActivityService;
 import services.GymService;

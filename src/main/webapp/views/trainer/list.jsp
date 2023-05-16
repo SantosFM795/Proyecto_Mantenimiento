@@ -61,6 +61,17 @@
 			</display:column>
 		</jstl:if>
 	</security:authorize>
+	
+	<security:authorize access="hasRole('MANAGER')">
+		<jstl:if test="${activityId!=0}">
+			<spring:message code="trainer.AddToActivity"/>
+			<display:column>
+				<a href="trainer/manager/addToActivity.do?trainerId=${row.id}&activityId=${activityId}">
+					<spring:message code="trainer.AddToActivity"/>
+				</a>
+			</display:column>
+		</jstl:if>
+	</security:authorize>
 
 </display:table>
 <%--roles --%>
