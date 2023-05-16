@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import controllers.AbstractController;
 import domain.Training;
 import services.TrainingService;
+import services.GymService;
 
 @Controller
 @RequestMapping("/training/manager")
@@ -31,29 +32,47 @@ public class TrainingManagerController extends AbstractController {
 	// Services ---------------------------------------------------------------
 	@Autowired
 	private TrainingService trainingService;
+	
+	@Autowired
+	private GymService gymService;
 	// Constructors -----------------------------------------------------------
 	public TrainingManagerController() {
 		super();
 	}
 	// Listing ----------------------------------------------------------------
+<<<<<<< HEAD
 	/*@RequestMapping(value = "/listToAdd", method = RequestMethod.GET)
+=======
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+>>>>>>> branch 'main' of https://github.com/SantosFM795/Proyecto_Mantenimiento.git
 	public ModelAndView list() {
 		ModelAndView result;
 		Collection<Training> trainings;
-		
+		int gymId=0;
 		trainings = this.trainingService.findByManager();
+		
 		result = new ModelAndView("training/list");
+		result.addObject("gymId",gymId);
 		result.addObject("requestURI", "training/manager/list.do");
 		result.addObject("trainings",trainings);
 		return result;
 	}*/
 	
+<<<<<<< HEAD
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView listTraining() {
+=======
+	@RequestMapping(value = "/listToAdd", method = RequestMethod.GET)
+	public ModelAndView listTraining(@RequestParam int gymId) {
+>>>>>>> branch 'main' of https://github.com/SantosFM795/Proyecto_Mantenimiento.git
 		ModelAndView result;
 		Collection<Training> trainings;
 		
+<<<<<<< HEAD
 		trainings = this.trainingService.findByManager();
+=======
+		trainings = this.trainingService.findToAdd(gymId);
+>>>>>>> branch 'main' of https://github.com/SantosFM795/Proyecto_Mantenimiento.git
 		result = new ModelAndView("training/list");
 		result.addObject("trainings",trainings);
 		result.addObject("requestURI", "training/manager/list.do");
@@ -110,6 +129,19 @@ public class TrainingManagerController extends AbstractController {
 			result = this.createEditModelAndView(training, "training.commit.error");
 		}
 
+		return result;
+	}
+	
+	//Add To Gym
+	
+	@RequestMapping(value = "/addToGym", method = RequestMethod.GET)
+	public ModelAndView addToGym(@RequestParam int trainingId, int gymId) {
+		ModelAndView result;
+		
+		gymService.addTraining(gymId, trainingId);
+		
+		result=this.list();
+		
 		return result;
 	}
 	// Ancillary methods ------------------------------------------------------

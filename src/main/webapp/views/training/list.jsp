@@ -33,6 +33,7 @@
 	<display:column property="description" titleKey="training.description" />
 
 	<spring:message code="training.step" var="stepHeader" />
+<<<<<<< HEAD
 	<display:column>
 		<a href="step/list.do?trainingId=${row.id}"> <spring:message
 				code="training.showSteps" />
@@ -48,12 +49,40 @@
 <%-- Links --%>
 <div id="links">
 <security:authorize access="hasRole('MANAGER')">
+=======
+		<display:column>
+			<a href="step/list.do?trainingId=${row.id}"> <spring:message
+					code="training.showSteps" />
+			</a>
+		</display:column>
+>>>>>>> branch 'main' of https://github.com/SantosFM795/Proyecto_Mantenimiento.git
 
+<<<<<<< HEAD
 	<jstl:choose>
 		<jstl:when test="${gymId!=0}">
 
 			<a href="manager/administrator/list.do"> <spring:message
 					code="manager.ban" />
+=======
+	<security:authorize access="hasRole('MANAGER')">
+		
+		<jstl:if test="${gymId!=0}">
+		<spring:message code="training.AddToGym"/>
+			<display:column>
+				<a href="training/manager/addToGym.do?trainingId=${row.id}&gymId=${gymId}">
+					<spring:message code="training.AddToGym"/>
+				</a>
+			</display:column>
+		</jstl:if>
+				
+		
+	</security:authorize>
+</display:table>
+<security:authorize access="hasRole('MANAGER')">
+		<div>
+			<a href="training/manager/create.do"> <spring:message
+					code="training.create" />
+>>>>>>> branch 'main' of https://github.com/SantosFM795/Proyecto_Mantenimiento.git
 			</a>
 
 		</jstl:when>

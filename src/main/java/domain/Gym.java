@@ -123,4 +123,9 @@ public class Gym extends DomainEntity{
 	public void setMensualCost(float mensualCost) {
 		this.mensualCost = mensualCost;
 	}
+
+	public void addTraining(Training training) {
+		this.training.add(training);
+		
+	}
 }
