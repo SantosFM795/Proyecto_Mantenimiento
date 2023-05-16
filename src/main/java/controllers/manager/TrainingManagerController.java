@@ -59,7 +59,7 @@ public class TrainingManagerController extends AbstractController {
 		ModelAndView result;
 		Collection<Training> trainings;
 		
-		trainings = this.trainingService.findAll();
+		trainings = this.trainingService.findToAdd(gymId);
 		result = new ModelAndView("training/list");
 		result.addObject("gymId",gymId);
 		result.addObject("trainings",trainings);
