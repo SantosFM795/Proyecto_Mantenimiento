@@ -36,7 +36,7 @@ public class TrainingManagerController extends AbstractController {
 		super();
 	}
 	// Listing ----------------------------------------------------------------
-	@RequestMapping(value = "/listToAdd", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/listToAdd", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView result;
 		Collection<Training> trainings;
@@ -46,16 +46,15 @@ public class TrainingManagerController extends AbstractController {
 		result.addObject("requestURI", "training/manager/list.do");
 		result.addObject("trainings",trainings);
 		return result;
-	}
+	}*/
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView listTraining(@RequestParam int gymId) {
+	public ModelAndView listTraining() {
 		ModelAndView result;
 		Collection<Training> trainings;
 		
-		trainings = this.trainingService.findAll();
+		trainings = this.trainingService.findByManager();
 		result = new ModelAndView("training/list");
-		result.addObject("gymId",gymId);
 		result.addObject("trainings",trainings);
 		result.addObject("requestURI", "training/manager/list.do");
 		
