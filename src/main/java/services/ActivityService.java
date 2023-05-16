@@ -12,6 +12,7 @@ import domain.Customer;
 import domain.Gym;
 import domain.Manager;
 import domain.Trainer;
+import domain.Training;
 import repositories.ActivityRepository;
 
 @Service
@@ -147,6 +148,13 @@ public class ActivityService {
 		activity.setCancelled(true);
 		activityRepository.save(activity);
 		
+	}
+	
+	public Collection<Activity> findToAdd(int gymId){
+		Collection<Activity> result=this.findAll();
+		Collection<Activity> gym=activityRepository.findForAllGym();
+		result.removeAll(gym);
+		return result;
 	}
 		
 	

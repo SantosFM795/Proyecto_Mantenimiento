@@ -54,7 +54,7 @@ public class ActivityManagerController extends AbstractController {
 		ModelAndView result;
 		Collection<Activity> activities;
 		
-		activities = this.activityService.findAll();
+		activities = this.activityService.findToAdd(gymId);
 		result = new ModelAndView("activity/list");
 		result.addObject("gymId",gymId);
 		result.addObject("activities",activities);

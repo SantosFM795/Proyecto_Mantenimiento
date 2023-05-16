@@ -19,6 +19,9 @@ public interface ActivityRepository extends JpaRepository<Activity, Integer>{
 	@Query("select g.activity from Gym g where active=true")
 	Collection<Activity> findAllActive();
 	
+	@Query("select g.activity from Gym g")
+	Collection<Activity> findForAllGym();
+	
 	@Query("select g.activity from Gym g where g.manager.userAccount.id = ?1")
 	Collection<Activity> findByManagerId(int userAccountId);
 	
