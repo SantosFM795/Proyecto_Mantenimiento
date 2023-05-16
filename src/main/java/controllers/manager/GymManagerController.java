@@ -6,21 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import controllers.AbstractController;
-import domain.Activity;
 import domain.Gym;
-import domain.Training;
 import domain.Manager;
-import services.ActivityService;
 import services.GymService;
 import services.ManagerService;
-import services.TrainingService;
 
 @Controller
 @RequestMapping("/gym/manager")
@@ -28,10 +23,6 @@ public class GymManagerController extends AbstractController {
 	// Services ---------------------------------------------------------------
 	@Autowired
 	private GymService gymService;
-	@Autowired
-	private ActivityService activityService;
-	@Autowired
-	private TrainingService trainingService;
 	@Autowired
 	private ManagerService managerService;
 	// Constructors -----------------------------------------------------------

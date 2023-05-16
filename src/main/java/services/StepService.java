@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import domain.Activity;
+import domain.Annotation;
 import domain.Step;
 import repositories.StepRepository;
 
@@ -47,6 +48,14 @@ public class StepService {
 			result = new Step();
 			
 			return result;
+		}
+		
+		public void delete (Step step) {
+			Assert.notNull(step);
+			
+			Assert.isTrue(step.getId() != 0);
+			
+			stepRepository.delete(step);
 		}
 		
 		public Collection<Step> findByTraining(int trainingId){

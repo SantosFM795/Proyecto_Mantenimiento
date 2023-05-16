@@ -1,6 +1,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -10,9 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import domain.Activity;
+import domain.Annotation;
 import domain.Customer;
 import domain.Gym;
 import domain.Manager;
+import domain.Step;
 import domain.Training;
 import repositories.TrainingRepository;
 
@@ -29,6 +32,12 @@ public class TrainingService {
 	private CustomerService customerService;
 	@Autowired
 	private ManagerService managerService;
+	
+	@Autowired
+	private AnnotationService annotationService;
+	
+	@Autowired
+	private StepService stepService;
 	
 	
 	// Constructor --------------------------------
@@ -79,6 +88,14 @@ public class TrainingService {
 		Assert.notNull(training);
 		
 		Assert.isTrue(training.getId() != 0);
+		
+		for(Annotation a : training.getAnnotations()) {
+			annotationService.delete(a);
+		}
+		
+		for(Step s : training.getSteps()) {
+			stepService.delete(s);
+		}
 		
 		trainingRepository.delete(training);
 	}
