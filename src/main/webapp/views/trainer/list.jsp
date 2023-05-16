@@ -17,29 +17,51 @@
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="trainers" requestURI="${requestURI}" id="row">
-	
-	<spring:message code="trainer.name" var="trainerHeader"/>
+
+	<spring:message code="trainer.name" var="trainerHeader" />
 	<display:column property="name" title="${trainerHeader}" />
-	
-	<spring:message code="trainer.lastName" var="lastNameHeader"/>
+
+	<spring:message code="trainer.lastName" var="lastNameHeader" />
 	<display:column property="lastName" title="${lastNameHeader}" />
-	
-	<spring:message code="trainer.cv.formation" var="formationHeader"/>
-	<display:column property="curriculum.formation" title="${formationHeader}" "/>
-	
-	<spring:message code="trainer.cv.workExperience" var="workExperienceHeader"/>
-	<display:column property="curriculum.workExperience" title="${workExperienceHeader}" "/>
-	
-	
+
+	<spring:message code="trainer.email" var="emailHeader" />
+	<display:column property="email" title="${emailHeader}" />
+
+	<spring:message code="trainer.phoneNumber" var="phoneNumberHeader" />
+	<display:column property="phoneNumber" title="${phoneNumberHeader}" />
+
+	<spring:message code="trainer.phoneNumber" var="phoneNumberHeader" />
+	<display:column property="phoneNumber" title="${phoneNumberHeader}" />
+
+	<spring:message code="trainer.cv.formation" var="formationHeader" />
+	<display:column property="curriculum.formation"
+		title="${formationHeader}" />
+
+	<spring:message code="trainer.cv.workExperience"
+		var="workExperienceHeader" />
+	<display:column property="curriculum.workExperience"
+		title="${workExperienceHeader}" />
+
+	<security:authorize access="isAnonymous()">
+		<spring:message code="trainer.annotation" var="annotationHeader" />
+		<display:column>
+			<a href="annotation/list.do?trainerId=${row.id}"> <spring:message
+					code="trainer.showAnnotations" />
+			</a>
+		</display:column>
+	</security:authorize>
+
 </display:table>
+<%--roles --%>
+
+
 
 <security:authorize access="hasRole('MANAGER')">
-		<div>
-			<a href="trainer/manager/create.do"> <spring:message
-					code="trainer.create" />
-			</a>
-			<a href="trainer/manager/search.do"> <spring:message
-					code="search.search" />
-			</a>
-		</div>
-	</security:authorize>
+	<div id="links">
+		<a href="trainer/manager/create.do"> <spring:message
+				code="trainer.create" />
+		</a> <a href="trainer/manager/search.do"> <spring:message
+				code="search.search" />
+		</a>
+	</div>
+</security:authorize>

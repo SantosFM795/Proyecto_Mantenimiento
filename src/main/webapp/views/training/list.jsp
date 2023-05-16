@@ -17,9 +17,9 @@
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="trainings" requestURI="${requestURI}" id="row">
-
-
-
+	
+	
+	
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
 			<a href="training/manager/edit.do?trainingId=${row.id}"> <spring:message
@@ -27,43 +27,26 @@
 			</a>
 		</display:column>
 	</security:authorize>
-
+	
 	<spring:message code="training.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}" sortable="true" />
-	<display:column property="description" titleKey="training.description" />
-
+	<display:column property="description" titleKey="training.description"/>
+	
 	<spring:message code="training.step" var="stepHeader" />
-<<<<<<< HEAD
-	<display:column>
-		<a href="step/list.do?trainingId=${row.id}"> <spring:message
-				code="training.showSteps" />
-		</a>
-	</display:column>
-	<spring:message code="training.annotation" var="stepHeader" />
-	<display:column>
-		<a href="annotation/list.do?trainingId=${row.id}"> <spring:message
-				code="training.showAnnotations" />
-		</a>
-	</display:column>
-</display:table>
-<%-- Links --%>
-<div id="links">
-<security:authorize access="hasRole('MANAGER')">
-=======
 		<display:column>
 			<a href="step/list.do?trainingId=${row.id}"> <spring:message
 					code="training.showSteps" />
 			</a>
 		</display:column>
->>>>>>> branch 'main' of https://github.com/SantosFM795/Proyecto_Mantenimiento.git
-
-<<<<<<< HEAD
-	<jstl:choose>
-		<jstl:when test="${gymId!=0}">
-
-			<a href="manager/administrator/list.do"> <spring:message
-					code="manager.ban" />
-=======
+	<security:authorize access="isAnonymous()">
+	<spring:message code="training.annotation" var="annotationHeader" />
+	<display:column>
+		<a href="annotation/list.do?trainingId=${row.id}"> <spring:message
+				code="training.showAnnotations" />
+		</a>
+	</display:column>
+	</security:authorize>
+	
 	<security:authorize access="hasRole('MANAGER')">
 		
 		<jstl:if test="${gymId!=0}">
@@ -78,21 +61,13 @@
 		
 	</security:authorize>
 </display:table>
-<security:authorize access="hasRole('MANAGER')">
+<%-- Links --%>
+<div id="links">
+	<security:authorize access="hasRole('MANAGER')">
 		<div>
 			<a href="training/manager/create.do"> <spring:message
 					code="training.create" />
->>>>>>> branch 'main' of https://github.com/SantosFM795/Proyecto_Mantenimiento.git
 			</a>
-
-		</jstl:when>
-
-	</jstl:choose>
-
-</security:authorize>
-<security:authorize access="hasRole('MANAGER')">
-		<a href="training/manager/create.do"> <spring:message
-				code="training.create" />
-		</a>
-</security:authorize>
+		</div>
+	</security:authorize>
 </div>

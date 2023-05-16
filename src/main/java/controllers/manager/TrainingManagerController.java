@@ -40,45 +40,34 @@ public class TrainingManagerController extends AbstractController {
 		super();
 	}
 	// Listing ----------------------------------------------------------------
-<<<<<<< HEAD
-	/*@RequestMapping(value = "/listToAdd", method = RequestMethod.GET)
-=======
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
->>>>>>> branch 'main' of https://github.com/SantosFM795/Proyecto_Mantenimiento.git
-	public ModelAndView list() {
-		ModelAndView result;
-		Collection<Training> trainings;
-		int gymId=0;
-		trainings = this.trainingService.findByManager();
+	// Listing ----------------------------------------------------------------
+		@RequestMapping(value = "/list", method = RequestMethod.GET)
+		public ModelAndView list() {
+			ModelAndView result;
+			Collection<Training> trainings;
+			int gymId=0;
+			trainings = this.trainingService.findByManager();
+			
+			result = new ModelAndView("training/list");
+			result.addObject("gymId",gymId);
+			result.addObject("requestURI", "training/manager/list.do");
+			result.addObject("trainings",trainings);
+			return result;
+		}
 		
-		result = new ModelAndView("training/list");
-		result.addObject("gymId",gymId);
-		result.addObject("requestURI", "training/manager/list.do");
-		result.addObject("trainings",trainings);
-		return result;
-	}*/
-	
-<<<<<<< HEAD
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView listTraining() {
-=======
-	@RequestMapping(value = "/listToAdd", method = RequestMethod.GET)
-	public ModelAndView listTraining(@RequestParam int gymId) {
->>>>>>> branch 'main' of https://github.com/SantosFM795/Proyecto_Mantenimiento.git
-		ModelAndView result;
-		Collection<Training> trainings;
-		
-<<<<<<< HEAD
-		trainings = this.trainingService.findByManager();
-=======
-		trainings = this.trainingService.findToAdd(gymId);
->>>>>>> branch 'main' of https://github.com/SantosFM795/Proyecto_Mantenimiento.git
-		result = new ModelAndView("training/list");
-		result.addObject("trainings",trainings);
-		result.addObject("requestURI", "training/manager/list.do");
-		
-		return result;
-	}
+		@RequestMapping(value = "/listToAdd", method = RequestMethod.GET)
+		public ModelAndView listTraining(@RequestParam int gymId) {
+			ModelAndView result;
+			Collection<Training> trainings;
+			
+			trainings = this.trainingService.findToAdd(gymId);
+			result = new ModelAndView("training/list");
+			result.addObject("gymId",gymId);
+			result.addObject("trainings",trainings);
+			result.addObject("requestURI", "training/manager/list.do");
+			
+			return result;
+		}
 	// Creation ---------------------------------------------------------------
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {
@@ -153,13 +142,13 @@ public class TrainingManagerController extends AbstractController {
 
 			return result;
 		}
-	protected ModelAndView createEditModelAndView(Training training, final String message) {
-		// Falta definir steps y anotations al editar un entrenamiento, de momento solo se podran editar sus basicos
-		ModelAndView result;
-		result = new ModelAndView("training/edit");
-		result.addObject("training",training);
-		result.addObject("requestURI","training/manager/edit.do");
-		result.addObject("message",message);
-		return result;
-	}
+		protected ModelAndView createEditModelAndView(Training training, final String message) {
+			// Falta definir steps y anotations al editar un entrenamiento, de momento solo se podran editar sus basicos
+			ModelAndView result;
+			result = new ModelAndView("training/edit");
+			result.addObject("training",training);
+			result.addObject("requestURI","training/manager/edit.do");
+			result.addObject("message",message);
+			return result;
+		}
 }

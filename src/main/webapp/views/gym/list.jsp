@@ -31,7 +31,7 @@
 	<%-- Main Information --%>
 	<spring:message code="gym.logo" var="logoHeader" />
 	<display:column property="logo" title="${logoHeader}" />
-	
+
 	<spring:message code="gym.name" var="nameHeader" />
 	<display:column property="name" title="${nameHeader}" />
 
@@ -49,16 +49,19 @@
 	</display:column>
 
 
-	<spring:message code="gym.annotation" var="stepHeader" />
-	<display:column>
-		<a href="annotation/list.do?gymId=${row.id}"> <spring:message
-				code="gym.showAnnotations" />
-		</a>
-	</display:column>
+
 
 
 	<%--------------------------- Roles -----------------------------------%>
 
+	<security:authorize access="isAnonymous()">
+		<spring:message code="gym.annotation" var="stepHeader" />
+		<display:column>
+			<a href="annotation/list.do?gymId=${row.id}"> <spring:message
+					code="gym.showAnnotations" />
+			</a>
+		</display:column>
+	</security:authorize>
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
 			<a href="gym/manager/addActivity.do?gymId=${row.id}"> <spring:message
