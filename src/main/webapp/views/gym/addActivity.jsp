@@ -19,22 +19,26 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="${requestURI}" modelAttribute="gym">
+<form:form action="${requestURI}" modelAttribute="addActivity" method="get">
 
-	<form:hidden path="id" />
-	<form:hidden path="version" />
+	<form:hidden path="gymId" />
 	
-	<form:label path="activity">
+	<form:label path="activityId">
 		<spring:message code="gym.activity"></spring:message>
 	</form:label>
-	<form:select id="activity" path="activity">
+	<form:select path="activityId">
 		<form:option value="0" label="----"/>
-		<form:options items="${activity}" itemValue="id" itemLabel="title"/>
+		<form:options items="${activities}" itemValue="id" itemLabel="title"/>
 	</form:select>
-	<form:errors cssClass="error" path="activity"></form:errors>
+	<form:errors cssClass="error" path="activityId"></form:errors>
 
-	<input type="submit" name="add"
-		value="<spring:message code="gym.save" />" />&nbsp; 
+	 <!-- <input type="submit" name="saveActivity"
+		value="<spring:message code="gym.save" />" />&nbsp; -->
+		
+	<div>
+		<a href="gym/manager/saveActivity.do?gymId=${addActivity.gymId}&activityId=${betis}"> <spring:message code="gym.save" />
+		</a>
+	</div>
 	
 	<input type="button" name="cancel"
 		value="<spring:message code="activity.cancel" />"

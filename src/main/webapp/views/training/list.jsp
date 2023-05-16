@@ -18,6 +18,8 @@
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="trainings" requestURI="${requestURI}" id="row">
 	
+	
+	
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
 			<a href="training/manager/edit.do?trainingId=${row.id}"> <spring:message
@@ -37,7 +39,20 @@
 			</a>
 		</display:column>
 </display:table>
+<security:authorize access="hasRole('MANAGER')">
 
+	<jstl:choose>
+				<jstl:when test="${gymId!=0}">
+				
+					<a href="manager/administrator/list.do">
+						<spring:message code="manager.ban"/>
+					</a>
+				
+				</jstl:when>
+				
+			</jstl:choose>
+				
+	</security:authorize>
 <security:authorize access="hasRole('MANAGER')">
 		<div>
 			<a href="training/manager/create.do"> <spring:message

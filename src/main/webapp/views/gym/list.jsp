@@ -56,7 +56,7 @@
 
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
-			<a href="gym/manager/addTraining.do?gymId=${row.id}"> <spring:message
+			<a href="training/manager/listToAdd.do?gymId=${row.id}"> <spring:message
 					code="gym.addTraining" />
 			</a>
 		</display:column>

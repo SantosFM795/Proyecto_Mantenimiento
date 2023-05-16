@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,7 @@ import controllers.AbstractController;
 import domain.Activity;
 import domain.Gym;
 import domain.Training;
+import forms.AddActivity;
 import domain.Manager;
 import services.ActivityService;
 import services.GymService;
@@ -115,28 +117,40 @@ public class GymManagerController extends AbstractController {
 		
 		activities=activityService.findAll();
 		result = new ModelAndView("gym/addActivity");
-		result.addObject("gym", gym);
-		result.addObject("activity", activities);
+		AddActivity addA=new AddActivity();
+		addA.setGymId(gymId);
+		int betis=23;
+		//result.addObject("gym", gym);
+		result.addObject("activities", activities);
+		result.addObject("addActivity", addA);
+		result.addObject("betis", betis);
 		result.addObject("requestURI", "gym/manager/addActivity.do");
 		return result;
 	}
 	
-	@RequestMapping(value="/addTraining",method = RequestMethod.GET)
-	public ModelAndView addTraining(@RequestParam int gymId) {
+	@RequestMapping(value="/saveActivity",method = RequestMethod.GET)
+	public ModelAndView saveActivity(@RequestParam int gymId, String activityId) {
 		ModelAndView result;
-		Gym gym;
-		Collection<Training> training;
-		
-		gym = gymService.findOne(gymId);
-		Assert.notNull(gym);
-		
-		training=trainingService.findAll();
-		result = new ModelAndView("gym/addTraining");
-		result.addObject("gym", gym);
-		result.addObject("training", training);
-		result.addObject("requestURI", "gym/manager/addTraining.do");
-		return result;
+		result=null;
+		//System.out.println(addActivity.getActivity().getTitle());
+//		Gym gym;
+//		Collection<Activity> activities;
+//		
+//		gym = gymService.findOne(gymId);
+//		Assert.notNull(gym);
+//		
+//		activities=activityService.findAll();
+//		result = new ModelAndView("gym/addActivity");
+//		result.addObject("gym", gym);
+//		result.addObject("activities", activities);
+//		result.addObject("addActivity", new AddActivity());
+//		result.addObject("requestURI", "gym/manager/addActivity.do");
+		System.out.println("hey");
+	return result;
 	}
+	
+	
+	
 	
 	// Activate ----------------------------------------------------------------
 		@RequestMapping(value = "/activate", method = RequestMethod.GET)
