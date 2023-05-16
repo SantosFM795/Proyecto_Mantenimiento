@@ -63,6 +63,16 @@
 			</display:column>
 		</jstl:if>
 	</security:authorize>
+	
+	<security:authorize access="hasRole('MANAGER')">
+		
+			<spring:message code="activity.AddToGym"/>
+			<display:column>
+				<a href="trainer/manager/listToAddActivity.do?activityId=${row.id}">
+					<spring:message code="activity.AddTrainer"/>
+				</a>
+			</display:column>
+	</security:authorize>
 
 
 </display:table>

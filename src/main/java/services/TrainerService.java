@@ -140,5 +140,12 @@ public class TrainerService {
 		result.removeAll(gym);
 		return result;
 	}
+
+	public Collection<Trainer> findToAddActivity(int activityId) {
+		Collection<Trainer> result=this.findAll();
+		Collection<Trainer> gym=trainerRepository.findByActivityId(activityId);
+		result.removeAll(gym);
+		return result;
+	}
 	
 }

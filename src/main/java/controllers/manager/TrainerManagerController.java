@@ -15,6 +15,7 @@ import controllers.AbstractController;
 import domain.Trainer;
 import domain.Training;
 import forms.Search;
+import services.ActivityService;
 import services.GymService;
 import services.TrainerService;
 
@@ -26,6 +27,8 @@ public class TrainerManagerController extends AbstractController {
 	private TrainerService trainerService;
 	@Autowired
 	private GymService gymService;
+	@Autowired
+	private ActivityService activityService;
 	// Constructors -----------------------------------------------------------
 	public TrainerManagerController() {
 		super();
@@ -39,6 +42,8 @@ public class TrainerManagerController extends AbstractController {
 		trainers = this.trainerService.findByManager();
 		int gymId=0;
 		result = new ModelAndView("trainer/list");
+		int activityId=0;
+		result.addObject("activityId", activityId);
 		result.addObject("requestURI", "trainer/manager/list.do");
 		result.addObject("trainers", trainers);
 		result.addObject("gymId", gymId);
@@ -52,8 +57,25 @@ public class TrainerManagerController extends AbstractController {
 		
 		trainers = this.trainerService.findToAdd(gymId);
 		result = new ModelAndView("trainer/list");
+		int activityId=0;
+		result.addObject("activityId", activityId);
 		result.addObject("gymId",gymId);
 		result.addObject("trainers",trainers);
+		result.addObject("requestURI", "trainer/manager/list.do");
+		
+		return result;
+	}
+	
+	@RequestMapping(value = "/listToAddActivity", method = RequestMethod.GET)
+	public ModelAndView listTrainingAct(@RequestParam int activityId) {
+		ModelAndView result;
+		Collection<Trainer> trainers;
+		int gymId=0;
+		trainers = this.trainerService.findToAddActivity(activityId);
+		result = new ModelAndView("trainer/list");
+		result.addObject("activityId",activityId);
+		result.addObject("trainers",trainers);
+		result.addObject("gymId", gymId);
 		result.addObject("requestURI", "trainer/manager/list.do");
 		
 		return result;
@@ -129,6 +151,17 @@ public class TrainerManagerController extends AbstractController {
 		ModelAndView result;
 		
 		gymService.addTrainer(gymId, trainerId);
+		
+		result=this.list();
+		
+		return result;
+	}
+	
+	@RequestMapping(value = "/addToActivity", method = RequestMethod.GET)
+	public ModelAndView addToActivity(@RequestParam int trainerId, int activityId) {
+		ModelAndView result;
+		
+		activityService.addTrainer(activityId, trainerId);
 		
 		result=this.list();
 		

@@ -50,4 +50,9 @@ public class Trainer extends Actor{
 		this.gyms.add(gym);
 		
 	}
+
+	public void addActivity(Activity activity) {
+		this.activities.add(activity);
+		
+	}
 }
