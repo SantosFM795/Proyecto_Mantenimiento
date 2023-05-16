@@ -159,4 +159,12 @@ public class GymService {
 		
 	}
 
+	public void addActivity(int gymId, int activityId) {
+		Gym gym=this.findOne(gymId);
+		Activity activity = activityService.findOne(activityId);
+		
+		gym.addActivity(activity);
+		
+	}
+
 }

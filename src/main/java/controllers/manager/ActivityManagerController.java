@@ -14,7 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import controllers.AbstractController;
 import domain.Activity;
+import domain.Training;
 import services.ActivityService;
+import services.GymService;
 
 
 // Se puede dar de alta, listar y cancelar actividades
@@ -25,6 +27,9 @@ public class ActivityManagerController extends AbstractController {
 	// Services ---------------------------------------------------------------
 	@Autowired
 	private ActivityService activityService;
+	
+	@Autowired
+	private GymService gymService;
 	// Constructors -----------------------------------------------------------
 	public ActivityManagerController() {
 		super();
@@ -34,11 +39,27 @@ public class ActivityManagerController extends AbstractController {
 	public ModelAndView list() {
 		ModelAndView result;
 		Collection<Activity> activities;
-		
+		int gymId=0;
 		activities = this.activityService.findByManager();
 		result = new ModelAndView("activity/list");
-		result.addObject("requestURI", "activity/manager/list.do");
 		result.addObject("activities",activities);
+		result.addObject("gymId",gymId);
+		result.addObject("requestURI", "activity/manager/list.do");
+		
+		return result;
+	}
+	
+	@RequestMapping(value = "/listToAdd", method = RequestMethod.GET)
+	public ModelAndView listActivity(@RequestParam int gymId) {
+		ModelAndView result;
+		Collection<Activity> activities;
+		
+		activities = this.activityService.findAll();
+		result = new ModelAndView("activity/list");
+		result.addObject("gymId",gymId);
+		result.addObject("activities",activities);
+		result.addObject("requestURI", "activity/manager/list.do");
+		
 		return result;
 	}
 	// Creation ---------------------------------------------------------------
@@ -105,6 +126,19 @@ public class ActivityManagerController extends AbstractController {
 			}
 			
 			
+			
+			return result;
+		}
+		
+		//Add To Gym
+		
+		@RequestMapping(value = "/addToGym", method = RequestMethod.GET)
+		public ModelAndView addToGym(@RequestParam int activityId, int gymId) {
+			ModelAndView result;
+			
+			gymService.addActivity(gymId, activityId);
+			
+			result=this.list();
 			
 			return result;
 		}
