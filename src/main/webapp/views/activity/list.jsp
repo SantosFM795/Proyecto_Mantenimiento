@@ -74,17 +74,25 @@
 			</display:column>
 	</security:authorize>
 	
-	<display:column>
-		<a href="annotation/listActivity.do?activityId=${row.id}">
-			<spring:message code="activity.listAnnotation"/>
-		</a>
-	</display:column>
+
+	<security:authorize access="isAnonymous()">
+
+		<display:column>
+			<a href="annotation/listActivity.do?activityId=${row.id}"> <spring:message
+					code="activity.listAnnotation" />
+			</a>
+		</display:column>
+	</security:authorize>
+
 	
-	<display:column>
-		<a href="trainer/listByActivity.do?activityId=${row.id}">
-			<spring:message code="activity.showTrainers"/>
-		</a>
-	</display:column>
+	<security:authorize access="isAuthenticated()">
+
+		<display:column>
+			<a href="annotation/createByActivity.do?activityId=${row.id}"> <spring:message
+					code="activity.addAnnotation" />
+			</a>
+		</display:column>
+	</security:authorize>
 
 
 </display:table>

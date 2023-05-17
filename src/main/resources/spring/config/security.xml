@@ -76,7 +76,7 @@
 		<security:intercept-url pattern="/cv/list.do"
 								access="permitAll" />								
 		<security:intercept-url pattern="/trainer/list.do"
-								access="permitAll" />																								
+								access="permitAll" />																						
 		<security:intercept-url pattern="/annotation/list.do"
 								access="permitAll" />
 		<security:intercept-url pattern="/annotation/listActivity.do"
@@ -88,7 +88,9 @@
 			<security:intercept-url pattern="/step/list.do"
 								access="permitAll" />
 		<security:intercept-url pattern="/activity/listByGym.do"
-								access="permitAll" />				
+								access="permitAll" />
+		<security:intercept-url pattern="/annotation/createByActivity.do"
+								access="isAuthenticated()" />						
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
 		
 		<security:form-login 
