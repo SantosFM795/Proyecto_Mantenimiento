@@ -36,14 +36,16 @@
 		<form:label path="rating">
 			<spring:message code="annotation.rating" />
 		</form:label>
-		<form:textarea path="rating" />
+		<div id="textRating">
+			<form:textarea path="rating" />
+		</div>
 		
 		<br />
 	<input type="submit" name="save"
 			value="<spring:message code="annotation.save" />" />&nbsp; 
 		<input type="button" name="cancel"
 			value="<spring:message code="annotation.cancel" />"
-			onclick="javascript: relativeRedir('/list.do');" />
+			onclick="javascript: relativeRedir('activity/customer/list.do');" />
 		<br />
 
 	</form:form>
