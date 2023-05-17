@@ -54,4 +54,9 @@ public class Customer extends Actor{
 		this.activities.remove(activity);
 		
 	}
+
+	public void join(Activity activity) {
+		this.activities.add(activity);
+		
+	}
 }

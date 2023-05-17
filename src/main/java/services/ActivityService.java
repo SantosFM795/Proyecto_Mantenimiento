@@ -190,6 +190,33 @@ public class ActivityService {
 		customer.quit(activity);
 		
 	}
+
+	public Collection<Activity> findByToJoin() {
+		Collection<Activity> result;
+		Collection<Activity> join;
+		Customer customer;
+		
+		customer = this.customerService.findByPrincipal();
+		Assert.notNull(customer);
+		
+		result=this.findByCustomer();
+		join=this.findByCustomerJoin();
+		
+		result.removeAll(join);
+		
+		return result;
+	}
+
+	public void join(int activityId, int customerId) {
+Activity activity=this.findOne(activityId);
+		
+		Customer customer=customerService.findOne(customerId);
+		
+		activity.join(customer);
+		
+		customer.join(activity);
+		
+	}
 		
 	
 

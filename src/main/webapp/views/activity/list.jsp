@@ -75,15 +75,28 @@
 	</security:authorize>
 	
 	<security:authorize access="hasRole('CUSTOMER')">
-		<jstl:if test="${aux==0}">
-			<spring:message code="activity.quit"/>
-			<display:column>
-				<a href="activity/customer/quit.do?activityId=${row.id}&customerId=${customerId}">
-					<spring:message code="activity.quit"/>
-				</a>
-			</display:column>
-		</jstl:if>
+		<jstl:choose>
+			<jstl:when test="${aux==0}">
+				<spring:message code="activity.quit"/>
+				<display:column>
+					<a href="activity/customer/quit.do?activityId=${row.id}&customerId=${customerId}">
+						<spring:message code="activity.quit"/>
+					</a>
+				</display:column>
+			</jstl:when>
+			<jstl:otherwise>
+				
+				<spring:message code="activity.join"/>
+				<display:column>
+					<a href="activity/customer/join.do?activityId=${row.id}&customerId=${customerId}">
+						<spring:message code="activity.join"/>
+					</a>
+				</display:column>
+			</jstl:otherwise>
+		</jstl:choose>
 	</security:authorize>
+	
+
 	
 
 	<security:authorize access="isAnonymous()">
@@ -109,7 +122,14 @@
 </display:table>
 
 	
-
+	<security:authorize access="hasRole('CUSTOMER')">
+			<div>
+				<a href="activity/customer/listToJoin.do">
+					<spring:message code="activity.joinAnActivity"/>
+				</a>
+			</div>
+	</security:authorize>
+	
 	<security:authorize access="hasRole('MANAGER')">
 		<div>
 			<a href="activity/manager/create.do"> <spring:message

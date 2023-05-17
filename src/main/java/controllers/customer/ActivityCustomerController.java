@@ -51,6 +51,22 @@ public class ActivityCustomerController extends AbstractController {
 		
 		return result;
 	}
+	
+	@RequestMapping(value = "/listToJoin", method = RequestMethod.GET)
+	public ModelAndView listToJoin() {
+		ModelAndView result;
+		Collection<Activity> activities;
+		int customerId=customerService.findByPrincipal().getId();
+		int aux=1;
+		activities = this.activityService.findByToJoin();
+		result = new ModelAndView("activity/list");
+		result.addObject("requestURI", "activity/customer/list.do");
+		result.addObject("activities", activities);
+		result.addObject("customerId", customerId);
+		result.addObject("aux", aux);
+		
+		return result;
+	}
 	// Search by Key word
 	// ----------------------------------------------------------------
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
@@ -92,6 +108,18 @@ public class ActivityCustomerController extends AbstractController {
 	public ModelAndView quit(@RequestParam int activityId, int customerId) {
 		ModelAndView result;
 		this.activityService.quit(activityId,customerId);
+
+		
+		result=this.list();
+
+		return result;
+
+	}
+	
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	public ModelAndView join(@RequestParam int activityId, int customerId) {
+		ModelAndView result;
+		this.activityService.join(activityId,customerId);
 
 		
 		result=this.list();

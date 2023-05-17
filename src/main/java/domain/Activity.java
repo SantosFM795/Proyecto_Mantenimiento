@@ -129,6 +129,11 @@ public class Activity extends DomainEntity{
 		this.customers.remove(customer);
 		
 	}
+
+	public void join(Customer customer) {
+		this.customers.add(customer);
+		
+	}
 	
 	
 	
