@@ -80,7 +80,7 @@ public class AnnotationController {
 			Annotation annotation;
 			this.activityId = activityId;
 			annotation = this.annotationService.create();
-			result = new ModelAndView("annotation/createByActivity");
+			result = new ModelAndView("annotation/edit");
 			result.addObject("annotation", annotation);
 			result.addObject("requestURI", "annotation/edit.do");
 			return result;
