@@ -16,7 +16,8 @@ import org.hibernate.validator.constraints.NotBlank;
 @Access(AccessType.PROPERTY)
 
 public class CV extends DomainEntity{
-	private String nameCV;
+	//private String nameCV;
+	//NO FUNCIONA EDITAR CON ATRIBUTOS DERIVADOS
 	private String skills;
 	private String formation;
 	
@@ -45,7 +46,7 @@ public class CV extends DomainEntity{
 		this.rrss = rrss;
 	}
 	
-	@NotBlank
+	/*@NotBlank
 	@Valid
 	@Transient
 	public String getName() {
@@ -57,7 +58,7 @@ public class CV extends DomainEntity{
 			result = this.nameCV;
 		
 		return result;
-	}
+	}*/
 	
 	@NotBlank
 	public String getSkills() {
@@ -73,9 +74,9 @@ public class CV extends DomainEntity{
 	public String getWorkExperience() {
 		return workExperience;
 	}
-	public void setName(final String name) {
+	/*public void setName(final String name) {
 		this.nameCV = name;
-	}
+	}*/
 	public void setSkills(String skills) {
 		this.skills = skills;
 	}
