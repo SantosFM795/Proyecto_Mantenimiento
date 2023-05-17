@@ -121,10 +121,11 @@ public class CustomerService {
 		return result;
 	}
 	
-	public Customer findMaxCustomer(){
-		Customer result;
+	/*
+	public String findMaxCustomer(){
+		String result;
 		
 		result = customerRepository.findMaxCustomer();
 		return result;
-	}
+	}*/
 }

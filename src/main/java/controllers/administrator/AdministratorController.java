@@ -66,6 +66,7 @@ public class AdministratorController extends AbstractController {
 		Collection<Training> trainingOrder;
 		Collection<Object[]> trainingG;
 		Collection<Object[]> steps = new ArrayList<Object[]>();
+		//String maxCustomerSigning;
 		
 		gymsByManager = this.gymService.findGymsByManager();
 		//Assert.notNull(gymsM);
@@ -73,6 +74,9 @@ public class AdministratorController extends AbstractController {
 		result.addObject("gymsByManager",gymsByManager);
 		
 		
+		/*maxCustomerSigning = this.customerService.findMaxCustomer();
+		result.addObject("maxCustomerSigning", maxCustomerSigning);
+		*/
 		
 		trainingG = this.trainingService.findTrainingByGym();
 		//Assert.notNull(trainingG);
@@ -102,7 +106,7 @@ public class AdministratorController extends AbstractController {
 		Collection<Object[]> annotationsTraining;
 		Collection<Object[]> annotationsGym;
 		Collection<Object[]> socialidentitiesTrainer;
-		Customer maxCustomerSigning;
+		
 		
 		
 		result = new ModelAndView("administrator/list2");
@@ -118,8 +122,6 @@ public class AdministratorController extends AbstractController {
 		socialidentitiesTrainer = this.trainerService.findSocialIdentitiesTrainer();
 		result.addObject("socialidentitiesTrainer", socialidentitiesTrainer);
 		
-		maxCustomerSigning = this.customerService.findMaxCustomer();
-		result.addObject("maxCustomerSigning", maxCustomerSigning);
 		
 		result.addObject("requestURI", "administrator/list2.do");
 
@@ -180,6 +182,7 @@ public class AdministratorController extends AbstractController {
 
 			return result;
 		}
+		
 	protected ModelAndView createEditModelAndView(Administrator administrator, final String message) {
 		// Falta definir steps y anotations al editar un entrenamiento, de momento solo se podran editar sus basicos
 		ModelAndView result;
