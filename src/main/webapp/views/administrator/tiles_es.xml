@@ -21,6 +21,11 @@
 		<put-attribute name="body" value="/views/administrator/list.jsp" />
 	</definition>
 	
+	<definition name="administrator/list2" extends="master.page">	
+		<put-attribute name="title" value="Panel de Información de anotaciones" />
+		<put-attribute name="body" value="/views/administrator/list2.jsp" />
+	</definition>
+	
 	<definition name="administrator/edit" extends="master.page">	
 		<put-attribute name="title" value="Editar Administrador" />
 		<put-attribute name="body" value="/views/administrator/edit.jsp" />

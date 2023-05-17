@@ -163,6 +163,7 @@
 		<property name="signing">
 			<list>
 				<ref bean="signing2"/>
+				<ref bean="signing3"/>
 			</list>
 		</property>
 		
@@ -288,7 +289,13 @@
 	
 	<bean id="signing2" class="domain.Signing">
 		<property name="sign_date" value="10/10/2020" />
-		<property name="customer" ref="customer1" />
+		<property name="customer" ref="customer2" />
+		<property name="gym" ref="gym2" />
+	</bean>
+	
+	<bean id="signing3" class="domain.Signing">
+		<property name="sign_date" value="18/04/2021" />
+		<property name="customer" ref="customer2" />
 		<property name="gym" ref="gym2" />
 	</bean>
 	
@@ -350,6 +357,7 @@
 		<property name="signing">
 			<list>
 				<ref bean="signing2"></ref>
+				<ref bean="signing3"></ref>
 			</list>
 		</property>
 		

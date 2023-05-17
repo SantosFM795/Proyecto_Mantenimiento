@@ -21,6 +21,11 @@
 		<put-attribute name="body" value="/views/administrator/list.jsp" />
 	</definition>
 	
+	<definition name="administrator/list2" extends="master.page">	
+		<put-attribute name="title" value="Information Board for annotations" />
+		<put-attribute name="body" value="/views/administrator/list2.jsp" />
+	</definition>
+	
 	<definition name="administrator/edit" extends="master.page">	
 		<put-attribute name="title" value="Edit Administrator" />
 		<put-attribute name="body" value="/views/administrator/edit.jsp" />

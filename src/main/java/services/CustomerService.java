@@ -119,7 +119,12 @@ public class CustomerService {
 		result = customerRepository.findByUserAccountId(userAccount.getId());
 		
 		return result;
+	}
+	
+	public Customer findMaxCustomer(){
+		Customer result;
 		
-		
+		result = customerRepository.findMaxCustomer();
+		return result;
 	}
 }

@@ -45,6 +45,15 @@
 	<br>
 	
 	<h2>
+		<spring:message code="administrator.maxCustomerSigning" />
+	</h2>
+	<display:table name="maxCustomerSigning" id="maxCustomerSigning" pagesize="5" requestURI="${requestURI}" class="displaytag">
+			<display:column property="maxCustomerSigning" title="${maxCustomerSigning}" />
+	</display:table>	
+	<br>
+	
+	
+	<h2>
 		<spring:message code="administrator.trainingG" />
 	</h2>
 	<display:table name="trainingG" id="trainingG" pagesize="5" requestURI="${requestURI}" class="displaytag">

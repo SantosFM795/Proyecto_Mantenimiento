@@ -104,4 +104,25 @@ public class AnnotationService {
 		
 		return result;
 	}
+	
+	public Collection<Object[]> findAnnotationActivity(){
+		Collection<Object[]> result;
+		
+		result = annotationRepository.findAnnotationActivity();
+		return result;
+	}
+	
+	public Collection<Object[]> findAnnotationTraining(){
+		Collection<Object[]> result;
+		
+		result = annotationRepository.findAnnotationTraining();
+		return result;
+	}
+	
+	public Collection<Object[]> findAnnotationGym(){
+		Collection<Object[]> result;
+		
+		result = annotationRepository.findAnnotationGym();
+		return result;
+	}
 }

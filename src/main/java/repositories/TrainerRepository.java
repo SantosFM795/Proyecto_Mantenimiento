@@ -29,4 +29,6 @@ public interface TrainerRepository extends JpaRepository<Trainer, Integer>{
 	@Query("select t from Trainer t where (t.name LIKE %?1% OR t.lastName LIKE %?1%)")
 	Collection<Trainer> findTrainerByKeyWord(String name);
 	
+	@Query("select min(c.rrss.size), avg(c.rrss.size), max(c.rrss.size) from Trainer t join t.curriculum c")
+	Collection<Object[]> findSocialIdentitiesTrainer();
 }

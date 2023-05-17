@@ -26,4 +26,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer>{
 	/*
 	@Query("select c1 from Customer c1 where (select count(a1) from Customer c join c.activities a1 where g1=g) >= ALL(select count(a2) from Customer c2 join c2.activities a2 group by c2")
 	Collection<Customer> findMaxCustomerActivity();*/
+	
+	@Query("select c from Customer c where (select count(s1) from Customer c1 join c.signing s1 where c=c1) >= ALL(select count(s2) from Customer c2 join c.signing s2  group by c2)")
+	Customer findMaxCustomer();
 }

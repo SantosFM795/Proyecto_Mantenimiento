@@ -158,4 +158,11 @@ public class TrainerService {
 		return result;
 	}
 	
+	public Collection<Object[]> findSocialIdentitiesTrainer(){
+		Collection<Object[]> result;
+		
+		result = this.trainerRepository.findSocialIdentitiesTrainer();
+		return result;
+	}
+	
 }

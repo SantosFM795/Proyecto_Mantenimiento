@@ -25,11 +25,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import controllers.AbstractController;
 import domain.Administrator;
+import domain.Customer;
 import domain.Training;
 import services.AdministratorService;
+import services.AnnotationService;
 import services.CustomerService;
 import services.GymService;
 import services.StepService;
+import services.TrainerService;
 import services.TrainingService;
 
 @Controller
@@ -43,9 +46,13 @@ public class AdministratorController extends AbstractController {
 	@Autowired
 	private TrainingService trainingService;
 	@Autowired
+	private TrainerService trainerService;
+	@Autowired
 	private StepService stepService;
 	@Autowired
 	private CustomerService customerService;
+	@Autowired
+	private AnnotationService annotationService;
 	// Constructors -----------------------------------------------------------
 	public AdministratorController() {
 		super();
@@ -86,6 +93,41 @@ public class AdministratorController extends AbstractController {
 		
 		return result;
 	}
+	
+	// Information Board for Annotations---------------------------------------
+	@RequestMapping(value = "/list2", method = RequestMethod.GET)
+	public ModelAndView list2() {
+		ModelAndView result;
+		Collection<Object[]> annotationsActivity;
+		Collection<Object[]> annotationsTraining;
+		Collection<Object[]> annotationsGym;
+		Collection<Object[]> socialidentitiesTrainer;
+		Customer maxCustomerSigning;
+		
+		
+		result = new ModelAndView("administrator/list2");
+		annotationsActivity = this.annotationService.findAnnotationActivity();
+		result.addObject("annotationsActivity",annotationsActivity);
+			
+		annotationsTraining = this.annotationService.findAnnotationTraining();
+		result.addObject("annotationsTraining",annotationsTraining);
+		
+		annotationsGym = this.annotationService.findAnnotationGym();
+		result.addObject("annotationsGym",annotationsGym);
+		
+		socialidentitiesTrainer = this.trainerService.findSocialIdentitiesTrainer();
+		result.addObject("socialidentitiesTrainer", socialidentitiesTrainer);
+		
+		maxCustomerSigning = this.customerService.findMaxCustomer();
+		result.addObject("maxCustomerSigning", maxCustomerSigning);
+		
+		result.addObject("requestURI", "administrator/list2.do");
+
+		return result;
+	}
+		
+	
+	
 	// Creation ---------------------------------------------------------------
 	// Edition ----------------------------------------------------------------
 	@RequestMapping(value="/edit",method = RequestMethod.GET)

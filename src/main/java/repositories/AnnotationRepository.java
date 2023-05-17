@@ -20,4 +20,12 @@ public interface AnnotationRepository extends JpaRepository<Annotation, Integer>
 	@Query("select a from Annotation a where a.activity.id = ?1")
 	Collection<Annotation> findByActivityId(int ActivityId);
 	
+	@Query("select avg(g.annotation.size), stddev(g.annotation.size) from Gym g")
+	Collection<Object[]> findAnnotationGym();
+	
+	@Query("select avg(t.annotations.size), stddev(t.annotations.size) from Training t")
+	Collection<Object[]> findAnnotationTraining();
+	
+	@Query("select avg(ac.annotations.size), stddev(ac.annotations.size) from Activity ac")
+	Collection<Object[]> findAnnotationActivity();
 }
