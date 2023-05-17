@@ -53,6 +53,14 @@
 
 
 	<%--------------------------- Roles -----------------------------------%>
+	
+	<security:authorize access="hasRole('CUSTOMER')">
+		<display:column>
+			<a href="gym/customer/quit.do?gymId=${row.id}&customerId=${customerId}"> <spring:message
+					code="gym.quit" />
+			</a>
+		</display:column>
+	</security:authorize>
 
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>

@@ -1,6 +1,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import domain.Activity;
 import domain.Customer;
 import domain.Gym;
 import domain.Manager;
+import domain.Signing;
 import domain.Trainer;
 import domain.Training;
 import repositories.GymRepository;
@@ -40,6 +42,8 @@ public class GymService {
 	@Autowired
 	private TrainingService trainingService;
 	
+	@Autowired
+	private SigningService signingService;
 	// Constructor --------------------------------
 	
 	public GymService() {
@@ -129,6 +133,17 @@ public class GymService {
 		
 		return result;
 	}
+	
+	public Collection<Gym> findByCustomerJoined(){
+		Collection<Gym> result;
+		Customer customer;
+		
+		customer = this.customerService.findByPrincipal();
+		Assert.notNull(customer);
+		result = this.gymRepository.findByCustomerJoin(customer.getUserAccount().getId());
+		
+		return result;
+	}
 
 
 	public void activate(int gymId) {
@@ -181,6 +196,12 @@ public class GymService {
 		result = this.gymRepository.findGymsByManager();
 		
 		return result;
+	}
+
+	public void quit(int gymId, int customerId) {
+		Signing result=signingService.findByGymAndCustomer(gymId);
+		Date date=new Date();//lleva la fecha actual
+		result.setLeaving_date(date);
 	}
 
 }
