@@ -74,6 +74,17 @@
 			</display:column>
 	</security:authorize>
 	
+	<security:authorize access="hasRole('CUSTOMER')">
+		<jstl:if test="${aux==0}">
+			<spring:message code="activity.quit"/>
+			<display:column>
+				<a href="activity/customer/quit.do?activityId=${row.id}&customerId=${customerId}">
+					<spring:message code="activity.quit"/>
+				</a>
+			</display:column>
+		</jstl:if>
+	</security:authorize>
+	
 
 	<security:authorize access="isAnonymous()">
 
