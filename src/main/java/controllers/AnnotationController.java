@@ -85,7 +85,7 @@ public class AnnotationController {
 			result.addObject("requestURI", "annotation/edit.do");
 			return result;
 		}
-
+		
 		@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 		public ModelAndView saveActivity(@Valid Annotation annotation, final BindingResult binding) {
 			ModelAndView result;
