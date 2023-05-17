@@ -25,6 +25,9 @@ public interface GymRepository extends JpaRepository<Gym, Integer>{
 	@Query("select min(m.gyms.size), avg(m.gyms.size), max(m.gyms.size), stddev(m.gyms.size) from Manager m")
 	Collection<Object[]> findGymsByManager(); 
 	
+	@Query("select s.gym from Signing s where s.customer.userAccount.id = ?1 AND s.gym.active=true AND leaving_date IS NULL")
+	Collection<Gym> findByCustomerJoin(int UserAccountId);
+	
 	/*
 	@Query("select min(s.gym), avg(s.gym), max(s.gym), stddev(s.gym) from Signing s where s.leaving_date=''")
 	Collection<Object[]> findGymsBySigning();

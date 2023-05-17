@@ -53,6 +53,25 @@
 
 
 	<%--------------------------- Roles -----------------------------------%>
+	
+	<security:authorize access="hasRole('CUSTOMER')">
+		<display:column>
+		<jstl:choose>
+			<jstl:when test="${aux==0}">
+				<a href="gym/customer/quit.do?gymId=${row.id}"> <spring:message
+						code="gym.quit" />
+				</a>
+			</jstl:when>
+			
+			<jstl:when test="${aux==1}">
+				<a href="gym/customer/join.do?gymId=${row.id}"> <spring:message
+						code="gym.join" />
+				</a>
+			</jstl:when>
+			
+		</jstl:choose>
+		</display:column>
+	</security:authorize>
 
 	<security:authorize access="hasRole('MANAGER')">
 		<display:column>
@@ -105,6 +124,13 @@
 	</display:column>
 
 </display:table>
+
+<security:authorize access="hasRole('CUSTOMER')">
+	<div>
+		<a href="gym/customer/listToJoin.do"> <spring:message code="gym.listToJoin" />
+		</a>
+	</div>
+</security:authorize>
 
 <security:authorize access="hasRole('MANAGER')">
 	<div>

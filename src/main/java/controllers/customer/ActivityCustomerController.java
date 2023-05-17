@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import controllers.AbstractController;
@@ -17,6 +18,7 @@ import domain.Activity;
 import domain.Annotation;
 import forms.Search;
 import services.ActivityService;
+import services.CustomerService;
 
 @Controller
 @RequestMapping("/activity/customer")
@@ -24,6 +26,9 @@ public class ActivityCustomerController extends AbstractController {
 	// Services ---------------------------------------------------------------
 	@Autowired
 	private ActivityService activityService;
+	
+	@Autowired
+	private CustomerService customerService;
 
 	// Constructors -----------------------------------------------------------
 	public ActivityCustomerController() {
@@ -35,11 +40,31 @@ public class ActivityCustomerController extends AbstractController {
 	public ModelAndView list() {
 		ModelAndView result;
 		Collection<Activity> activities;
-
-		activities = this.activityService.findByCustomer();
+		int customerId=customerService.findByPrincipal().getId();
+		int aux=0;
+		activities = this.activityService.findByCustomerJoin();
 		result = new ModelAndView("activity/list");
 		result.addObject("requestURI", "activity/customer/list.do");
 		result.addObject("activities", activities);
+		result.addObject("customerId", customerId);
+		result.addObject("aux", aux);
+		
+		return result;
+	}
+	
+	@RequestMapping(value = "/listToJoin", method = RequestMethod.GET)
+	public ModelAndView listToJoin() {
+		ModelAndView result;
+		Collection<Activity> activities;
+		int customerId=customerService.findByPrincipal().getId();
+		int aux=1;
+		activities = this.activityService.findByToJoin();
+		result = new ModelAndView("activity/list");
+		result.addObject("requestURI", "activity/customer/list.do");
+		result.addObject("activities", activities);
+		result.addObject("customerId", customerId);
+		result.addObject("aux", aux);
+		
 		return result;
 	}
 	// Search by Key word
@@ -73,6 +98,31 @@ public class ActivityCustomerController extends AbstractController {
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(search, "search.commit.error");
 			}
+
+		return result;
+
+	}
+	
+	//Quit
+	@RequestMapping(value = "/quit", method = RequestMethod.GET)
+	public ModelAndView quit(@RequestParam int activityId, int customerId) {
+		ModelAndView result;
+		this.activityService.quit(activityId,customerId);
+
+		
+		result=this.list();
+
+		return result;
+
+	}
+	
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	public ModelAndView join(@RequestParam int activityId, int customerId) {
+		ModelAndView result;
+		this.activityService.join(activityId,customerId);
+
+		
+		result=this.list();
 
 		return result;
 

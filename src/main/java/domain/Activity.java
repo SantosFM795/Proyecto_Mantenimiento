@@ -124,6 +124,16 @@ public class Activity extends DomainEntity{
 		this.trainer.add(trainer);
 		
 	}
+
+	public void quit(Customer customer) {
+		this.customers.remove(customer);
+		
+	}
+
+	public void join(Customer customer) {
+		this.customers.add(customer);
+		
+	}
 	
 	
 	

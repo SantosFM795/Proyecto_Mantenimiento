@@ -49,4 +49,18 @@ public class Customer extends Actor{
 	public void setCreditCard(CreditCard creditCard) {
 		this.creditCard = creditCard;
 	}
+
+	public void quit(Activity activity) {
+		this.activities.remove(activity);
+		
+	}
+
+	public void join(Activity activity) {
+		this.activities.add(activity);
+		
+	}
+
+	public void addSigning(Signing result) {
+		this.signing.add(result);
+	}
 }
