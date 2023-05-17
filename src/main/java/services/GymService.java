@@ -203,5 +203,24 @@ public class GymService {
 		Date date=new Date();//lleva la fecha actual
 		result.setLeaving_date(date);
 	}
+	
+	public Collection<Gym> listToJoin() {
+		Collection<Gym> result;
+		Collection<Gym> joined;
+		result=this.findAll();
+		joined=this.findByCustomerJoined();
+		result.removeAll(joined);
+		
+		return result;
+	}
+
+	public void join(int gymId) {
+		Gym gym=this.findOne(gymId);
+		Customer customer=this.customerService.findByPrincipal();
+		Signing result=signingService.create(gym,customer);
+		gym.addSigning(result);
+		customer.addSigning(result);
+		
+	}
 
 }

@@ -41,6 +41,19 @@ public class GymCustomerController extends AbstractController {
 		return result;
 	}
 	
+	@RequestMapping(value = "/listToJoin", method = RequestMethod.GET)
+	public ModelAndView listToJoin() {
+		ModelAndView result;
+		Collection<Gym> gyms;
+		int aux=1;
+		gyms = this.gymService.listToJoin();
+		result = new ModelAndView("gym/list");
+		result.addObject("requestURI", "gym/customer/list.do");
+		result.addObject("gyms",gyms);
+		result.addObject("aux",aux);
+		return result;
+	}
+	
 	
 	//Quit
 	@RequestMapping(value = "/quit", method = RequestMethod.GET)
@@ -55,15 +68,15 @@ public class GymCustomerController extends AbstractController {
 
 	}
 		
-		/*@RequestMapping(value = "/join", method = RequestMethod.GET)
-		public ModelAndView join(@RequestParam int activityId, int customerId) {
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	public ModelAndView join(@RequestParam int gymId) {
 			ModelAndView result;
-			this.gymService.join(activityId,customerId);
+			this.gymService.join(gymId);
 
 			
 			result=this.list();
 
 			return result;
 
-		}*/
+	}
 }

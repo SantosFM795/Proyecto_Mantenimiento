@@ -84,15 +84,14 @@
 					</a>
 				</display:column>
 			</jstl:when>
-			<jstl:otherwise>
-				
+			<jstl:when test="${aux==1}">
 				<spring:message code="activity.join"/>
 				<display:column>
 					<a href="activity/customer/join.do?activityId=${row.id}&customerId=${customerId}">
 						<spring:message code="activity.join"/>
 					</a>
 				</display:column>
-			</jstl:otherwise>
+			</jstl:when>
 		</jstl:choose>
 	</security:authorize>
 	

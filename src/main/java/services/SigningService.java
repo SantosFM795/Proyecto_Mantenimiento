@@ -1,11 +1,14 @@
 package services;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import domain.Customer;
+import domain.Gym;
 import domain.Signing;
 import services.CustomerService;
 import repositories.SigningRepository;
@@ -31,6 +34,19 @@ public class SigningService {
 	
 	//Simple CRUD methods -------------------------
 	
+	public Signing create(Gym gym, Customer customer) {
+		Signing result=new Signing();
+		Date date=new Date();
+		
+		result.setGym(gym);
+		result.setCustomer(customer);
+		result.setSign_date(date);
+		this.signingRepository.save(result);
+		
+		return result;
+		
+	}
+	
 	//Other business methods ----------------------
 	
 	public Signing findByGymAndCustomer(int gymId){
@@ -43,6 +59,8 @@ public class SigningService {
 		
 		return result;
 	}
+
+	
 	
 	
 }

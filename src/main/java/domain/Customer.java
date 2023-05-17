@@ -59,4 +59,8 @@ public class Customer extends Actor{
 		this.activities.add(activity);
 		
 	}
+
+	public void addSigning(Signing result) {
+		this.signing.add(result);
+	}
 }
