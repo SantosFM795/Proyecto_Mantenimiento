@@ -32,21 +32,21 @@ public class GymCustomerController extends AbstractController {
 	public ModelAndView list() {
 		ModelAndView result;
 		Collection<Gym> gyms;
-		int customerId=customerService.findByPrincipal().getId();
+		int aux=0;
 		gyms = this.gymService.findByCustomerJoined();
 		result = new ModelAndView("gym/list");
 		result.addObject("requestURI", "gym/customer/list.do");
 		result.addObject("gyms",gyms);
-		result.addObject("customerId",customerId);
+		result.addObject("aux",aux);
 		return result;
 	}
 	
 	
 	//Quit
 	@RequestMapping(value = "/quit", method = RequestMethod.GET)
-	public ModelAndView quit(@RequestParam int gymId, int customerId) {
+	public ModelAndView quit(@RequestParam int gymId) {
 		ModelAndView result;
-		this.gymService.quit(gymId,customerId);
+		this.gymService.quit(gymId);
 
 		
 		result=this.list();

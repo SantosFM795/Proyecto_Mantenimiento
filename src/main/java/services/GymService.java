@@ -198,7 +198,7 @@ public class GymService {
 		return result;
 	}
 
-	public void quit(int gymId, int customerId) {
+	public void quit(int gymId) {
 		Signing result=signingService.findByGymAndCustomer(gymId);
 		Date date=new Date();//lleva la fecha actual
 		result.setLeaving_date(date);

@@ -56,9 +56,18 @@
 	
 	<security:authorize access="hasRole('CUSTOMER')">
 		<display:column>
-			<a href="gym/customer/quit.do?gymId=${row.id}&customerId=${customerId}"> <spring:message
+		<jstl:choose>
+			<jstl:when test="${aux==0}">
+			<a href="gym/customer/quit.do?gymId=${row.id}"> <spring:message
 					code="gym.quit" />
 			</a>
+			</jstl:when>
+			<jstl:otherwise>
+				<a href="gym/customer/join.do?gymId=${row.id}&customerId=${customerId}"> <spring:message
+					code="gym.join" />
+				</a>
+			</jstl:otherwise>
+		</jstl:choose>
 		</display:column>
 	</security:authorize>
 
